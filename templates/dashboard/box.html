@@ -1,0 +1,20 @@
+{% extends  'dashboard/base.html' %}
+{% block content %}
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box {% block box_classes %}{% endblock %}">
+                <div class="box-header">
+                    <div class="container">
+                        <div class="row">
+                            {% block box_header %} {% endblock %}
+                        </div>
+                    </div>
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body table-responsive no-padding">
+                    {% block table %}{% endblock %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body_classes %}hold-transition skin-purple sidebar-mini sidebar-collapse fixed{% endblock %}
+{% block body %}
+    <div class="wrapper">
+        {% include 'dashboard/includes/header.html' %}
+        {% include 'dashboard/includes/aside.html' %}
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+            <h1>
+                {% block page_title %} {% endblock %}
+                <small>
+                    {% block page_description %} {% endblock %}
+                </small>
+            </h1>
+            {% block alert %}{% endblock %}
+        </section>
+        <!-- Main content -->
+        <section class="content container-fluid">
+            {% block content %} {% endblock %}
+        </section>
+        <!-- /.content -->
+        </div>
+    </div>
+
+    <!-- jQuery 3 -->
+    <script src="{% static '/jquery/dist/jquery.min.js' %}"></script>
+    <!-- Data Tables -->
+    <script src="{% static '/datatables.net/js/jquery.dataTables.min.js' %}"></script>
+    <script src="{% static "/datatables.net-bs/js/dataTables.bootstrap.min.js" %}"></script>
+    <!-- AdminLTE App -->
+    <script src="{% static '/admin-lte/dist/js/adminlte.min.js' %}"></script>
+    <!-- Bootstrap 3.3.7 -->
+    <script src="{% static '/bootstrap/dist/js/bootstrap.min.js' %}"></script>
+    {% block scripts %} {%  endblock %}
+{% endblock %}
