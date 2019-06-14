@@ -1,0 +1,8 @@
+{% extends 'registration/base.html' %}
+{% load static %}
+{% block content %}
+<div class="alert alert-success alert-dismissible">
+    <h4><i class="icon fa fa-check"></i> Logout Concluido!</h4>
+    <a href="{% url 'login' %}">Clique aqui para fazer login novamente</a>
+</div>
+{% endblock %}

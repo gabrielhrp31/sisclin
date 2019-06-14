@@ -1,0 +1,17 @@
+{% extends 'app.html' %}
+{% load static %}
+{% block body_classes %}hold-transition login-page{% endblock %}
+{% block body %}
+    <div class="login-box">
+      <div class="login-logo">
+        <a href="/"><b>Dra. Francielli</b></a>
+      </div>
+      <div class="login-box-body">
+          {% block content %} {% endblock %}
+      </div>
+    </div>
+
+    <!-- Bootstrap 3.3.7 -->
+    <script src="{% static 'bower_components/bootstrap/dist/js/bootstrap.min.js' %}"></script>
+    {% block scripts %} {%  endblock %}
+{% endblock %}

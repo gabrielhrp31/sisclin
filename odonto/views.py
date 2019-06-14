@@ -1,6 +1,8 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 
 
-def schedule(request):
-    return render(request, 'dashboard/views/schedule.html', {"calendar": 'consultas'})
+@login_required
+def index(request):
+    return render(request, 'dashboard/views/index.html')
 

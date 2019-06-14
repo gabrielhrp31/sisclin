@@ -38,7 +38,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'djangobower',
-    'schedule',
+    'patients',
+    'financier',
+    'consultations',
+    'bootstrapform'
 ]
 
 MIDDLEWARE = [
@@ -144,3 +147,14 @@ BOWER_INSTALLED_APPS = (
     'fullcalendar',
 )
 
+LOGIN_URL = '/login/'
+
+LOGIN_REDIRECT_URL = 'index'
+
+INCLUDE_REGISTER_URL = True
+INCLUDE_AUTH_URLS = True
+
+EMAIL_HOST = 'smtp.mailtrap.io'
+EMAIL_HOST_USER = 'b07269bf755f2b'
+EMAIL_HOST_PASSWORD = '76c74665f65348'
+EMAIL_PORT = '2525'
