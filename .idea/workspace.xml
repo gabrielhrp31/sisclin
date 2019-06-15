@@ -2,53 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ff34d4b4-aa49-4b8e-b72c-0266eca74784" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/consultations/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/consultations/admin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/consultations/apps.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/consultations/migrations/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/consultations/models.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/consultations/tests.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/consultations/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/consultations/views.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/financier/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/financier/admin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/financier/apps.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/financier/migrations/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/financier/models.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/financier/tests.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/financier/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/financier/views.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/patients/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/patients/admin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/patients/apps.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/patients/migrations/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/patients/models.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/patients/tests.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/patients/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/patients/views.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/dashboard/views/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/registration/base.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/registration/login.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/registration/logout.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/registration/password_reset_complete.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/registration/password_reset_confirm.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/registration/password_reset_done.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/registration/password_reset_email.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/registration/password_reset_email.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/registration/password_reset_form.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/odonto/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/odonto/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/odonto/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/odonto/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/odonto/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/odonto/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/dashboard/app.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/app.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/dashboard/box.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/box.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/dashboard/includes/aside.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/dashboard/includes/aside.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -93,8 +49,8 @@
         <entry file="file://$PROJECT_DIR$/readme.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="21">
-                <caret line="1" column="44" selection-start-line="1" selection-start-column="44" selection-end-line="1" selection-end-column="44" />
+              <first_editor>
+                <caret column="65" selection-start-column="65" selection-end-column="65" />
               </first_editor>
               <second_editor />
             </state>
@@ -138,18 +94,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-398">
               <caret line="6" column="26" selection-start-line="6" selection-start-column="26" selection-end-line="6" selection-end-column="26" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/odonto/urls.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="28" column="65" selection-start-line="28" selection-start-column="65" selection-end-line="28" selection-end-column="65" />
-              <folding>
-                <element signature="e#630#662#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -314,18 +258,18 @@
       <workItem from="1560194007627" duration="15029000" />
       <workItem from="1560298528709" duration="887000" />
       <workItem from="1560476066761" duration="4049000" />
-      <workItem from="1560539274590" duration="4650000" />
+      <workItem from="1560539274590" duration="5423000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="24615000" />
+    <option name="totallyTimeSpent" value="25388000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-3" y="0" width="1372" height="771" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26136363" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.26136363" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -339,7 +283,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="11" visible="true" weight="0.32766616" />
+      <window_info anchor="bottom" id="Terminal" order="11" weight="0.32766616" />
       <window_info anchor="bottom" id="Python Console" order="12" weight="0.32921174" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -349,6 +293,31 @@
       <window_info anchor="right" id="R Packages" order="5" />
       <window_info anchor="right" id="Database" order="6" weight="0.32954547" />
     </layout>
+    <layout-to-restore>
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26136363" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3287037" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32766616" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" />
+      <window_info anchor="bottom" id="Database Changes" order="9" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.32766616" />
+      <window_info anchor="bottom" id="Python Console" order="12" weight="0.32921174" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="SciView" order="3" />
+      <window_info anchor="right" id="R Graphics" order="4" />
+      <window_info anchor="right" id="R Packages" order="5" />
+      <window_info anchor="right" id="Database" order="6" weight="0.32954547" />
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -522,11 +491,14 @@
     <entry file="file://$PROJECT_DIR$/patients/urls.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/requirements.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/readme.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="21">
-            <caret line="1" column="44" selection-start-line="1" selection-start-column="44" selection-end-line="1" selection-end-column="44" />
+          <first_editor>
+            <caret column="65" selection-start-column="65" selection-end-column="65" />
           </first_editor>
           <second_editor />
         </state>
