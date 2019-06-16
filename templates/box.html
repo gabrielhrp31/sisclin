@@ -1,4 +1,4 @@
-{% extends  'base.html' %}
+{% extends  'app.html' %}
 {% block content %}
     <div class="row">
         <div class="col-xs-12">
@@ -11,8 +11,8 @@
                     </div>
                 </div>
                 <!-- /.box-header -->
-                <div class="box-body table-responsive no-padding">
-                    {% block table %}{% endblock %}
+                <div class="box-body">
+                    {% block box %}{% endblock %}
                 </div>
             </div>
         </div>

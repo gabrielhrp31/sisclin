@@ -18,12 +18,16 @@ from django.urls import path, include, re_path
 from django.conf import settings
 from django.conf.urls.static import static
 from consultations import urls as consultations_urls
+from financier import urls as financier_urls
+from patients import urls as patients_urls
 from . import views
 from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     path('', views.index, name='index'),
-    path('', include(consultations_urls)),
+    path('consultations/', include(consultations_urls)),
+    path('patients/', include(patients_urls)),
+    path('financier/', include(financier_urls)),
     path('admin/', admin.site.urls),
 
     path('login/', auth_views.LoginView.as_view(), name='login'),

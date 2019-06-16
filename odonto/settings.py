@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'patients',
     'financier',
     'consultations',
-    'bootstrapform'
+    'bootstrapform',
+    'localflavor'
 ]
 
 MIDDLEWARE = [

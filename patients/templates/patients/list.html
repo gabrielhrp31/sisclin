@@ -1,0 +1,71 @@
+{% extends  'box.html' %}
+{% load static %}
+{% block title %}
+    Pacientes
+{% endblock %}
+
+{% block page_title %}
+    Pacientes
+{% endblock %}
+{% block page_description %}
+    Listar
+{% endblock %}
+{% block box_classes %}
+    no-padding responsive-table
+{% endblock %}
+{% block box_header %}
+    <div class="col-xs-offset-7  col-sm-offset-9 col-md-offset-9 col-lg-offset-11">
+        <a href="{% url 'new_patient' %}" class="btn btn-primary"><i class="fa fa-plus">Novo Paciente</i></a>
+    </div>
+{% endblock %}
+{% block box %}
+    <style>
+        td{
+            vertical-align: bottom;
+        }
+    </style>
+    <div class="container-fluid">
+        <table id="table-contracts" class="table table-hover"  style="width:100%">
+            <thead>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+{% endblock %}
+{#{% block scripts %}#}
+{#    {% if contracts|length > 0 %}#}
+{#        <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>#}
+{#        <script src="https://cdn.datatables.net/buttons/1.5.6/js/dataTables.buttons.min.js"></script>#}
+{#        <script src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.print.min.js"></script>#}
+{#        <script>#}
+{#        $(document).ready( function () {#}
+{#            $('#table-contracts').DataTable({#}
+{#                dom: 'Bfrtip',#}
+{#                buttons: [#}
+{#                    {#}
+{#                        extend: 'print',#}
+{#                        text: 'Gerar Relatorio de {{ current }}',#}
+{#                        className: 'btn btn-primary',#}
+{#                        exportOptions: {#}
+{#                            columns: [0,1,2,3,4]#}
+{#                        }#}
+{#                    },#}
+{#                ],#}
+{#                "language": {#}
+{#                    "lengthMenu": "Mostrar _MENU_ por Página",#}
+{#                    "zeroRecords": "Nenhum Registro de Contratos",#}
+{#                    "info": "Pagina _PAGE_ de _PAGES_",#}
+{#                    "infoEmpty": "Nenhum registro disponivel",#}
+{#                    "search":"Pesquisar",#}
+{#                    "paginate": {#}
+{#                        "previous": "Anterior",#}
+{#                        "next": "Próximo",#}
+{#                    },#}
+{#                    "infoFiltered": "(Filtrado de _MAX_ Registros)"#}
+{#                },#}
+{#            });#}
+{#        } );#}
+{#        </script>#}
+{#    {% endif %}#}
+{#{% endblock %}#}
