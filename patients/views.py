@@ -2,7 +2,7 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 
 # Create your views here.
-from patients.forms.PatientForm import PatientForm
+from .forms import PatientForm
 
 
 def index(request):
@@ -17,4 +17,4 @@ def list_patients(request):
 @login_required
 def new_patient(request):
     patient_form = PatientForm(request.POST or None, request.FILES or None)
-    return render(request, 'patients/new.html', {'patient_form',patient_form})
+    return render(request, 'patients/new.html', {'patient_form': patient_form})

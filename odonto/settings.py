@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     'financier',
     'consultations',
     'bootstrapform',
-    'localflavor'
+    'localflavor',
 ]
 
 MIDDLEWARE = [
@@ -159,3 +159,4 @@ EMAIL_HOST = 'smtp.mailtrap.io'
 EMAIL_HOST_USER = 'b07269bf755f2b'
 EMAIL_HOST_PASSWORD = '76c74665f65348'
 EMAIL_PORT = '2525'
+
