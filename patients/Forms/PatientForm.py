@@ -8,7 +8,7 @@ BOOL_CHOICES = ((True, 'Masculino'), (False, 'Feminino'))
 
 class PatientForm(ModelForm):
     # name = CharField(validators=[RegexValidator('^')])
-    gender = ChoiceField(choices=BOOL_CHOICES, label="Some Label",
+    gender = ChoiceField(choices=BOOL_CHOICES, label="Genêro",
                               initial='', widget=Select(), required=True)
 
     class Meta:

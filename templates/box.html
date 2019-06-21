@@ -1,14 +1,10 @@
 {% extends  'app.html' %}
 {% block content %}
     <div class="row">
-        <div class="col-xs-12">
+        <div class="col-xs-12 {% block col_classes %}{% endblock %}">
             <div class="box {% block box_classes %}{% endblock %}">
                 <div class="box-header">
-                    <div class="container">
-                        <div class="row">
-                            {% block box_header %} {% endblock %}
-                        </div>
-                    </div>
+                    {% block box_header %} {% endblock %}
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body">

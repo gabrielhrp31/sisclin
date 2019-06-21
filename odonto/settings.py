@@ -146,6 +146,7 @@ BOWER_COMPONENTS_ROOT = './components/'
 BOWER_INSTALLED_APPS = (
     'admin-lte',
     'fullcalendar',
+    'sweetalert'
 )
 
 LOGIN_URL = '/login/'

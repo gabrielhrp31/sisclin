@@ -1,6 +1,10 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block body_classes %}hold-transition skin-red-light sidebar-mini sidebar-collapse fixed{% endblock %}
+{% block css %}
+
+    <link src="https://unpkg.com/sweetalert2@7.8.2/dist/sweetalert2.min.css">
+{% endblock %}
 {% block body %}
     <div class="wrapper">
         {% include 'dashboard/includes/header.html' %}
@@ -34,5 +38,6 @@
     <script src="{% static '/admin-lte/dist/js/adminlte.min.js' %}"></script>
     <!-- Bootstrap 3.3.7 -->
     <script src="{% static '/bootstrap/dist/js/bootstrap.min.js' %}"></script>
+    <script src="{% static '/sweetalert2/sweetalert.js' %}"></script>
     {% block scripts %} {%  endblock %}
 {% endblock %}

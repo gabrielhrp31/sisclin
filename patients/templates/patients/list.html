@@ -14,9 +14,7 @@
     no-padding responsive-table
 {% endblock %}
 {% block box_header %}
-    <div class="col-xs-offset-7  col-sm-offset-9 col-md-offset-9 col-lg-offset-11">
-        <a href="{% url 'new_patient' %}" class="btn btn-primary"><i class="fa fa-plus">Novo Paciente</i></a>
-    </div>
+    <a href="{% url 'new_patient' %}" class="btn btn-primary pull-right"><i class="fa fa-plus"> Novo Paciente</i></a>
 {% endblock %}
 {% block box %}
     <style>

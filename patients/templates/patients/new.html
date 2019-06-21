@@ -11,13 +11,14 @@
 {% block page_description %}
     Listar
 {% endblock %}
+{% block col_classes %}
+    col-lg-6 col-lg-offset-3
+{% endblock %}
 {% block box_classes %}
     no-padding responsive-table
 {% endblock %}
 {% block box_header %}
-    <div class="col-xs-offset-7  col-sm-offset-9 col-md-offset-9 col-lg-offset-11">
-        <a href="{% url 'list_patients' %}" class="btn btn-primary"><i class="fa fa-arrow-left">Voltar</i></a>
-    </div>
+        <a href="{% url 'list_patients' %}" class="btn btn-primary pull-right"><i class="fa fa-arrow-left">Voltar</i></a>
 {% endblock %}
 {% block box %}
     <form class="container-fluid" action="" method="POST">
@@ -26,9 +27,19 @@
             {{ patient_form | bootstrap }}
         </div>
         <div class="row">
-            <button type="submit" href="" class="btn-success">
+            <button type="submit" href="" class="btn btn-success">
                 Salvar
             </button>
         </div>
     </form>
+{% endblock %}
+
+{% block scripts %}
+    <script>
+        {#swal({#}
+        {#     title: "HTML <small>Title</small>!",#}
+        {#    html: '',#}
+        {#})#}
+
+    </script>
 {% endblock %}
