@@ -29,13 +29,13 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-xs-6" id="adress-content">
+            <div class="col-xs-7" id="adress-content">
                  <input type="hidden" id="id_address" value="">
-                <span id="address"class="text-muted">Selecione um Endreço</span>
+                <p id="address"class="text-muted">Selecione um Endreço</p>
             </div>
-            <div class="col-xs-3">
+            <div class="col-xs-2">
                 <button id="address-select-open" type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-address">
-                    Selecionar Endereço
+                    Selecionar
                 </button>
             </div>
             <div class="col-xs-3">
@@ -45,9 +45,11 @@
             </div>
         </div>
         <div class="row">
-            <button type="submit" href="" class="btn btn-success">
-                Salvar
-            </button>
+            <div class="col-xs-12">
+                <button type="submit" href="" class="btn btn-success">
+                    Salvar
+                </button>
+            </div>
         </div>
     </form>
      <div class="modal" id="modal-address" >
@@ -151,8 +153,12 @@
             );
 
             $('#id_address').val( $(element).parent().parent().children("#col-id").html());
-            console.log();
-            console.log(id);
+            swal(
+                'Sucesso!',
+                'Endereço Selecionado',
+                'success'
+            );
+            $('#modal-address').modal('hide');
         }
         
         function save_address() {

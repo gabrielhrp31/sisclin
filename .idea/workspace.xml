@@ -3,11 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="ff34d4b4-aa49-4b8e-b72c-0266eca74784" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/patients/Forms/AddressForm.py" beforeDir="false" afterPath="$PROJECT_DIR$/patients/Forms/AddressForm.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/patients/Models/Address.py" beforeDir="false" afterPath="$PROJECT_DIR$/patients/Models/Address.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/patients/templates/patients/new.html" beforeDir="false" afterPath="$PROJECT_DIR$/patients/templates/patients/new.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/patients/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/patients/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -37,8 +33,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/patients/templates/patients/new.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="100">
-              <caret line="171" column="22" selection-start-line="171" selection-start-column="22" selection-end-line="171" selection-end-column="22" />
+            <state relative-caret-position="21">
+              <caret line="31" column="32" selection-start-line="31" selection-start-column="32" selection-end-line="31" selection-end-column="32" />
             </state>
           </provider>
         </entry>
@@ -46,8 +42,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/patients/Forms/AddressForm.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="79">
-              <caret line="8" column="26" selection-start-line="8" selection-start-column="26" selection-end-line="8" selection-end-column="26" />
+            <state relative-caret-position="126">
+              <caret line="9" column="52" lean-forward="true" selection-start-line="9" selection-start-column="52" selection-end-line="9" selection-end-column="52" />
               <folding>
                 <element signature="e#0#55#0" expanded="true" />
               </folding>
@@ -67,8 +63,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/patients/Models/Address.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-89">
-              <caret line="5" column="46" selection-start-line="5" selection-start-column="46" selection-end-line="5" selection-end-column="46" />
+            <state relative-caret-position="189">
+              <caret line="9" column="69" selection-start-line="9" selection-start-column="69" selection-end-line="9" selection-end-column="69" />
             </state>
           </provider>
         </entry>
@@ -178,9 +174,9 @@
         <option value="$PROJECT_DIR$/patients/Forms/PatientForm.py" />
         <option value="$PROJECT_DIR$/patients/models.py" />
         <option value="$PROJECT_DIR$/patients/urls.py" />
-        <option value="$PROJECT_DIR$/patients/Forms/AddressForm.py" />
-        <option value="$PROJECT_DIR$/patients/Models/Address.py" />
         <option value="$PROJECT_DIR$/patients/views.py" />
+        <option value="$PROJECT_DIR$/patients/Models/Address.py" />
+        <option value="$PROJECT_DIR$/patients/Forms/AddressForm.py" />
         <option value="$PROJECT_DIR$/patients/templates/patients/new.html" />
       </list>
     </option>
@@ -344,7 +340,7 @@
       <workItem from="1560694204451" duration="7337000" />
       <workItem from="1560972404213" duration="1025000" />
       <workItem from="1560975804586" duration="6482000" />
-      <workItem from="1561094014640" duration="18080000" />
+      <workItem from="1561094014640" duration="19204000" />
     </task>
     <task id="LOCAL-00001" summary="enviando requirements">
       <created>1560565007868</created>
@@ -367,11 +363,25 @@
       <option name="project" value="LOCAL" />
       <updated>1561136856246</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary=" trocado a forma de selecionar endereço para uma data-table o que facilitará o usuário na hora de encontrar endereços previamente cadastrados">
+      <created>1561149747223</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1561149747223</updated>
+    </task>
+    <task id="LOCAL-00005" summary="adicionado campo bairro no endereço e removido CEP">
+      <created>1561150536996</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1561150536996</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="58935000" />
+    <option name="totallyTimeSpent" value="60059000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-3" y="0" width="1372" height="771" extended-state="6" />
@@ -382,7 +392,7 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3287037" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32766616" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32766616" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -391,7 +401,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32921174" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5007576" side_tool="true" weight="0.32766616" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" sideWeight="0.49924242" visible="true" weight="0.32612056" />
+      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.49924242" weight="0.32612056" />
       <window_info anchor="bottom" id="Python Console" order="12" weight="0.32921174" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -434,7 +444,9 @@
     <MESSAGE value="enviando requirements" />
     <MESSAGE value="enviando conserto" />
     <MESSAGE value="conseguindo salvar endereço pelo modal e recarregando os mesmos ao salvar um novo endereço" />
-    <option name="LAST_COMMIT_MESSAGE" value="conseguindo salvar endereço pelo modal e recarregando os mesmos ao salvar um novo endereço" />
+    <MESSAGE value=" trocado a forma de selecionar endereço para uma data-table o que facilitará o usuário na hora de encontrar endereços previamente cadastrados" />
+    <MESSAGE value="adicionado campo bairro no endereço e removido CEP" />
+    <option name="LAST_COMMIT_MESSAGE" value="adicionado campo bairro no endereço e removido CEP" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/odonto/.settings.py.swp" />
@@ -652,13 +664,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/patients/Models/Address.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-89">
-          <caret line="5" column="46" selection-start-line="5" selection-start-column="46" selection-end-line="5" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/patients/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="291">
@@ -676,16 +681,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/patients/Forms/AddressForm.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="79">
-          <caret line="8" column="26" selection-start-line="8" selection-start-column="26" selection-end-line="8" selection-end-column="26" />
-          <folding>
-            <element signature="e#0#55#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/patients/Models/Patient.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="252">
@@ -696,10 +691,27 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/patients/Models/Address.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="9" column="69" selection-start-line="9" selection-start-column="69" selection-end-line="9" selection-end-column="69" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/patients/Forms/AddressForm.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="9" column="52" lean-forward="true" selection-start-line="9" selection-start-column="52" selection-end-line="9" selection-end-column="52" />
+          <folding>
+            <element signature="e#0#55#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/patients/templates/patients/new.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="171" column="22" selection-start-line="171" selection-start-column="22" selection-end-line="171" selection-end-column="22" />
+        <state relative-caret-position="21">
+          <caret line="31" column="32" selection-start-line="31" selection-start-column="32" selection-end-line="31" selection-end-column="32" />
         </state>
       </provider>
     </entry>
