@@ -5,9 +5,9 @@ from localflavor.br.forms import BRStateChoiceField, BRZipCodeField
 
 class AddressForm(ModelForm):
     country = BRStateChoiceField(label="Estado")
-    postal_code = BRZipCodeField(label="CEP")
     city = CharField(label="Cidade")
     street = CharField(label="Rua")
+    district = CharField(label="Complemento/Bairro")
     
     class Meta:
         model = Address

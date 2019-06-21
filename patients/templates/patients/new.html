@@ -78,6 +78,9 @@
                                     Estado
                                 </td>
                                 <td>
+                                    Bairro
+                                </td>
+                                <td>
                                     Selecionar
                                 </td>
                             </tr>
@@ -122,7 +125,7 @@
                     $('#address-table tbody').empty();
                     for (index = 0; index < data.length; ++index) {
                         option = data[index];
-                        $('#address-table tbody').append('<tr> <td id="col-id">'+ option['id'] +'</td> <td id="col-street"> '+ option['street'] +' </td> <td  id="col-number"> '+ option['number'] +'</td> <td id="col-city">'+ option['city'] +'</td>  <td  id="col-country"> '+ option['country'] +' </td> <td><button type="button" onclick="select_address(this,'+option['id']+')"class="btn btn-success"><i class="fa fa-map-marker"></i></button></td> </tr>');
+                        $('#address-table tbody').append('<tr> <td id="col-id">'+ option['id'] +'</td> <td id="col-street"> '+ option['street'] +' </td> <td  id="col-number"> '+ option['number'] +'</td> <td  id="col-district"> '+ option['district'] +'</td> <td id="col-city">'+ option['city'] +'</td>  <td  id="col-country"> '+ option['country'] +' </td> <td><button type="button" onclick="select_address(this,'+option['id']+')"class="btn btn-success"><i class="fa fa-map-marker"></i></button></td> </tr>');
                     }
                     $('#address-table').dataTable();
                 },
@@ -140,8 +143,9 @@
 
         function select_address(element, id){
             $('#address').html(
-                $(element).parent().parent().children("#col-street").html() + ','+
-                    $(element).parent().parent().children("#col-number").html() + ' - '+
+                $(element).parent().parent().children("#col-street").html() + ', '+
+                $(element).parent().parent().children("#col-number").html() + ', '+
+                    $(element).parent().parent().children("#col-district").html() + ' - '+
                     $(element).parent().parent().children("#col-city").html() + '/'+
                     $(element).parent().parent().children("#col-country").html()
             );
