@@ -31,7 +31,7 @@ def new_address(request):
     if request.method == "POST" and request.is_ajax():
         address = Address(number=request.POST['number'], city=request.POST['city'], country=request.POST['country'], postal_code=request.POST['postal_code'], street=request.POST['street'])
         address.save()
-        data = dict({'success': True, 'message': 'Endereço Criado com Sucesso', 'data': [address.id, request.POST] })
+        data = dict({'success': True, 'message': 'Endereço Criado com Sucesso', 'id': address.id})
         return JsonResponse(data)
     data = dict({'success': False, 'message': 'Erro'})
     return JsonResponse(data)
