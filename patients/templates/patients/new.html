@@ -23,8 +23,19 @@
 {% block box %}
     <form class="container-fluid" action="" method="POST">
         <div class="row">
-            {% csrf_token %}
-            {{ patient_form | bootstrap }}
+            <div class="col-xs-12">
+                {% csrf_token %}
+                {{ patient_form | bootstrap }}
+                <div class="form-group">
+                    <select id="id_address" name="id_address" class="form-control" >
+                        <option value="AL">Alabama</option>
+                        <option value="WY">Wyoming</option>
+                    </select>
+                </div>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-address">
+                    Novo Endereço
+                </button>
+            </div>
         </div>
         <div class="row">
             <button type="submit" href="" class="btn btn-success">
@@ -32,14 +43,95 @@
             </button>
         </div>
     </form>
+     <div class="modal" id="modal-address" >
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">×</span></button>
+                <h4 class="modal-title">Novo Endereço</h4>
+              </div>
+              <div class="modal-body">
+                  <form  id="form-address" action="{% url 'new_address' %}" method="POST" >
+                      {% csrf_token %}
+                      {{ address_form | bootstrap }}
+                  </form>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-primary" id="save_address">Salvar</button>
+              </div>
+            </div>
+            <!-- /.modal-content -->
+          </div>
+          <!-- /.modal-dialog -->
+        </div>
 {% endblock %}
 
 {% block scripts %}
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+    <script src="{% static 'select2/dist/js/select2.full.min.js' %}"></script>
     <script>
-        {#swal({#}
-        {#     title: "HTML <small>Title</small>!",#}
-        {#    html: '',#}
-        {#})#}
+        var csrftoken = Cookies.get('csrftoken');
 
+        $(document).ready(function () {
+            {#swal("Teste");#}
+            $('#id_addres').select2();
+            get_address();
+        });
+
+        function get_address(selected=0) {
+            $.ajax({
+                url: "{% url 'get_address' %}",
+                type:  'get',
+                dataType: "json",
+                success: function(data) {
+                    var options, index, select, option;
+                    select = document.getElementById('id_address');
+
+                    // Clear the old options
+                    select.options.length = 0;
+                    for (index = 0; index < data.length; ++index) {
+                        option = data[index];
+                        if(selected = option['id'])
+                            select.options.add(new Option(option['street'], option['id'], true));
+                        else
+                            select.options.add(new Option(option['street'], option['id']));
+                    }
+                },
+                error:function (data) {
+
+                }
+            });
+        }
+
+        $("#save_address").click(function () {
+            {#console.log($('#form-address').serialize());#}
+            console.log(csrftoken);
+            save_address();
+        });
+        
+        function save_address() {
+            $.ajax({
+                headers: { "X-CSRFToken": csrftoken },
+                url: "{% url 'new_address' %}",
+                type:'post',
+                data : {
+                    postal_code : $('#id_postal_code').val(),
+                    country : $('#id_country').val(),
+                    city : $('#id_city').val(),
+                    street : $('#id_street').val(),
+                    number : $('#id_number').val(),
+                },
+                success: function(data)
+                {
+                   swal(data.message);
+                   console.log(data.data)// show response from the php script.
+                },
+                error: function (data) {
+                   swal(data.message);
+                }
+            })
+        }
     </script>
 {% endblock %}
