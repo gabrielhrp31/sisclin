@@ -44,9 +44,9 @@
                 </button>
             </div>
         </div>
-        <div class="row">
+        <div class="row" style="margin-top:50px;">
             <div class="col-xs-12">
-                <button type="submit" href="" class="btn btn-success">
+                <button type="submit" href="" class="btn btn-success pull-right">
                     Salvar
                 </button>
             </div>
@@ -99,6 +99,29 @@
         </div>
           <!-- /.modal-dialog -->
     </div>
+    <div class="modal" id="modal-new-address" >
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">×</span></button>
+                <h4 class="modal-title">Novo Endereço</h4>
+              </div>
+              <div class="modal-body">
+                  <form  id="form-address" action="{% url 'new_address' %}" method="POST" >
+                      {% csrf_token %}
+                      {{ address_form | bootstrap }}
+                  </form>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-primary" id="save_address">Salvar</button>
+              </div>
+            </div>
+            <!-- /.modal-content -->
+          </div>
+          <!-- /.modal-dialog -->
+        </div>
 
 {% endblock %}
 
@@ -165,22 +188,37 @@
             $.ajax({
                 headers: { "X-CSRFToken": csrftoken },
                 url: "{% url 'new_address' %}",
-                type:'post',
+                type:'POST',
                 data : {
-                    postal_code : $('#id_postal_code').val(),
                     country : $('#id_country').val(),
+                    district : $('#id_district').val(),
                     city : $('#id_city').val(),
                     street : $('#id_street').val(),
                     number : $('#id_number').val(),
                 },
                 success: function(data)
                 {
-                    swal(
-                        'Sucesso!',
-                        data.message,
-                        'success'
-                    );
-                    $('#modal-new-address').modal('hide');
+                    if(data.success){
+                        swal(
+                            'Sucesso!',
+                            data.message,
+                            'success'
+                        );
+                         $('#address').html(
+                            $('#id_street').val() + ', '+
+                            $('#id_number').val() + ', '+
+                            $('#id_district').val() + ' - '+
+                            $('#id_city').val() + '/'+
+                            $('#id_country').val()
+                        );
+                        $('#modal-new-address').modal('hide');
+                    }else {
+                        swal(
+                            data.title,
+                            data.message,
+                            'error'
+                        );
+                    }
                 },
                 error: function (data) {
                     swal(

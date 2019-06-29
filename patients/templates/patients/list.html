@@ -23,13 +23,66 @@
         }
     </style>
     <div class="container-fluid">
-        <table id="table-contracts" class="table table-hover"  style="width:100%">
+        <table id="table-contracts" class="table table-striped table-hover"  style="width:100%">
             <thead>
+                <tr>
+                    <td>ID</td>
+                    <td>Nome</td>
+                    <td>Email</td>
+                    <td>Telefone</td>
+                </tr>
             </thead>
             <tbody>
+                {% for patient in patients %}
+                    <tr>
+                        <td>
+                            {{ patient.id }}
+                        </td>
+                        <td>
+                            {{ patient.name }}
+                        </td>
+                        <td>
+                            {{ patient.email }}
+                        </td>
+                        <td>
+                            {{ patient.phone }}
+                        </td>
+                    </tr>
+                {% endfor %}
             </tbody>
         </table>
     </div>
+{% endblock %}
+{% block scripts %}
+    <script>
+        $(document).ready(function () {
+            {% if messages %}
+                {% for message in messages %}
+                    {% if 'success' in message.tags %}
+                        swal(
+                            'Paciente Cadastrado!',
+                            '{{  message }}',
+                            'success'
+                        );
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+            $('#table-contracts').DataTable({
+                "language": {
+                    "lengthMenu": "Mostrar _MENU_ por Página",
+                    "zeroRecords": "Nenhum Registro de Pacientes",
+                    "info": "Pagina _PAGE_ de _PAGES_",
+                    "infoEmpty": "Nenhum Paciente Cadastrado",
+                    "search":"Pesquisar",
+                    "paginate": {
+                        "previous": "Anterior",
+                        "next": "Próximo",
+                    },
+                    "infoFiltered": "(Filtrado de _MAX_ Pacientes)"
+                },
+            });
+        })
+    </script>
 {% endblock %}
 {#{% block scripts %}#}
 {#    {% if contracts|length > 0 %}#}
@@ -38,31 +91,7 @@
 {#        <script src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.print.min.js"></script>#}
 {#        <script>#}
 {#        $(document).ready( function () {#}
-{#            $('#table-contracts').DataTable({#}
-{#                dom: 'Bfrtip',#}
-{#                buttons: [#}
-{#                    {#}
-{#                        extend: 'print',#}
-{#                        text: 'Gerar Relatorio de {{ current }}',#}
-{#                        className: 'btn btn-primary',#}
-{#                        exportOptions: {#}
-{#                            columns: [0,1,2,3,4]#}
-{#                        }#}
-{#                    },#}
-{#                ],#}
-{#                "language": {#}
-{#                    "lengthMenu": "Mostrar _MENU_ por Página",#}
-{#                    "zeroRecords": "Nenhum Registro de Contratos",#}
-{#                    "info": "Pagina _PAGE_ de _PAGES_",#}
-{#                    "infoEmpty": "Nenhum registro disponivel",#}
-{#                    "search":"Pesquisar",#}
-{#                    "paginate": {#}
-{#                        "previous": "Anterior",#}
-{#                        "next": "Próximo",#}
-{#                    },#}
-{#                    "infoFiltered": "(Filtrado de _MAX_ Registros)"#}
-{#                },#}
-{#            });#}
+{#
 {#        } );#}
 {#        </script>#}
 {#    {% endif %}#}

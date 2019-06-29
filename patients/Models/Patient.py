@@ -16,3 +16,15 @@ class Patient(models.Model):
     
     def __str__(self):
         return self.name
+
+    def as_dict(self):
+        return {
+            'name', self.name,
+            'gender', self.gender,
+            'birth_date', self.birth_date,
+            'email', self.email,
+            'phone', self.phone,
+            'RG', self.RG,
+            'CPF', self.CPF,
+            'address', self.address.as_dict(),
+        }

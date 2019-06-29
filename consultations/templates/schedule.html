@@ -1,4 +1,4 @@
-{% extends "dashboard/app.html" %}
+{% extends "app.html" %}
 {% load static %}
 {% block page_title %}
     Agenda
@@ -22,7 +22,6 @@
 
 {% endblock %}
 {% block scripts %}
-    {{ calendar }}
     <script type='text/javascript' src="{% static 'moment/moment.js' %}"></script>
     <script type='text/javascript' src="{% static 'fullcalendar/dist/fullcalendar.js' %}"></script>
     <script type='text/javascript' src="{% static 'fullcalendar/dist/locale-all.js' %}"></script>
@@ -31,11 +30,14 @@
             // page is now ready, initialize the calendar...
             $('#calendar').fullCalendar({
                 // put your options and callbacks here
-                events: '/schedule/api/occurrences?calendar_slug=consultas',
+                events: '{% url 'consultations' %}',
                 dayClick: function (date) {
                     console.log(date.toLocaleString());
-                     window.location.assign("{% url 'month_calendar' calendar %}")
+                    $('#calendar').fullCalendar('gotoDate',date);
+                    $('#calendar').fullCalendar('changeView','agendaDay');
                 },
+                minTime:"08:00:00",
+                maxTime:"19:00:00",
                 eventClick: function(info) {
                     console.log(info);
                 },
