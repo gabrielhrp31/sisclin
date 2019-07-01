@@ -18,8 +18,11 @@ class Consultation(models.Model):
         return {
             'id': self.id,
             'allDay': self.allDay,
-            'start': self.start,
-            'end': self.end,
+            'start': self.start.date(),
+            'startTime': self.start.time(),
+            'end': self.end.date(),
+            'endTime': self.end.time(),
             'title': self.title,
+            'backgroundColor': self.backgroundColor,
             'patient': self.patient.id
         }

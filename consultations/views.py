@@ -16,5 +16,6 @@ def get_consultations(request):
     data = []
     for consultation in consultations:
         data.append(consultation.as_dict())
+    print(JsonResponse(data, safe=False).serialize())
     return JsonResponse(data, safe=False)
 
