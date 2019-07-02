@@ -19,6 +19,11 @@ def index(request):
 @login_required
 def list_patients(request):
     patients = Patient.objects.all()
+    if request.method == "GET" and request.is_ajax():
+        data = []
+        for patient in patients:
+            data.append(patient.as_dict())
+        return JsonResponse(data, safe=False)
     return render(request, 'patients/list.html', {'patients': patients})
 
 

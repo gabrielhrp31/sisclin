@@ -17,14 +17,20 @@ class Patient(models.Model):
     def __str__(self):
         return self.name
 
+    def get_gender(self):
+        if(self.gender):
+            return 'Masculino'
+        return 'Feminino'
+
     def as_dict(self):
         return {
-            'name', self.name,
-            'gender', self.gender,
-            'birth_date', self.birth_date,
-            'email', self.email,
-            'phone', self.phone,
-            'RG', self.RG,
-            'CPF', self.CPF,
-            'address', self.address.as_dict(),
+            'id': self.id,
+            'name': self.name,
+            'gender': self.get_gender(),
+            'birth_date': self.birth_date,
+            'email': self.email,
+            'phone': self.phone,
+            'RG': self.RG,
+            'CPF': self.CPF,
+            'address': self.address.id,
         }

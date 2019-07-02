@@ -19,6 +19,7 @@ class Address(models.Model):
             'district': self.district,
             'street': self.street,
             'number': self.number
+
         }
 
     def is_valid(self):

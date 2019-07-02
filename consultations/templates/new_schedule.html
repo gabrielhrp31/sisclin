@@ -2,14 +2,16 @@
 {% load static %}
 {% load bootstrap %}
 {% block title %}
-    Pacientes
+    Agendamento
 {% endblock %}
-
+{% block css %}
+    <link rel="stylesheet" href="{% static 'bootstrap-datepicker/dist/css/bootstrap-datepicker.css' %}">
+{% endblock %}
 {% block page_title %}
-    Pacientes
+    Agendamento
 {% endblock %}
 {% block page_description %}
-    Listar
+    <Novo></Novo>
 {% endblock %}
 {% block col_classes %}
     col-lg-6 col-lg-offset-3
@@ -18,29 +20,24 @@
     no-padding responsive-table
 {% endblock %}
 {% block box_header %}
-        <a href="{% url 'list_patients' %}" class="btn btn-primary pull-right"><i class="fa fa-arrow-left">Voltar</i></a>
+        <a href="{% url 'schedule' %}" class="btn btn-primary pull-right"><i class="fa fa-arrow-left">Voltar</i></a>
 {% endblock %}
 {% block box %}
     <form class="container-fluid" action="" method="POST">
         <div class="row">
             <div class="col-xs-12">
                 {% csrf_token %}
-                {{ patient_form | bootstrap }}
+                {{ consultation_form | bootstrap }}
             </div>
         </div>
         <div class="row">
-            <div class="col-xs-7" id="adress-content">
+            <div class="col-xs-10" id="patient-content">
                  <input type="hidden" id="id_address" value="">
-                <p id="address"class="text-muted">Selecione um Endreço</p>
+                <p id="patient"class="text-muted">Selecione um Paciente</p>
             </div>
             <div class="col-xs-2">
-                <button id="address-select-open" type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-address">
+                <button id="patient-select-open" type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-patients">
                     Selecionar
-                </button>
-            </div>
-            <div class="col-xs-3">
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-new-address">
-                    Novo Endereço
                 </button>
             </div>
         </div>
@@ -52,35 +49,29 @@
             </div>
         </div>
     </form>
-     <div class="modal" id="modal-address" >
+     <div class="modal" id="modal-patients" >
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">×</span></button>
-                    <h4 class="modal-title">Buscar Endereço</h4>
+                    <h4 class="modal-title">Buscar Paciente</h4>
                 </div>
                 <div class="modal-body">
-                    <table id="address-table" class="table table-striped table-responsive">
+                    <table id="patients-table" class="table table-striped table-responsive">
                         <thead>
                             <tr>
                                 <td>
                                     ID
                                 </td>
                                 <td>
-                                    Rua
+                                    Nome
                                 </td>
                                 <td>
-                                    Número
+                                    Gênero
                                 </td>
                                 <td>
-                                    Cidade
-                                </td>
-                                <td>
-                                    Estado
-                                </td>
-                                <td>
-                                    Bairro
+                                    CPF
                                 </td>
                                 <td>
                                     Selecionar
@@ -99,60 +90,48 @@
         </div>
           <!-- /.modal-dialog -->
     </div>
-    <div class="modal" id="modal-new-address" >
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">×</span></button>
-                <h4 class="modal-title">Novo Endereço</h4>
-              </div>
-              <div class="modal-body">
-                  <form  id="form-address" action="{% url 'new_address' %}" method="POST" >
-                      {% csrf_token %}
-                      {{ address_form | bootstrap }}
-                  </form>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn btn-primary" id="save_address">Salvar</button>
-              </div>
-            </div>
-            <!-- /.modal-content -->
-          </div>
-          <!-- /.modal-dialog -->
-        </div>
-
 {% endblock %}
 
 {% block scripts %}
     <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
     <script src="{% static 'select2/dist/js/select2.full.min.js' %}"></script>
+    <script src="{% static 'bootstrap-datepicker/dist/js/bootstrap-datepicker.js' %}"></script>
+    <script src="{%  static 'inputmask/dist/jquery.inputmask.bundle.js'%} "></script>
     <script>
         var csrftoken = Cookies.get('csrftoken');
 
         $(document).ready(function () {
-            {#swal("Teste");#}
-            {#get_address();#}
+            $('#id_start').datepicker({
+                format: "dd/mm/yyyy",
+                autoclose: true,
+                orientation: 'bottom'
+            });
+            $('#id_startTime').inputmask('99:99:99', {'placeholder':'hh:mm:ss'});
+            $('#id_end').datepicker({
+                format: "dd/mm/yyyy",
+                autoclose: true,
+                orientation: 'bottom'
+            });
+            $('#id_endTime').inputmask('99:99:99', {'placeholder':'hh:mm:ss'});
 
         });
-        $('#address-select-open').click(function () {
-            get_address();
+        $('#patient-select-open').click(function () {
+            get_patients();
         });
 
-        function get_address(selected) {
+        function get_patients() {
             $.ajax({
-                url: "{% url 'get_address' %}",
+                url: "{% url 'list_patients' %}",
                 type:  'get',
                 dataType: "json",
                 success: function(data) {
                     var index, option;
-                    $('#address-table tbody').empty();
+                    $('#patients-table tbody').empty();
                     for (index = 0; index < data.length; ++index) {
                         option = data[index];
-                        $('#address-table tbody').append('<tr> <td id="col-id">'+ option['id'] +'</td> <td id="col-street"> '+ option['street'] +' </td> <td  id="col-number"> '+ option['number'] +'</td> <td  id="col-district"> '+ option['district'] +'</td> <td id="col-city">'+ option['city'] +'</td>  <td  id="col-country"> '+ option['country'] +' </td> <td><button type="button" onclick="select_address(this,'+option['id']+')"class="btn btn-success"><i class="fa fa-map-marker"></i></button></td> </tr>');
+                        $('#patients-table tbody').append('<tr> <td id="col-id">'+ option['id'] +'</td> <td id="col-name"> '+ option['name'] +' </td> <td  id="col-gender"> '+ option['gender'] +'</td> <td  id="col-CPF"> '+ option['CPF'] +'</td>  <td><button type="button" onclick="select_patient(this,'+option['id']+')"class="btn btn-success"><i class="fa fa-check"></i></button></td> </tr>');
                     }
-                    $('#address-table').dataTable();
+                    $('#patients-table').dataTable();
                 },
                 error:function (data) {
 
@@ -160,28 +139,24 @@
             });
         }
 
-        $("#save_address").click(function () {
-            {#console.log($('#form-address').serialize());#}
-            console.log(csrftoken);
+        $("#save_patient").click(function () {
             save_address();
         });
 
-        function select_address(element, id){
-            $('#address').html(
-                $(element).parent().parent().children("#col-street").html() + ', '+
-                $(element).parent().parent().children("#col-number").html() + ', '+
-                    $(element).parent().parent().children("#col-district").html() + ' - '+
-                    $(element).parent().parent().children("#col-city").html() + '/'+
-                    $(element).parent().parent().children("#col-country").html()
+        function select_patient(element, id){
+            $('#patient').html(
+                $(element).parent().parent().children("#col-name").html() + ', '+
+                $(element).parent().parent().children("#col-gender").html() + ', '+
+                    $(element).parent().parent().children("#col-CPF").html() + '.'
             );
 
-            $('#id_address').val(id);
+            $('#id_patient').val(id);
             swal(
                 'Sucesso!',
-                'Endereço Selecionado',
+                'Paciente Selecionado',
                 'success'
             );
-            $('#modal-address').modal('hide');
+            $('#modal-patients').modal('hide');
         }
         
         function save_address() {
@@ -230,4 +205,9 @@
             })
         }
     </script>
-{% endblock %}
+{% endblock %}</title>
+</head>
+<body>
+
+</body>
+</html>
