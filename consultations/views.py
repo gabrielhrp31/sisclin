@@ -36,10 +36,11 @@ def new_schedule(request, type):
         form.save()
         # messages.add_message(request, messages.success, 'Agendamento Concluido')
         return redirect('schedule')
-    return render(request, 'schedule/new_schedule.html', {'form': form, 'type': type})
+    return render(request, 'schedule/new.html', {'form': form, 'type': type})
 
 
-def view_edit(request,type, id):
+@login_required
+def view_edit(request, type, id):
     if type == 'consultation':
         consultation = Consultation.objects.get(pk=id)
         form = ConsultationForm(request.POST or None, request.FILES or None, instance=consultation)
