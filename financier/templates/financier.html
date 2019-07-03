@@ -1,0 +1,28 @@
+{% extends 'box.html' %}
+{% block title %}
+    Pacientes
+{% endblock %}
+{% block page_title %}
+    Pacientes
+{% endblock %}
+{% block page_description %}
+    Menu
+{% endblock %}
+{% block box %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-12 col-lg-6">
+                <a href="{% url 'list_patients' %}" class="btn btn-app btn-block text-red">
+                    <i class="fa fa-heartbeat"></i>
+                    Pacientes
+                </a>
+            </div>
+            <div class="col-xs-12 col-lg-6">
+                <a class="btn btn-app btn-block text-blue">
+                    <i class="fa fa-map"></i>
+                    Endereços
+                </a>
+            </div>
+        </div>
+    </div>
+{% endblock %}
