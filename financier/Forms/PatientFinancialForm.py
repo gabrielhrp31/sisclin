@@ -1,7 +1,7 @@
 from django.core.validators import RegexValidator
 from django.forms import ModelForm, Textarea, CharField, ChoiceField, Select,HiddenInput
 from localflavor.br.forms import BRCPFField
-from patients.models import PatientFinancial
+from financier.models import PatientFinancial
 
 BOOL_STATUS = ((True, 'FINALIZADO'), (False, 'PENDENTE'))
 BOOL_PAYMENT = ((True, 'À vista'), (False, 'À prazo'))

@@ -1,0 +1,48 @@
+{% extends  'box.html' %}
+{% load static %}
+{% load bootstrap %}
+{% block title %}
+    Financeiro
+{% endblock %}
+
+{% block page_title %}
+    Financeiro
+{% endblock %}
+{% block page_description %}
+    Listar
+{% endblock %}
+{% block col_classes %}
+    col-lg-6 col-lg-offset-3
+{% endblock %}
+{% block box_classes %}
+    no-padding responsive-table
+{% endblock %}
+{% block box_header %}
+        <a href="{% url 'list_patients_financier' %}" class="btn btn-primary pull-right"><i class="fa fa-arrow-left">Voltar</i></a>
+{% endblock %}
+{% block box %}
+    <form class="container-fluid" action="" method="POST">
+        <div class="row">
+            <div class="col-xs-12">
+                {% csrf_token %}
+                {{ patient_financier_form | bootstrap }}
+            </div>
+        </div>
+        <div class="row" style="margin-top:50px;">
+            <div class="col-xs-12">
+                <button type="submit" href="" class="btn btn-success pull-right">
+                    Salvar
+                </button>
+            </div>
+        </div>
+    </form>
+
+{% endblock %}
+
+{% block scripts %}
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+    <script src="{% static 'select2/dist/js/select2.full.min.js' %}"></script>
+    <script>
+        var csrftoken = Cookies.get('csrftoken');
+    </script>
+{% endblock %}

@@ -1,11 +1,11 @@
 {% extends  'box.html' %}
 {% load static %}
 {% block title %}
-    Pacientes
+    Financeiro
 {% endblock %}
 
 {% block page_title %}
-    Pacientes
+    Financeiro
 {% endblock %}
 {% block page_description %}
     Listar
@@ -14,7 +14,7 @@
     no-padding responsive-table
 {% endblock %}
 {% block box_header %}
-    <a href="{% url 'new_patient' %}" class="btn btn-primary pull-right"><i class="fa fa-plus"> Novo Paciente</i></a>
+    <a href="{% url 'new_patient_financier' %}" class="btn btn-primary pull-right"><i class="fa fa-plus"> Novo Lançamento</i></a>
 {% endblock %}
 {% block box %}
     <style>
@@ -27,25 +27,53 @@
             <thead>
                 <tr>
                     <td>ID</td>
-                    <td>Nome</td>
-                    <td>Email</td>
-                    <td>Telefone</td>
+                    <td>Data</td>
+                    <td>Hora</td>
+                    <td>Descrição</td>
+                    <td>Valor Total</td>
+                    <td>Valor Pago</td>
+                    <td>Saldo Devedor</td>
+                    <td>Forma de Pagamento</td>
+                    <td>Número de Parcelas</td>
+                    <td>Dia do Vencimento</td>
+                    <td>Status</td>
                 </tr>
             </thead>
             <tbody>
-                {% for patient in patients %}
+                {% for financier in patients_financier %}
                     <tr>
                         <td>
-                            {{ patient.id }}
+                            {{ financier.id }}
                         </td>
                         <td>
-                            {{ patient.name }}
+                            {{ financier.date }}
                         </td>
                         <td>
-                            {{ patient.email }}
+                            {{ financier.hour }}
                         </td>
                         <td>
-                            {{ patient.phone }}
+                            {{ financier.description }}
+                        </td>
+                        <td>
+                            {{ financier.amount }}
+                        </td>
+                        <td>
+                            {{ financier.amount_paid }}
+                        </td>
+                        <td>
+                            {{ financier.outstanding_balance }}
+                        </td>
+                        <td>
+                            {{ financier.payment_form }}
+                        </td>
+                        <td>
+                            {{ financier.plots }}
+                        </td>
+                        <td>
+                            {{ financier.payday }}
+                        </td>
+                        <td>
+                            {{ financier.status }}
                         </td>
                     </tr>
                 {% endfor %}
@@ -60,7 +88,7 @@
                 {% for message in messages %}
                     {% if 'success' in message.tags %}
                         swal(
-                            'Paciente Cadastrado!',
+                            'Lançamento Cadastrado!',
                             '{{  message }}',
                             'success'
                         );
@@ -70,15 +98,15 @@
             $('#table-contracts').DataTable({
                 "language": {
                     "lengthMenu": "Mostrar _MENU_ por Página",
-                    "zeroRecords": "Nenhum Registro de Pacientes",
+                    "zeroRecords": "Nenhum Registro Financeiro",
                     "info": "Pagina _PAGE_ de _PAGES_",
-                    "infoEmpty": "Nenhum Paciente Cadastrado",
+                    "infoEmpty": "Nenhum Lançamento Cadastrado",
                     "search":"Pesquisar",
                     "paginate": {
                         "previous": "Anterior",
                         "next": "Próximo",
                     },
-                    "infoFiltered": "(Filtrado de _MAX_ Pacientes)"
+                    "infoFiltered": "(Filtrado de _MAX_ Lançamentos)"
                 },
             });
         })
