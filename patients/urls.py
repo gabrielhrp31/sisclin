@@ -21,5 +21,6 @@ urlpatterns = [
     path('list', views.list_patients, name="list_patients"),
     path('get_address/', views.get_address, name="get_address"),
     path('new_address/', views.new_address, name="new_address"),
-    path('new', views.new_patient, name="new_patient")
+    path('new/', views.new_patient, name="new_patient"),
+    path('view_edit/<int:id>/', views.view_edit_patient, name="view_edit_patient")
 ]

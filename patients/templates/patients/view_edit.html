@@ -9,7 +9,7 @@
     Pacientes
 {% endblock %}
 {% block page_description %}
-    Novo
+    Ver/Editar
 {% endblock %}
 {% block col_classes %}
     col-lg-6 col-lg-offset-3
@@ -30,8 +30,7 @@
         </div>
         <div class="row">
             <div class="col-xs-7" id="adress-content">
-                 <input type="hidden" id="id_address" value="">
-                <p id="address"class="text-muted">Selecione um Endreço</p>
+                <p id="address" class="text-muted">{{ address.get_full_address }}</p>
             </div>
             <div class="col-xs-2">
                 <button id="address-select-open" type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-address">
@@ -46,8 +45,11 @@
         </div>
         <div class="row" style="margin-top:50px;">
             <div class="col-xs-12">
-                <button type="submit" href="" class="btn btn-success pull-right">
-                    Salvar
+                <button type="button" id="btn-edit" class="btn btn-warning pull-right" >
+                    <i class="fa fa-edit"></i>Editar
+                </button>
+                <button type="submit" id="btn-save" class="btn btn-success pull-right" style="display: none;">
+                    <i class="fa fa-floppy-o"></i>Salvar
                 </button>
             </div>
         </div>
@@ -132,9 +134,7 @@
         var csrftoken = Cookies.get('csrftoken');
 
         $(document).ready(function () {
-            {#swal("Teste");#}
-            {#get_address();#}
-
+            $('.form-control').attr('disabled',true);
         });
         $('#address-select-open').click(function () {
             get_address();
@@ -183,6 +183,13 @@
             );
             $('#modal-address').modal('hide');
         }
+
+        $('#btn-edit').click(function () {
+            $(this).hide(200);
+            $('#btn-save').show(200);
+            $('.form-control').attr('disabled',false);
+        });
+
         
         function save_address() {
             $.ajax({

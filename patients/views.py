@@ -40,6 +40,20 @@ def new_patient(request):
 
 
 @login_required
+def view_edit_patient(request, id):
+    patient = Patient.objects.get(pk=id)
+    address = Address.objects.get(pk=patient.address.id)
+    patient_form = PatientForm(request.POST or None, request.FILES or None, instance=patient)
+    address_form = AddressForm(request.POST or None, request.FILES or None, instance=address)
+    if request.method == "POST":
+        if patient_form.is_valid():
+            patient_form.save()
+            messages.add_message(request, messages.SUCCESS, 'Paciente Editado')
+            return redirect('list_patients')
+    return render(request, 'patients/view_edit.html', {'patient_form': patient_form, 'address_form': address_form, 'address': address})
+
+
+@login_required
 def new_address(request):
     if request.method == "POST" and request.is_ajax():
         address = Address(number=request.POST['number'], city=request.POST['city'], country=request.POST['country'], district=request.POST['district'], street=request.POST['street'])

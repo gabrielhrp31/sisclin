@@ -26,3 +26,6 @@ class Address(models.Model):
         if not self.country or not self.street or not self.number or not self.city or not self.district:
             return False
         return (self.number > '0') and (not self.district.isspace()) and (self.street.replace(" ", "").isalnum() and not self.street.isspace()) and (self.country.isalnum() and not self.country.isspace()) and (self.city.replace(" ", "").isalnum() and not self.city.isspace())
+
+    def get_full_address(self):
+        return self.street+', '+str(self.number)+', '+self.district+' - '+self.city+'/'+self.country

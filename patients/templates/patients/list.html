@@ -30,6 +30,7 @@
                     <td>Nome</td>
                     <td>Email</td>
                     <td>Telefone</td>
+                    <td>Ver/Editar</td>
                 </tr>
             </thead>
             <tbody>
@@ -46,6 +47,11 @@
                         </td>
                         <td>
                             {{ patient.phone }}
+                        </td>
+                        <td>
+                            <a href="{% url 'view_edit_patient' patient.id %}" class="btn btn-primary">
+                                <i class="fa fa-caret-square-o-right"></i>
+                            </a>
                         </td>
                     </tr>
                 {% endfor %}

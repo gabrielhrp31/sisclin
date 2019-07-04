@@ -11,15 +11,21 @@
 {%  endblock %}
 {% block content %}
     <style>
-
+        .fc-day-grid-event:hover{
+            cursor: pointer;
+        }
     </style>
     <div class="row">
         <div class="col-xs-12">
             <div class="box">
                 <div class="box-header">
-                    <a href="{% url 'new_consultation' %}" class="btn btn-success pull-right">
+                    <a href="{% url 'new_schedule' 'consultation' %}" class="btn btn-success pull-right" style="margin-left:20px;">
                         <i class="fa fa-plus"></i>
-                         Novo Agendamento
+                         Nova Consulta
+                    </a>
+                    <a href="{% url 'new_schedule' 'event' %}" class="btn btn-success pull-right">
+                        <i class="fa fa-plus"></i>
+                         Novo Evento
                     </a>
                 </div>
                 <div class="box-body">
@@ -40,7 +46,7 @@
             $('#calendar').fullCalendar({
                 // put your options and callbacks here
                 timeZone: 'local',
-                events: '{% url 'consultations' %}',
+                events: '{% url 'get_schedules' %}',
                 dayClick: function (date) {
                     console.log(date.toLocaleString());
                     $('#calendar').fullCalendar('gotoDate',date);
