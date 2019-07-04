@@ -1,11 +1,11 @@
 {% extends  'box.html' %}
 {% load static %}
 {% block title %}
-    Pacientes
+    Endereços
 {% endblock %}
 
 {% block page_title %}
-    Pacientes
+    Endereços
 {% endblock %}
 {% block page_description %}
     Listar
@@ -14,8 +14,8 @@
     no-padding responsive-table
 {% endblock %}
 {% block box_header %}
-    <a href="{% url 'new_patient' %}" class="btn btn-primary pull-right" style="margin-left:20px;"><i class="fa fa-plus"> Novo Paciente</i></a>
-    <a href="{% url 'get_address' %}" class="btn btn-primary pull-right"><i class="fa fa-map"></i> Listar Endereços</a>
+    <a href="{% url 'list_patients' %}" class="btn btn-primary pull-right" style="margin-left:20px;"><i class="fa fa-arrow-left"></i>Voltar</a>
+    <a href="{% url 'new_address' %}" class="btn btn-primary pull-right"><i class="fa fa-plus"> Novo Endereço</i></a>
 {% endblock %}
 {% block box %}
     <style>
@@ -27,38 +27,50 @@
         <table id="table-contracts" class="table table-striped table-hover"  style="width:100%">
             <thead>
                 <tr>
-                    <td>ID</td>
-                    <td>Nome</td>
-                    <td>Email</td>
-                    <td>RG</td>
-                    <td>CPF</td>
-                    <td>Telefone</td>
+                    <td>
+                        ID
+                    </td>
+                    <td>
+                        Rua
+                    </td>
+                    <td>
+                        Numero
+                    </td>
+                    <td>
+                        Bairro
+                    </td>
+                    <td>
+                        Cidade
+                    </td>
+                    <td>
+                        Estado(UF)
+                    </td>
                     <td>Ver/Editar</td>
                 </tr>
             </thead>
             <tbody>
-                {% for patient in patients %}
+                {% for address in addresses %}
                     <tr>
                         <td>
-                            {{ patient.id }}
+                            {{ address.id }}
                         </td>
                         <td>
-                            {{ patient.name }}
+                            {{ address.street }}
                         </td>
                         <td>
-                            {{ patient.email }}
+                            {{ address.number }}
                         </td>
                         <td>
-                            {{ patient.RG }}
+                            {{ address.district }}
                         </td>
                         <td>
-                            {{ patient.CPF }}
+                            {{ address.city }}
                         </td>
                         <td>
-                            {{ patient.phone }}
+                            {{ address.country }}
                         </td>
                         <td>
-                            <a href="{% url 'view_edit_patient' patient.id %}" class="btn btn-primary">
+                            <a href="{% url 'view_edit_address' address.id %}" class="btn btn-primary">
                                 <i class="fa fa-caret-square-o-right"></i>
                             </a>
                         </td>
@@ -85,9 +97,9 @@
             $('#table-contracts').DataTable({
                 "language": {
                     "lengthMenu": "Mostrar _MENU_ por Página",
-                    "zeroRecords": "Nenhum Registro de Pacientes",
+                    "zeroRecords": "Nenhum Registro de Endereços",
                     "info": "Pagina _PAGE_ de _PAGES_",
-                    "infoEmpty": "Nenhum Paciente Cadastrado",
+                    "infoEmpty": "Nenhum Endereço Cadastrado",
                     "search":"Pesquisar",
                     "paginate": {
                         "previous": "Anterior",
@@ -99,15 +111,3 @@
         })
     </script>
 {% endblock %}
-{#{% block scripts %}#}
-{#    {% if contracts|length > 0 %}#}
-{#        <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>#}
-{#        <script src="https://cdn.datatables.net/buttons/1.5.6/js/dataTables.buttons.min.js"></script>#}
-{#        <script src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.print.min.js"></script>#}
-{#        <script>#}
-{#        $(document).ready( function () {#}
-{#
-{#        } );#}
-{#        </script>#}
-{#    {% endif %}#}
-{#{% endblock %}#}
