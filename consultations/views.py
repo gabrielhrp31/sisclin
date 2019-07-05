@@ -5,8 +5,10 @@ from django.shortcuts import render, redirect
 
 from consultations.Forms.ConsultationForm import ConsultationForm
 from consultations.Forms.EventForm import EventForm
+from consultations.Forms.ProcedureForm import ProcedureForm
 from consultations.models import Consultation
 from consultations.models import Event
+from consultations.models import Procedure
 
 
 @login_required
@@ -51,3 +53,35 @@ def view_edit(request, type, id):
         form.save()
         return redirect('schedule')
     return render(request, 'schedule/view_edit.html', {'form': form, 'type': type})
+
+
+@login_required
+def list_procedures(request):
+    procedures = Procedure.objects.all()
+    if request.is_ajax():
+        data = []
+        for procedure in procedures:
+            data.append(procedure.as_dict())
+        return JsonResponse(data, safe=False)
+    return render(request, 'procedures/list.html', {'procedures': procedures})
+
+
+@login_required
+def new_procedure(request):
+    form = ProcedureForm(request.POST or None, request.FILES or None)
+    if form.is_valid() and request.method == 'POST':
+        form.save()
+        messages.add_message(request, messages.SUCCESS, 'Procedimento Cadastrado')
+        return redirect('procedures')
+    return render(request, 'procedures/new.html', {'form': form})
+
+
+@login_required
+def view_edit_procedure(request, id):
+    procedure = Procedure.objects.get(pk=id)
+    form = ProcedureForm(request.POST or None, request.FILES or None, instance=procedure)
+    if form.is_valid and request.method == 'POST':
+        form.save()
+        messages.add_message(request, messages.SUCCESS, 'Procedimento Editado')
+        return redirect('procedures')
+    return render(request, 'procedures/view_edit.html', {'form': form})

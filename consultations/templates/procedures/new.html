@@ -1,0 +1,38 @@
+{% extends  'box.html' %}
+{% load static %}
+{% load bootstrap %}
+{% block title %}
+    Procedimento
+{% endblock %}
+{% block page_title %}
+    Procedimento
+{% endblock %}
+{% block page_description %}
+    Novo
+{% endblock %}
+{% block col_classes %}
+    col-lg-6 col-lg-offset-3
+{% endblock %}
+{% block box_classes %}
+    no-padding responsive-table
+{% endblock %}
+{% block box_header %}
+        <a href="{% url 'procedures' %}" class="btn btn-primary pull-right"><i class="fa fa-arrow-left">Voltar</i></a>
+{% endblock %}
+{% block box %}
+    <form class="container-fluid" action="" method="POST">
+        <div class="row">
+            <div class="col-xs-12">
+                {% csrf_token %}
+                {{ form | bootstrap }}
+            </div>
+        </div>
+        <div class="row" style="margin-top:50px;">
+            <div class="col-xs-12">
+                <button type="submit" href="" class="btn btn-success pull-right">
+                    Salvar
+                </button>
+            </div>
+        </div>
+    </form>
+{% endblock %}
