@@ -34,3 +34,6 @@ def new_patient_financier(request):
             messages.add_message(request, messages.SUCCESS, 'Lançamento Cadastrado')
             return redirect('list_patients_financier')
     return render(request, 'accounting/new.html', {'patient_financier_form': patient_financier_form})
+
+def get_status_display(request):
+    pass
