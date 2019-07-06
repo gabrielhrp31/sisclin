@@ -1,0 +1,88 @@
+{% extends  'box.html' %}
+{% load static %}
+{% block title %}
+    Procedimentos
+{% endblock %}
+
+{% block page_title %}
+    Procedimentos
+{% endblock %}
+{% block page_description %}
+    Listar
+{% endblock %}
+{% block box_classes %}
+    no-padding responsive-table
+{% endblock %}
+{% block box_header %}
+    <a href="{% url 'new_procedure' %}" class="btn btn-primary pull-right" style="margin-left:20px;"><i class="fa fa-plus"> Novo Procedimento</i></a>
+{% endblock %}
+{% block box %}
+    <style>
+        td, tr{
+            vertical-align: bottom;
+        }
+    </style>
+    <div class="container-fluid">
+        <table id="table-contracts" class="table table-striped table-hover"  style="width:100%">
+            <thead>
+                <tr>
+                    <td>ID</td>
+                    <td>Nome</td>
+                    <td>Preço</td>
+                    <td>Ver/Editar</td>
+                </tr>
+            </thead>
+            <tbody>
+                {% for procedure in procedures %}
+                    <tr>
+                        <td>
+                            {{ procedure.id }}
+                        </td>
+                        <td>
+                            {{ procedure.name }}
+                        </td>
+                        <td>
+                            {{ procedure.price }}
+                        </td>
+                        <td>
+                            <a href="{% url 'view_edit_procedure' procedure.id %}" class="btn btn-primary">
+                                <i class="fa fa-caret-square-o-right"></i>
+                            </a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}
+{% block scripts %}
+    <script>
+        $(document).ready(function () {
+            {% if messages %}
+                {% for message in messages %}
+                    {% if 'success' in message.tags %}
+                        swal(
+                            'Sucesso!',
+                            '{{  message }}',
+                            'success'
+                        );
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+            $('#table-contracts').DataTable({
+                "language": {
+                    "lengthMenu": "Mostrar _MENU_ por Página",
+                    "zeroRecords": "Nenhum Registro de Procedimentos",
+                    "info": "Pagina _PAGE_ de _PAGES_",
+                    "infoEmpty": "Nenhum Procedimento Cadastrado",
+                    "search":"Pesquisar",
+                    "paginate": {
+                        "previous": "Anterior",
+                        "next": "Próximo",
+                    },
+                    "infoFiltered": "(Filtrado de _MAX_ Procedimentos)"
+                },
+            });
+        })
+    </script>
+{% endblock %}

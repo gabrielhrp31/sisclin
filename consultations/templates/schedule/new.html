@@ -6,12 +6,13 @@
 {% endblock %}
 {% block css %}
     <link rel="stylesheet" href="{% static 'bootstrap-datepicker/dist/css/bootstrap-datepicker.css' %}">
+    <link rel="stylesheet" href="{% static 'bootstrap-colorpicker/dist/css/bootstrap-colorpicker.css' %}">
 {% endblock %}
 {% block page_title %}
     Agendamento
 {% endblock %}
 {% block page_description %}
-    <Novo></Novo>
+    Novo
 {% endblock %}
 {% block col_classes %}
     col-lg-6 col-lg-offset-3
@@ -27,20 +28,22 @@
         <div class="row">
             <div class="col-xs-12">
                 {% csrf_token %}
-                {{ consultation_form | bootstrap }}
+                {{ form | bootstrap }}
             </div>
         </div>
-        <div class="row">
-            <div class="col-xs-10" id="patient-content">
-                 <input type="hidden" id="id_address" value="">
-                <p id="patient"class="text-muted">Selecione um Paciente</p>
+        {% ifequal type 'consultation' %}
+            <div class="row">
+                <div class="col-xs-10" id="patient-content">
+                     <input type="hidden" id="id_address" value="">
+                    <p id="patient"class="text-muted">Selecione um Paciente</p>
+                </div>
+                <div class="col-xs-2">
+                    <button id="patient-select-open" type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-patients">
+                        Selecionar
+                    </button>
+                </div>
             </div>
-            <div class="col-xs-2">
-                <button id="patient-select-open" type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-patients">
-                    Selecionar
-                </button>
-            </div>
-        </div>
+        {% endifequal %}
         <div class="row" style="margin-top:50px;">
             <div class="col-xs-12">
                 <button type="submit" href="" class="btn btn-success pull-right">
@@ -49,56 +52,62 @@
             </div>
         </div>
     </form>
-     <div class="modal" id="modal-patients" >
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">×</span></button>
-                    <h4 class="modal-title">Buscar Paciente</h4>
+
+    {% ifequal type 'consultation' %}
+         <div class="modal" id="modal-patients" >
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span></button>
+                        <h4 class="modal-title">Buscar Paciente</h4>
+                    </div>
+                    <div class="modal-body">
+                        <table id="patients-table" class="table table-striped table-responsive">
+                            <thead>
+                                <tr>
+                                    <td>
+                                        ID
+                                    </td>
+                                    <td>
+                                        Nome
+                                    </td>
+                                    <td>
+                                        Gênero
+                                    </td>
+                                    <td>
+                                        CPF
+                                    </td>
+                                    <td>
+                                        Selecionar
+                                    </td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger pull-left" data-dismiss="modal" id="cancel-address-select">Fechar</button>
+                    </div>
                 </div>
-                <div class="modal-body">
-                    <table id="patients-table" class="table table-striped table-responsive">
-                        <thead>
-                            <tr>
-                                <td>
-                                    ID
-                                </td>
-                                <td>
-                                    Nome
-                                </td>
-                                <td>
-                                    Gênero
-                                </td>
-                                <td>
-                                    CPF
-                                </td>
-                                <td>
-                                    Selecionar
-                                </td>
-                            </tr>
-                        </thead>
-                        <tbody>
-                        </tbody>
-                    </table>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-danger pull-left" data-dismiss="modal" id="cancel-address-select">Fechar</button>
-                </div>
+                <!-- /.modal-content -->
             </div>
-            <!-- /.modal-content -->
+              <!-- /.modal-dialog -->
         </div>
-          <!-- /.modal-dialog -->
-    </div>
+    {% endifequal %}
 {% endblock %}
 
 {% block scripts %}
     <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
     <script src="{% static 'select2/dist/js/select2.full.min.js' %}"></script>
     <script src="{% static 'bootstrap-datepicker/dist/js/bootstrap-datepicker.js' %}"></script>
-    <script src="{%  static 'inputmask/dist/jquery.inputmask.bundle.js'%} "></script>
+    <script src="{%  static 'inputmask/dist/jquery.inputmask.bundle.js' %} "></script>
+    <script src="{%  static 'bootstrap-colorpicker/dist/js/bootstrap-colorpicker.js' %} "></script>
     <script>
         var csrftoken = Cookies.get('csrftoken');
+        $('#id_backgroundColor').colorpicker();
+        $('#id_textColor').colorpicker();
 
         $(document).ready(function () {
             $('#id_start').datepicker({
@@ -205,9 +214,4 @@
             })
         }
     </script>
-{% endblock %}</title>
-</head>
-<body>
-
-</body>
-</html>
+{% endblock %}
