@@ -1,6 +1,0 @@
-{
-  "name": "package_name",
-  "ignore": ["*"],
-  "dependencies": {
-  }
-}

@@ -43,7 +43,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'djangobower',
     'patients',
     'financier',
     'consultations',
@@ -143,15 +142,6 @@ MEDIA_ROOT = 'media'
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-    'djangobower.finders.BowerFinder',
-)
-
-BOWER_COMPONENTS_ROOT = './components/'
-
-BOWER_INSTALLED_APPS = (
-    'admin-lte',
-    'fullcalendar',
-    'sweetalert'
 )
 
 LOGIN_URL = '/login/'
