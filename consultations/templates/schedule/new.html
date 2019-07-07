@@ -106,10 +106,15 @@
     <script src="{%  static 'bootstrap-colorpicker/dist/js/bootstrap-colorpicker.js' %} "></script>
     <script>
         var csrftoken = Cookies.get('csrftoken');
-        $('#id_backgroundColor').colorpicker();
-        $('#id_textColor').colorpicker();
 
         $(document).ready(function () {
+            $('#id_date').datepicker({
+                format: "dd/mm/yyyy",
+                autoclose: true,
+                orientation: 'bottom'
+            });
+            $('#id_backgroundColor').colorpicker();
+            $('#id_textColor').colorpicker();
             $('#id_start').datepicker({
                 format: "dd/mm/yyyy",
                 autoclose: true,
