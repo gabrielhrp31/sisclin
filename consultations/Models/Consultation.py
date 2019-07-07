@@ -4,6 +4,7 @@ from django.db import models
 from django.urls import reverse
 
 from patients.Models.Patient import Patient
+from .Models.Procedure import Procedure
 
 
 def get_full_date(date, time):
@@ -22,6 +23,7 @@ class Consultation(models.Model):
     backgroundColor = models.CharField(max_length=7, default="#000000")
     textColor = models.CharField(max_length=7, default="#ffffff")
     patient = models.ForeignKey(Patient, null=True, on_delete=models.CASCADE)
+    procedure = models.ForeignKey(Procedure, null=True, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.title

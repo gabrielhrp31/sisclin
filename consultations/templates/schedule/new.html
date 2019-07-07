@@ -43,6 +43,17 @@
                     </button>
                 </div>
             </div>
+            <div class="row">
+                <div class="col-xs-10" id="patient-content">
+                     <input type="hidden" id="id_address" value="">
+                    <p id="patient"class="text-muted">Selecione um Procedimento</p>
+                </div>
+                <div class="col-xs-2">
+                    <button id="procedure-select-open" type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-procedures">
+                        Selecionar
+                    </button>
+                </div>
+            </div>
         {% endifequal %}
         <div class="row" style="margin-top:50px;">
             <div class="col-xs-12">
@@ -73,7 +84,7 @@
                                         Nome
                                     </td>
                                     <td>
-                                        Gênero
+                                        RG
                                     </td>
                                     <td>
                                         CPF
@@ -89,6 +100,44 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-danger pull-left" data-dismiss="modal" id="cancel-address-select">Fechar</button>
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+              <!-- /.modal-dialog -->
+        </div>
+        <div class="modal" id="modal-procedures" >
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span></button>
+                        <h4 class="modal-title">Buscar Procedimento</h4>
+                    </div>
+                    <div class="modal-body">
+                        <table id="procedures-table" class="table table-striped table-responsive">
+                            <thead>
+                                <tr>
+                                    <td>
+                                        ID
+                                    </td>
+                                    <td>
+                                        Nome
+                                    </td>
+                                    <td>
+                                        Preço
+                                    </td>
+                                    <td>
+                                        Selecionar
+                                    </td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger pull-left" data-dismiss="modal" id="cancel-patient-select">Fechar</button>
                     </div>
                 </div>
                 <!-- /.modal-content -->
@@ -129,6 +178,11 @@
             $('#id_endTime').inputmask('99:99:99', {'placeholder':'hh:mm:ss'});
 
         });
+
+        $('#procedure-select-open').click(function () {
+            get_procedures();
+        });
+
         $('#patient-select-open').click(function () {
             get_patients();
         });
@@ -143,7 +197,7 @@
                     $('#patients-table tbody').empty();
                     for (index = 0; index < data.length; ++index) {
                         option = data[index];
-                        $('#patients-table tbody').append('<tr> <td id="col-id">'+ option['id'] +'</td> <td id="col-name"> '+ option['name'] +' </td> <td  id="col-gender"> '+ option['gender'] +'</td> <td  id="col-CPF"> '+ option['CPF'] +'</td>  <td><button type="button" onclick="select_patient(this,'+option['id']+')"class="btn btn-success"><i class="fa fa-check"></i></button></td> </tr>');
+                        $('#patients-table tbody').append('<tr> <td id="col-id">'+ option['ID'] +'</td> <td id="col-name"> '+ option['name'] +' </td> <td  id="col-RG"> '+ option['RG'] +'</td> <td  id="col-CPF"> '+ option['CPF'] +'</td>  <td><button type="button" onclick="select_patient(this,'+option['id']+')"class="btn btn-success"><i class="fa fa-check"></i></button></td> </tr>');
                     }
                     $('#patients-table').dataTable();
                 },
@@ -153,14 +207,30 @@
             });
         }
 
-        $("#save_patient").click(function () {
-            save_address();
-        });
+        function get_procedures() {
+            $.ajax({
+                url: "{% url 'procedures' %}",
+                type:  'get',
+                dataType: "json",
+                success: function(data) {
+                    var index, option;
+                    $('#procedures-table tbody').empty();
+                    for (index = 0; index < data.length; ++index) {
+                        option = data[index];
+                        $('#procedures-table tbody').append('<tr> <td id="col-id">'+ option['id'] +'</td> <td id="col-name"> '+ option['name'] +' </td> <td  id="col-price"> '+ option['price'] +'</td> <td><button type="button" onclick="select_procedure(this,'+option['id']+')"class="btn btn-success"><i class="fa fa-check"></i></button></td> </tr>');
+                    }
+                    $('#procedures-table').dataTable();
+                },
+                error:function (data) {
+
+                }
+            });
+        }
 
         function select_patient(element, id){
             $('#patient').html(
                 $(element).parent().parent().children("#col-name").html() + ', '+
-                $(element).parent().parent().children("#col-gender").html() + ', '+
+                $(element).parent().parent().children("#col-RG").html() + ', '+
                     $(element).parent().parent().children("#col-CPF").html() + '.'
             );
 
@@ -171,6 +241,21 @@
                 'success'
             );
             $('#modal-patients').modal('hide');
+        }
+
+        function select_procedure(element, id){
+            $('#procedure').html(
+                $(element).parent().parent().children("#col-name").html() + ', '+
+                $(element).parent().parent().children("#col-price").html() + '.'
+            );
+
+            $('#id_procedure').val(id);
+            swal(
+                'Sucesso!',
+                'Paciente Selecionado',
+                'success'
+            );
+            $('#modal-procedures').modal('hide');
         }
         
         function save_address() {

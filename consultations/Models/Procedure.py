@@ -10,6 +10,7 @@ class Procedure(models.Model):
 
     def as_dict(self):
         return {
+            'id': self.id,
             'name': self.name,
             'price': self.price
         }
