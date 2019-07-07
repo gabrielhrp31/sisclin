@@ -8,7 +8,7 @@ class Procedure(models.Model):
     def __str__(self):
         return self.name
 
-    def as_dic(self):
+    def as_dict(self):
         return {
             'name': self.name,
             'price': self.price

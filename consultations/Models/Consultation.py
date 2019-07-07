@@ -15,8 +15,8 @@ def get_full_date(date, time):
 class Consultation(models.Model):
     title = models.TextField(null=False)
     date = models.DateField(null=False)
-    startTime = models.TimeField(null=False, default=datetime.now())
-    endTime = models.TimeField(null=False, default=datetime.now())
+    startTime = models.TimeField(null=False)
+    endTime = models.TimeField(null=False)
     description = models.TextField(null=True, blank=True)
     payment = models.BooleanField(null=False, default=False)
     backgroundColor = models.CharField(max_length=7, default="#000000")
