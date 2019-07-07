@@ -13,6 +13,7 @@ def get_full_date(date, time):
 
 
 class Consultation(models.Model):
+    id = models.IntegetField(primary_key=True)
     title = models.TextField(null=False)
     date = models.DateField(null=False)
     startTime = models.TimeField(null=False, default=datetime.now())
