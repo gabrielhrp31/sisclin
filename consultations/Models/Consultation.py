@@ -21,7 +21,7 @@ class Consultation(models.Model):
     payment = models.BooleanField(null=False, default=False)
     backgroundColor = models.CharField(max_length=7, default="#000000")
     textColor = models.CharField(max_length=7, default="#ffffff")
-    patient = models.ForeignKey(Patient, null=True, default=None, on_delete=models.CASCADE)
+    patient = models.ForeignKey(Patient, null=True, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.title
