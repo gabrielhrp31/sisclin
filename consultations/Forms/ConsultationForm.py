@@ -4,7 +4,6 @@ from consultations.Models.Consultation import Consultation
 
 
 class ConsultationForm(ModelForm):
-    title = CharField(label="Titulo")
 
     class Meta:
         model = Consultation
