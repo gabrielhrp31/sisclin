@@ -43,10 +43,10 @@
                     </button>
                 </div>
             </div>
-            <div class="row">
+            <div class="row" style="margin-top:20px;">
                 <div class="col-xs-10" id="patient-content">
                      <input type="hidden" id="id_address" value="">
-                    <p id="patient"class="text-muted">Selecione um Procedimento</p>
+                    <p id="procedure" class="text-muted">Selecione um Procedimento</p>
                 </div>
                 <div class="col-xs-2">
                     <button id="procedure-select-open" type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-procedures">
@@ -197,7 +197,7 @@
                     $('#patients-table tbody').empty();
                     for (index = 0; index < data.length; ++index) {
                         option = data[index];
-                        $('#patients-table tbody').append('<tr> <td id="col-id">'+ option['ID'] +'</td> <td id="col-name"> '+ option['name'] +' </td> <td  id="col-RG"> '+ option['RG'] +'</td> <td  id="col-CPF"> '+ option['CPF'] +'</td>  <td><button type="button" onclick="select_patient(this,'+option['id']+')"class="btn btn-success"><i class="fa fa-check"></i></button></td> </tr>');
+                        $('#patients-table tbody').append('<tr> <td id="col-id">'+ option['id'] +'</td> <td id="col-name"> '+ option['name'] +' </td> <td  id="col-RG"> '+ option['RG'] +'</td> <td  id="col-CPF"> '+ option['CPF'] +'</td>  <td><button type="button" onclick="select_patient(this,'+option['id']+')"class="btn btn-success"><i class="fa fa-check"></i></button></td> </tr>');
                     }
                     $('#patients-table').dataTable();
                 },
@@ -245,63 +245,17 @@
 
         function select_procedure(element, id){
             $('#procedure').html(
-                $(element).parent().parent().children("#col-name").html() + ', '+
-                $(element).parent().parent().children("#col-price").html() + '.'
+                $(element).parent().parent().children("#col-name").html() + ', R$'+
+                $(element).parent().parent().children("#col-price").html()
             );
 
             $('#id_procedure').val(id);
             swal(
                 'Sucesso!',
-                'Paciente Selecionado',
+                'Procedimento Selecionado',
                 'success'
             );
             $('#modal-procedures').modal('hide');
-        }
-        
-        function save_address() {
-            $.ajax({
-                headers: { "X-CSRFToken": csrftoken },
-                url: "{% url 'new_address' %}",
-                type:'POST',
-                data : {
-                    country : $('#id_country').val(),
-                    district : $('#id_district').val(),
-                    city : $('#id_city').val(),
-                    street : $('#id_street').val(),
-                    number : $('#id_number').val(),
-                },
-                success: function(data)
-                {
-                    if(data.success){
-                        swal(
-                            'Sucesso!',
-                            data.message,
-                            'success'
-                        );
-                         $('#address').html(
-                            $('#id_street').val() + ', '+
-                            $('#id_number').val() + ', '+
-                            $('#id_district').val() + ' - '+
-                            $('#id_city').val() + '/'+
-                            $('#id_country').val()
-                        );
-                        $('#modal-new-address').modal('hide');
-                    }else {
-                        swal(
-                            data.title,
-                            data.message,
-                            'error'
-                        );
-                    }
-                },
-                error: function (data) {
-                    swal(
-                        'Erro!',
-                        data.message,
-                        'error'
-                    );
-                }
-            })
         }
     </script>
 {% endblock %}

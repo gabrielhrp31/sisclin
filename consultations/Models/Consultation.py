@@ -4,7 +4,8 @@ from django.db import models
 from django.urls import reverse
 
 from patients.Models.Patient import Patient
-from .Models.Procedure import Procedure
+from consultations.Models.Procedure import Procedure
+# from consultations.models import Procedure
 
 
 def get_full_date(date, time):

@@ -1,6 +1,7 @@
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpResponseRedirect
+
 from django.shortcuts import render, redirect
 
 from consultations.Forms.ConsultationForm import ConsultationForm
@@ -79,9 +80,22 @@ def new_procedure(request):
 @login_required
 def view_edit_procedure(request, id):
     procedure = Procedure.objects.get(pk=id)
-    form = ProcedureForm(request.POST or None, request.FILES or None, instance=procedure)
-    if form.is_valid and request.method == 'POST':
-        form.save()
-        messages.add_message(request, messages.SUCCESS, 'Procedimento Editado')
-        return redirect('procedures')
+    if request.is_ajax() and request.method == "GET":
+        return JsonResponse(procedure.as_dict(), safe=False)
+    else:
+        form = ProcedureForm(request.POST or None, request.FILES or None, instance=procedure)
+        if form.is_valid and request.method == 'POST':
+            form.save()
+            messages.add_message(request, messages.SUCCESS, 'Procedimento Editado')
+            return redirect('procedures')
     return render(request, 'procedures/view_edit.html', {'form': form})
+
+
+def delete_consultation(request, id, location):
+    procedure = Consultation.objects.get(pk=id)
+    if procedure.delete():
+        messages.add_message(request, messages.SUCCESS, 'Consulta Cancelada/Excluida!')
+    if location == "patient":
+        next = request.POST.get('next', '/')
+        return HttpResponseRedirect(next)
+    return redirect('schedule')

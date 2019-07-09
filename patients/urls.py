@@ -20,7 +20,8 @@ urlpatterns = [
     # patients urls
     path('list', views.list_patients, name="list_patients"),
     path('new/', views.new_patient, name="new_patient"),
-    path('view_edit/<int:id>/', views.view_edit_patient, name="view_edit_patient"),
+    path('edit/<int:id>/', views.edit_patient, name="edit_patient"),
+    path('view/<int:id>/', views.view_patient, name="view_patient"),
     # addresses urls
     path('address/list/', views.get_address, name="get_address"),
     path('address/new/', views.new_address, name="new_address"),

@@ -1,0 +1,158 @@
+{% extends  'box.html' %}
+{% load static %}
+{% load bootstrap %}
+{% block title %}
+    Pacientes
+{% endblock %}
+{% block page_title %}
+    Pacientes
+{% endblock %}
+{% block page_description %}
+    Ficha
+{% endblock %}
+{% block col_classes %}
+    col-lg-6 col-lg-offset-3
+{% endblock %}
+{% block box_classes %}
+    no-padding responsive-table
+{% endblock %}
+{% block box_header %}
+{% endblock %}
+{% block box %}
+<div class="nav-tabs-custom">
+<ul class="nav nav-tabs">
+  <li class="active"><a href="#tab_1" data-toggle="tab" aria-expanded="true">Dados Pessoais</a></li>
+  <li class=""><a href="#tab_2" data-toggle="tab" aria-expanded="false">Consultas</a></li>
+  <li class=""><a href="#tab_3" data-toggle="tab" aria-expanded="false">Pagamentos</a></li>
+  <li class="pull-right"> <a href="{% url 'list_patients' %}" class=" pull-right"><i class="fa fa-arrow-left">Voltar</i></a></li>
+</ul>
+<div class="tab-content">
+<div class="tab-pane active" id="tab_1">
+    <h3 class="profile-username text-center">{{ patient.name }}</h3>
+    <p class="text-muted text-center">{{ patient.birth_date }}</p>
+    <ul class="list-group list-group-unbordered">
+        <li class="list-group-item">
+            <b>Gênero</b> <span class="pull-right">{{ patient.get_gender }}</span>
+        </li>
+        <li class="list-group-item">
+            <b>Email</b> <span class="pull-right">{{ patient.email }}</span>
+        </li>
+        <li class="list-group-item">
+            <b>Telefone</b> <span class="pull-right">{{ patient.phone }}</span>
+        </li>
+        <li class="list-group-item">
+            <b>RG</b> <span class="pull-right">{{ patient.RG }}</span>
+        </li>
+        <li class="list-group-item">
+            <b>CPF</b> <span class="pull-right">{{ patient.CPF }}</span>
+        </li>
+        <li class="list-group-item">
+            <b>Endereço</b> <span class="pull-right">{{ patient.address.get_full_address }}</span>
+        </li>
+        <li class="list-group-item">
+            <b>
+                Observações
+            </b>
+            <p>
+                {{ patient.comments }}
+            </p>
+        </li>
+        <li class="list-group-item">
+            <b>
+                Como nos encontrou?
+            </b>
+            <p>
+                {{ patient.found_us_by }}
+            </p>
+        </li>
+    </ul>
+</div>
+<!-- /.tab-pane -->
+<div class="tab-pane" id="tab_2">
+    {% if consultations.items %}
+    <ul class="timeline">
+        {% for key, values in consultations.items %}
+            {% if key < today %}
+                <li class="time-label">
+                    <span class="bg-red">
+                        {{ key }}
+                    </span>
+                </li>
+            {% elif key == today %}
+                <li class="time-label">
+                    <span class="bg-blue">
+                        {{ key }}
+                    </span>
+                </li>
+            {% else %}
+                <li class="time-label">
+                    <span class="bg-green">
+                        {{ key }}
+                    </span>
+                </li>
+            {% endif %}
+            {% for consultation in values %}
+                <li>
+                    <i class="fa fa-stethoscope"></i>
+
+                    <div class="timeline-item">
+                        <span class="time"><i class="fa fa-clock-o"></i> {{ consultation.startTime }}</span>
+                        <span class="time"> - </span>
+                        <span class="time"><i class="fa fa-clock-o"></i> {{ consultation.endTime }}</span>
+
+                        <h3 class="timeline-header">{% if key < today %}Realizou{% else %}Realizará{% endif %} um(a) {{ consultation.procedure.name }}</h3>
+                        <div class="timeline-body">
+                            {{ consultation.description }}
+                        </div>
+                        <div class="timeline-footer">
+                            <a href="{% url 'view_edit_schedules' "consultation" consultation.id %}" class="btn btn-primary btn-xs">Ver/Editar</a>
+                            {% if key < today %}
+                               <form action="{% url 'delete_consultation' consultation.id 'patient' %}" method="POST" style="display:inline;">
+                                    {% csrf_token %}
+                                    <input type="hidden" name="next" value="{{ request.path }}">
+                                    <button type="submit" class="btn btn-danger btn-xs">Deletar</button>
+                                </form>
+                            {% else %}
+                                <form action="{% url 'delete_consultation' consultation.id 'patient' %}" method="POST" style="display:inline;">
+                                    {% csrf_token %}
+                                    <input type="hidden" name="next" value="{{ request.path }}">
+                                    <button type="submit" class="btn btn-danger btn-xs">Cancelar</button>
+                                </form>
+                            {% endif %}
+                        </div>
+                    </div>
+                </li>
+            {% endfor %}
+        {% endfor %}
+    </ul>
+    {% else %}
+        <h4>Nenhum Procedimento Realizado por este Paciente</h4>
+    {% endif %}
+</div>
+<!-- /.tab-pane -->
+<div class="tab-pane" id="tab_3">
+    Contas
+</div>
+<!-- /.tab-pane -->
+</div>
+<!-- /.tab-content -->
+</div>
+{% endblock %}
+
+{% block scripts %}
+    <script>
+        $(document).ready(function () {
+            {% if messages %}
+                {% for message in messages %}
+                    {% if 'success' in message.tags %}
+                        swal(
+                            'Sucesso!',
+                            '{{  message }}',
+                            'success'
+                        );
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+        });
+    </script>
+{% endblock %}

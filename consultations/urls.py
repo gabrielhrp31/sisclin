@@ -7,6 +7,7 @@ urlpatterns = [
     path('get/', views.get_schedules, name="get_schedules"),
     path('view_edit/<slug:type>/<int:id>/', views.view_edit, name="view_edit_schedules"),
     path('new/<slug:type>/', views.new_schedule, name="new_schedule"),
+    path('delete/<int:id>/<slug:location>/', views.delete_consultation, name="delete_consultation"),
     #procedure urls
     path('procedures/', views.list_procedures, name='procedures'),
     path('procedures/new/', views.new_procedure, name='new_procedure'),

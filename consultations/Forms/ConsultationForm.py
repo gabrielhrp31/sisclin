@@ -18,5 +18,6 @@ class ConsultationForm(ModelForm):
             'textColor': ' Cor do texto do Evento'
         }
         widgets = {
-            'patient': HiddenInput()
+            'patient': HiddenInput(),
+            'procedure': HiddenInput()
         }

@@ -33,7 +33,8 @@
                     <td>RG</td>
                     <td>CPF</td>
                     <td>Telefone</td>
-                    <td>Ver/Editar</td>
+                    <td>Ver Ficha</td>
+                    <td>Editar</td>
                 </tr>
             </thead>
             <tbody>
@@ -55,11 +56,16 @@
                             {{ patient.CPF }}
                         </td>
                         <td>
-                            {{ patient.phone }}
+                                {{ patient.phone }}
                         </td>
                         <td>
-                            <a href="{% url 'view_edit_patient' patient.id %}" class="btn btn-primary">
-                                <i class="fa fa-caret-square-o-right"></i>
+                             <a href="{% url 'view_patient' patient.id %}" class="btn btn-primary">
+                                 <i class="fa fa-eye"></i>
+                             </a>
+                        </td>
+                        <td>
+                            <a href="{% url 'edit_patient' patient.id %}" class="btn btn-danger">
+                                <i class="fa fa-edit"></i>
                             </a>
                         </td>
                     </tr>

@@ -4,10 +4,14 @@ from django.core.serializers import json
 from django.forms import model_to_dict
 from django.http import JsonResponse, HttpResponse
 from django.shortcuts import render, redirect
+from datetime import date
+from collections import OrderedDict
+
 
 # Create your views here.
 from .models import Address
 from .models import Patient
+from consultations.models import Consultation
 from .forms import AddressForm
 from .forms import PatientForm
 
@@ -36,7 +40,7 @@ def new_patient(request):
 
 
 @login_required
-def view_edit_patient(request, id):
+def edit_patient(request, id):
     patient = Patient.objects.get(pk=id)
     address = Address.objects.get(pk=patient.address.id)
     patient_form = PatientForm(request.POST or None, request.FILES or None, instance=patient)
@@ -46,7 +50,26 @@ def view_edit_patient(request, id):
             patient_form.save()
             messages.add_message(request, messages.SUCCESS, 'Paciente Editado')
             return redirect('list_patients')
-    return render(request, 'patients/view_edit.html', {'patient_form': patient_form, 'address_form': address_form, 'address': address})
+    return render(request, 'patients/edit.html', {'patient_form': patient_form, 'address_form': address_form, 'address': address})
+
+
+@login_required
+def view_patient(request, id):
+    patient = Patient.objects.get(pk=id)
+    if request.is_ajax() and request.method == "GET":
+        data = patient.as_dict()
+        return JsonResponse(data, safe=False)
+    else:
+        consultations = Consultation.objects.filter(patient=id)
+        consultations_timeline = {}
+        for consultation in consultations:
+            if not (consultation.date in consultations_timeline.keys()):
+                consultations_timeline[consultation.date] = []
+                consultations_timeline[consultation.date].append(consultation)
+            else:
+                consultations_timeline[consultation.date].append(consultation)
+        consultations_timeline = OrderedDict(sorted(consultations_timeline.items(), key=lambda t: t[0], reverse=True))
+    return render(request, 'patients/view.html', {'patient': patient, 'consultations': consultations_timeline, 'today': date.today()})
 
 
 @login_required
