@@ -96,9 +96,9 @@
                     <i class="fa fa-stethoscope"></i>
 
                     <div class="timeline-item">
-                        <span class="time"><i class="fa fa-clock-o"></i> {{ consultation.startTime }}</span>
-                        <span class="time"> - </span>
                         <span class="time"><i class="fa fa-clock-o"></i> {{ consultation.endTime }}</span>
+                        <span class="time"> - </span>
+                        <span class="time"><i class="fa fa-clock-o"></i> {{ consultation.startTime }}</span>
 
                         <h3 class="timeline-header">{% if key < today %}Realizou{% else %}Realizará{% endif %} um(a) {{ consultation.procedure.name }}</h3>
                         <div class="timeline-body">

@@ -3,8 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="ff34d4b4-aa49-4b8e-b72c-0266eca74784" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/dashboard/includes/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/dashboard/includes/header.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/registration/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/registration/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/patients/templates/patients/view.html" beforeDir="false" afterPath="$PROJECT_DIR$/patients/templates/patients/view.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -57,15 +56,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/consultations/templates/schedule/view_edit.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="369">
-              <caret line="234" selection-start-line="234" selection-end-line="234" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/consultations/views.py">
           <provider selected="true" editor-type-id="text-editor">
@@ -123,11 +113,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/registration/base.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="144">
               <caret line="6" column="30" selection-start-line="6" selection-start-column="30" selection-end-line="6" selection-end-column="30" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/patients/templates/patients/view.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="224">
+              <caret line="99" column="53" lean-forward="true" selection-start-line="99" selection-start-column="53" selection-end-line="99" selection-end-column="53" />
             </state>
           </provider>
         </entry>
@@ -228,10 +227,10 @@
         <option value="$PROJECT_DIR$/consultations/urls.py" />
         <option value="$PROJECT_DIR$/consultations/views.py" />
         <option value="$PROJECT_DIR$/patients/templates/patients/list.html" />
-        <option value="$PROJECT_DIR$/patients/templates/patients/view.html" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/templates/dashboard/includes/header.html" />
         <option value="$PROJECT_DIR$/templates/registration/base.html" />
+        <option value="$PROJECT_DIR$/patients/templates/patients/view.html" />
       </list>
     </option>
   </component>
@@ -257,13 +256,20 @@
             <path>
               <item name="consultas" type="b2602c69:ProjectViewProjectNode" />
               <item name="consultas" type="462c0819:PsiDirectoryNode" />
-              <item name="consultations" type="462c0819:PsiDirectoryNode" />
+              <item name="patients" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="consultas" type="b2602c69:ProjectViewProjectNode" />
               <item name="consultas" type="462c0819:PsiDirectoryNode" />
-              <item name="consultations" type="462c0819:PsiDirectoryNode" />
-              <item name="Forms" type="462c0819:PsiDirectoryNode" />
+              <item name="patients" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="consultas" type="b2602c69:ProjectViewProjectNode" />
+              <item name="consultas" type="462c0819:PsiDirectoryNode" />
+              <item name="patients" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="patients" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="consultas" type="b2602c69:ProjectViewProjectNode" />
@@ -446,7 +452,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="109654000" />
+    <option name="totallyTimeSpent" value="109996000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -822,13 +828,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/patients/templates/patients/view.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="128" column="11" selection-start-line="128" selection-start-column="11" selection-end-line="128" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="24">
@@ -854,6 +853,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="144">
           <caret line="6" column="30" selection-start-line="6" selection-start-column="30" selection-end-line="6" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/patients/templates/patients/view.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="99" column="53" lean-forward="true" selection-start-line="99" selection-start-column="53" selection-end-line="99" selection-end-column="53" />
         </state>
       </provider>
     </entry>
