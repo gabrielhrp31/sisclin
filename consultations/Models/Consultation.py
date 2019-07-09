@@ -15,7 +15,6 @@ def get_full_date(date, time):
 
 
 class Consultation(models.Model):
-    title = models.TextField(null=False)
     date = models.DateField(null=False)
     startTime = models.TimeField(null=False)
     endTime = models.TimeField(null=False)
@@ -35,7 +34,7 @@ class Consultation(models.Model):
             'allDay': False,
             'start': get_full_date(self.date, self.startTime),
             'end': get_full_date(self.date, self.endTime),
-            'title': self.title,
+            'title': self.procedure.name,
             'url': reverse('view_edit_schedules', kwargs={'type': 'consultation', 'id': self.id}),
             'backgroundColor': self.backgroundColor,
             'textColor': self.textColor,
