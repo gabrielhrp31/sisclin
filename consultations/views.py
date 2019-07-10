@@ -4,9 +4,12 @@ from django.http import JsonResponse, HttpResponseRedirect
 
 from django.shortcuts import render, redirect
 
+# forms
 from consultations.Forms.ConsultationForm import ConsultationForm
 from consultations.Forms.EventForm import EventForm
 from consultations.Forms.ProcedureForm import ProcedureForm
+from financier.forms import PatientFinancialForm
+# models
 from consultations.models import Consultation
 from consultations.models import Event
 from consultations.models import Procedure
@@ -31,14 +34,26 @@ def get_schedules(request):
 
 @login_required
 def new_schedule(request, type):
+    form_payment = None
     if type == 'consultation':
         form = ConsultationForm(request.POST or None, request.FILES or None)
+        form_payment = PatientFinancialForm(request.POST or None, request.FILES or None)
+        print(form_payment.errors)
+        if request.method == "POST" and form.is_valid() and form_payment.is_valid():
+            consultation = form.save()
+            patient_financial = form_payment.save()
+            patient_financial.consultation = consultation
+            patient_financial.save()
+            # messages.add_message(request, messages.success, 'Agendamento Concluido')
+            return redirect('schedule')
     else:
         form = EventForm(request.POST or None, request.FILES or None)
-    if request.method == "POST" and form.is_valid():
-        form.save()
-        # messages.add_message(request, messages.success, 'Agendamento Concluido')
-        return redirect('schedule')
+        if request.method == "POST" and form.is_valid():
+            form.save()
+            # messages.add_message(request, messages.success, 'Agendamento Concluido')
+            return redirect('schedule')
+    if type == 'consultation':
+        return render(request, 'schedule/new.html', {'form': form, 'form_payment': form_payment, 'type': type})
     return render(request, 'schedule/new.html', {'form': form, 'type': type})
 
 

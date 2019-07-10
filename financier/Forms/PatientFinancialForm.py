@@ -1,5 +1,5 @@
 from django.core.validators import RegexValidator
-from django.forms import ModelForm, Textarea, CharField, ChoiceField, Select,HiddenInput, DateInput, DateField
+from django.forms import ModelForm, Textarea, CharField, ChoiceField, Select,HiddenInput, DateInput, DateField, HiddenInput
 from localflavor.br.forms import BRCPFField
 from financier.models import PatientFinancial
 import datetime
@@ -19,7 +19,7 @@ class PatientFinancialForm(ModelForm):
     # outstanding_balance = CharField(label='Saldo devedor', initial='0.00', disabled=True)
     payment_form = ChoiceField(choices=BOOL_PAYMENT, label="Forma de pagamento",
                          initial='', widget=Select(), required=True)
-    plots = CharField(label='Número de parcelas', initial='1', disabled=False)
+    plots = CharField(label='Número de parcelas', widget=Textarea(attrs={'rows': 1, 'style': 'display:none;'}), initial='1', disabled=False)
     # if payment_form:
     #     plots = CharField(label='Número de parcelas', initial='1', disabled=True)
     # else:
@@ -39,4 +39,4 @@ class PatientFinancialForm(ModelForm):
     class Meta:
         model = PatientFinancial
         fields = '__all__'
-        exclude = ['creation_date', 'change_hour', 'outstanding_balance']
+        exclude = ['creation_date', 'change_hour', 'consultation']

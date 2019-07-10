@@ -3,16 +3,15 @@ from patients.Models.Patient import Patient
 from consultations.Models.Consultation import Consultation
 import datetime
 
+
 class PatientFinancial(models.Model):
     # data, hora, descricao, valor total, valor pago,
     # saldo devedor, forma de pagamento, parcelas, 
     # data de pagamento, status
     description = models.TextField(null=True)
-    patient_id = models.ForeignKey(Patient, on_delete=models.SET(None), null=True, verbose_name='Paciente')
-    consultation_id = models.ForeignKey(Consultation, on_delete=models.SET(None), null=True, verbose_name='Consulta')
+    consultation = models.ForeignKey(Consultation, on_delete=models.CASCADE, null=True, verbose_name='Consulta')
     amount = models.DecimalField(max_digits=7, decimal_places=2)
     amount_paid = models.DecimalField(max_digits=7, decimal_places=2)
-    outstanding_balance = models.DecimalField(max_digits=7, decimal_places=2)
     payment_form = models.NullBooleanField(null=False)
     plots = models.IntegerField(null=False, default='0')
     payday = models.DateField(null=False)
@@ -46,8 +45,7 @@ class PatientFinancial(models.Model):
     def as_dict(self):
         return {
             'description', self.description,
-            'patient_id', self.patient.id,
-            'consultation_id', self.consultation.id,
+            'consultation_id', self.consultation,
             'amount', self.amount,
             'amount_paid', self.amount_paid,
             'outstanding_balance', self.get_outstanding_balance(),
