@@ -26,9 +26,7 @@
         <table id="table-contracts" class="table table-striped table-hover"  style="width:100%">
             <thead>
                 <tr>
-                    <td>ID</td>
-                    <td>Data</td>
-                    <td>Hora</td>
+                    <td>Código</td>
                     <td>Descrição</td>
                     <td>Valor Total</td>
                     <td>Valor Pago</td>
@@ -36,6 +34,8 @@
                     <td>Forma de Pagamento</td>
                     <td>Número de Parcelas</td>
                     <td>Dia do Vencimento</td>
+                    <td>Data de Edição</td>
+                    <td>Hora de Edição</td>
                     <td>Status</td>
                 </tr>
             </thead>
@@ -44,12 +44,6 @@
                     <tr>
                         <td>
                             {{ financier.id }}
-                        </td>
-                        <td>
-                            {{ financier.date }}
-                        </td>
-                        <td>
-                            {{ financier.hour }}
                         </td>
                         <td>
                             {{ financier.description }}
@@ -61,19 +55,29 @@
                             {{ financier.amount_paid }}
                         </td>
                         <td>
-                            {{ financier.outstanding_balance }}
+                            {{ financier.get_outstanding_balance }}
                         </td>
                         <td>
-                            {{ financier.payment_form }}
+                            {{ financier.get_payment_form }}
                         </td>
                         <td>
                             {{ financier.plots }}
                         </td>
                         <td>
-                            {{ financier.payday }}
+                            {% if financier.payday == None %}
+                                ---
+                            {% else %}
+                                {{ financier.payday }}    
+                            {% endif %}
                         </td>
                         <td>
-                            {{ financier.status }}
+                            {{ financier.change_date }}
+                        </td>
+                        <td>
+                            {{ financier.change_hour }}
+                        </td>
+                        <td>
+                            {{ financier.get_status }}
                         </td>
                     </tr>
                 {% endfor %}
