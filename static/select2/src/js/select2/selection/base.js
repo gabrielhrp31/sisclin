@@ -21,8 +21,8 @@ define([
 
     this._tabindex = 0;
 
-    if (Utils.GetData(this.$element[0], 'old-tabindex') != null) {
-      this._tabindex = Utils.GetData(this.$element[0], 'old-tabindex');
+    if (this.$element.data('old-tabindex') != null) {
+      this._tabindex = this.$element.data('old-tabindex');
     } else if (this.$element.attr('tabindex') != null) {
       this._tabindex = this.$element.attr('tabindex');
     }
@@ -81,10 +81,8 @@ define([
       self.$selection.removeAttr('aria-activedescendant');
       self.$selection.removeAttr('aria-owns');
 
-      window.setTimeout(function () {
-        self.$selection.focus();
-      }, 0);
-    
+      self.$selection.focus();
+
       self._detachCloseHandler(container);
     });
 
@@ -132,7 +130,7 @@ define([
           return;
         }
 
-        var $element = Utils.GetData(this, 'element');
+        var $element = $this.data('element');
 
         $element.select2('close');
       });

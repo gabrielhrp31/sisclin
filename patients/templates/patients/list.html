@@ -10,11 +10,12 @@
 {% block page_description %}
     Listar
 {% endblock %}
-{% block box_classes %}
-    no-padding responsive-table
+{% block box_header_classes %}
+    table-responsive
 {% endblock %}
 {% block box_header %}
-    <a href="{% url 'new_patient' %}" class="btn btn-primary pull-right"><i class="fa fa-plus"> Novo Paciente</i></a>
+    <a href="{% url 'new_patient' %}" class="btn btn-primary pull-right" style="margin-left:20px;"><i class="fa fa-plus"> Novo Paciente</i></a>
+    <a href="{% url 'get_address' %}" class="btn btn-primary pull-right"><i class="fa fa-map"></i> Listar Endereços</a>
 {% endblock %}
 {% block box %}
     <style>
@@ -29,7 +30,11 @@
                     <td>ID</td>
                     <td>Nome</td>
                     <td>Email</td>
+                    <td>RG</td>
+                    <td>CPF</td>
                     <td>Telefone</td>
+                    <td>Ver Ficha</td>
+                    <td>Editar</td>
                 </tr>
             </thead>
             <tbody>
@@ -45,7 +50,23 @@
                             {{ patient.email }}
                         </td>
                         <td>
+                            {{ patient.RG }}
+                        </td>
+                        <td>
+                            {{ patient.CPF }}
+                        </td>
+                        <td>
                             {{ patient.phone }}
+                        </td>
+                        <td>
+                             <a href="{% url 'view_patient' patient.id %}" class="btn btn-primary">
+                                 <i class="fa fa-eye"></i>
+                             </a>
+                        </td>
+                        <td>
+                            <a href="{% url 'edit_patient' patient.id %}" class="btn btn-warning">
+                                <i class="fa fa-edit"></i>
+                            </a>
                         </td>
                     </tr>
                 {% endfor %}
@@ -60,7 +81,7 @@
                 {% for message in messages %}
                     {% if 'success' in message.tags %}
                         swal(
-                            'Paciente Cadastrado!',
+                            'Sucesso!',
                             '{{  message }}',
                             'success'
                         );

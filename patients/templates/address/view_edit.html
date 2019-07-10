@@ -1,0 +1,61 @@
+{% extends  'box.html' %}
+{% load static %}
+{% load bootstrap %}
+{% block title %}
+    Endereços
+{% endblock %}
+
+{% block page_title %}
+    Endereços
+{% endblock %}
+{% block page_description %}
+    Ver/Editar
+{% endblock %}
+{% block col_classes %}
+    col-lg-6 col-lg-offset-3
+{% endblock %}
+{% block box_classes %}
+    no-padding responsive-table
+{% endblock %}
+{% block box_header %}
+        <a href="{% url 'get_address' %}" class="btn btn-primary pull-right"><i class="fa fa-arrow-left">Voltar</i></a>
+{% endblock %}
+{% block box %}
+    <form class="container-fluid" action="" method="POST">
+        <div class="row">
+            <div class="col-xs-12">
+                {% csrf_token %}
+                {{ form | bootstrap }}
+            </div>
+        </div>
+
+        <div class="row" style="margin-top:50px;">
+            <div class="col-xs-12">
+                <button type="button" id="btn-edit" class="btn btn-warning pull-right" >
+                    <i class="fa fa-edit"></i>Editar
+                </button>
+                <button type="submit" id="btn-save" class="btn btn-success pull-right" style="display: none;">
+                    <i class="fa fa-floppy-o"></i>Salvar
+                </button>
+            </div>
+        </div>
+    </form>
+{% endblock %}
+
+{% block scripts %}
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+    <script src="{% static 'select2/dist/js/select2.full.min.js' %}"></script>
+    <script>
+
+        $(document).ready(function () {
+            $('.form-control').attr('disabled',true);
+        });
+
+        $('#btn-edit').click(function () {
+            $(this).hide(200);
+            $('#btn-save').show(200);
+            $('.form-control').attr('disabled',false);
+        });
+
+    </script>
+{% endblock %}

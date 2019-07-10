@@ -44,7 +44,7 @@ define([
         var $remove = $(this);
         var $selection = $remove.parent();
 
-        var data = Utils.GetData($selection[0], 'data');
+        var data = $selection.data('data');
 
         self.trigger('unselect', {
           originalEvent: evt,
@@ -55,9 +55,7 @@ define([
   };
 
   MultipleSelection.prototype.clear = function () {
-    var $rendered = this.$selection.find('.select2-selection__rendered');
-    $rendered.empty();
-    $rendered.removeAttr('title');
+    this.$selection.find('.select2-selection__rendered').empty();
   };
 
   MultipleSelection.prototype.display = function (data, container) {
@@ -95,9 +93,9 @@ define([
       var formatted = this.display(selection, $selection);
 
       $selection.append(formatted);
-      $selection.attr('title', selection.title || selection.text);
+      $selection.prop('title', selection.title || selection.text);
 
-      Utils.StoreData($selection[0], 'data', selection);
+      $selection.data('data', selection);
 
       $selections.push($selection);
     }
