@@ -8,6 +8,8 @@ from django.shortcuts import render, redirect
 # Create your views here.
 from .models import PatientFinancial
 from .forms import PatientFinancialForm
+from patients.Forms.PatientForm import PatientForm
+from consultations.Forms.ConsultationForm import ConsultationForm
 
 
 def index(request):
@@ -28,9 +30,25 @@ def list_patients_financier(request):
 @login_required
 def new_patient_financier(request):
     patient_financier_form = PatientFinancialForm(request.POST or None, request.FILES or None)
+    patient_form = PatientForm(request.POST or None, request.FILES or None)
+    consultation_form = ConsultationForm(request.POST or None, request.FILES or None)
+
+    print('Fora')
     if request.method == "POST":
-        if patient_financier_form.is_valid():
-            patient_financier_form.save()
+        print('PATIENT')
+        print(patient_form.errors)
+        print('CONSULTATION')
+        print(consultation_form.errors)
+        if patient_financier_form.is_valid() and patient_form.is_valid() and consultation_form.is_valid():
+            print('TOP')
+            patient_financier = patient_financier_form.save()
+            patient = patient_form.save()
+            consultation = consultation_form.save()
+
+            patient_financier.patient_id = patient.id
+            patient_financier.consultation_id = consultation.id
+            
+            patient_financier.save()
             messages.add_message(request, messages.SUCCESS, 'Lançamento Cadastrado')
             return redirect('list_patients_financier')
     return render(request, 'accounting/new.html', {'patient_financier_form': patient_financier_form})

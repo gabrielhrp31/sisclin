@@ -55,16 +55,20 @@
                             {{ financier.amount_paid }}
                         </td>
                         <td>
-                            {{ financier.amount - financier.amount_paid }}
+                            {{ financier.get_outstanding_balance }}
                         </td>
                         <td>
-                            {{ financier.payment_form }}
+                            {{ financier.get_payment_form }}
                         </td>
                         <td>
                             {{ financier.plots }}
                         </td>
                         <td>
-                            {{ financier.payday }}
+                            {% if financier.payday == None %}
+                                ---
+                            {% else %}
+                                {{ financier.payday }}    
+                            {% endif %}
                         </td>
                         <td>
                             {{ financier.change_date }}
@@ -73,7 +77,7 @@
                             {{ financier.change_hour }}
                         </td>
                         <td>
-                            {{ financier.status }}
+                            {{ financier.get_status }}
                         </td>
                     </tr>
                 {% endfor %}

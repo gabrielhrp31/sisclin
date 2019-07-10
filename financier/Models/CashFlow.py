@@ -1,10 +1,13 @@
 from django.db import models
+from financier.Models.PatientFinancial import PatientFinancial
 
 
 class CashFlow(models.Model):
     # data, hora, descricao, valor total, valor pago,
     # saldo devedor, forma de pagamento, parcelas, 
     # data de pagamento, status
+    entrada = patient_id = models.ForeignKey(PatientFinancial, on_delete=models.SET(None), null=True)
+    saida = patient_id = models.ForeignKey(PatientFinancial, on_delete=models.SET(None), null=True)
     date = models.DateField(null=False)
     hour = models.TimeField(null=True)
     description = models.TextField(null=True)
