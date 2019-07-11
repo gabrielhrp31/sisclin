@@ -182,11 +182,11 @@
             $('#id_endTime').inputmask('99:99:99', {'placeholder':'hh:mm:ss'});
             $('#id_payment_form').change(function(){
                 if($(this).val()=="True") {
-                    $('#id_plots').hide(200);
-                    $('#id_plots').val(1);
+                    $('#id_num_plots').hide(200);
+                    $('#id_num_plots').val(1);
                     $(all_labels[10]).hide(200);
                 }else{
-                    $('#id_plots').show(200);
+                    $('#id_num_plots').show(200);
                     $(all_labels[10]).show(200);
                 }
             });

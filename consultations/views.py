@@ -13,6 +13,7 @@ from financier.forms import PatientFinancialForm
 from consultations.models import Consultation
 from consultations.models import Event
 from consultations.models import Procedure
+from financier.models import Plots
 
 
 @login_required
@@ -41,9 +42,19 @@ def new_schedule(request, type):
         print(form_payment.errors)
         if request.method == "POST" and form.is_valid() and form_payment.is_valid():
             consultation = form.save()
-            patient_financial = form_payment.save()
-            patient_financial.consultation = consultation
-            patient_financial.save()
+            patient_financier = form_payment.save()
+
+            #plots = Plots.create(patient_financier.amount, patient_financier.num_plots, patient_financier.payday)
+            plots = Plots()
+            if patient_financier.payment_form:
+                plots.created(patient_financier.amount, patient_financier.amount_paid, patient_financier.num_plots, None)
+            else:
+                plots.created(patient_financier.amount, patient_financier.amount_paid, patient_financier.num_plots, patient_financier.payday)
+            plots.save()
+            patient_financier.consultation = consultation
+            patient_financier.plots = plots
+            patient_financier.save()
+            print(plots)
             # messages.add_message(request, messages.success, 'Agendamento Concluido')
             return redirect('schedule')
     else:
