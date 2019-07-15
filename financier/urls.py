@@ -18,6 +18,6 @@ from . import views
 
 urlpatterns = [
     # path('', views.index, name="patients_index"),
-    path('list', views.list_patients_financier, name="list_patients_financier"),
-    path('new', views.new_patient_financier, name="new_patient_financier")
+    path('list', views.list_costs, name="list_costs"),
+    path('new', views.new_cost, name="new_cost")
 ]

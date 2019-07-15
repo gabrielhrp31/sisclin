@@ -25,6 +25,7 @@ class Plots(models.Model):
     date07 = models.DateField(null=True)
     date07 = models.DateField(null=True)
     date08 = models.DateField(null=True)
+    date09 = models.DateField(null=True)
     date10 = models.DateField(null=True)
     date11 = models.DateField(null=True)
     date12 = models.DateField(null=True)

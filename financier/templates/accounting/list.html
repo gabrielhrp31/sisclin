@@ -14,7 +14,7 @@
     no-padding responsive-table
 {% endblock %}
 {% block box_header %}
-    <a href="{% url 'new_patient_financier' %}" class="btn btn-primary pull-right"><i class="fa fa-plus"> Novo Lançamento</i></a>
+    <a href="{% url 'new_cost' %}" class="btn btn-primary pull-right"><i class="fa fa-plus"> Novo Lançamento</i></a>
 {% endblock %}
 {% block box %}
     <style>
@@ -27,10 +27,9 @@
             <thead>
                 <tr>
                     <td>Código</td>
+                    <td>Tipo</td>
                     <td>Descrição</td>
                     <td>Valor Total</td>
-                    <td>Valor Pago</td>
-                    <td>Saldo Devedor</td>
                     <td>Forma de Pagamento</td>
                     <td>Número de Parcelas</td>
                     <td>Dia do Vencimento</td>
@@ -40,44 +39,41 @@
                 </tr>
             </thead>
             <tbody>
-                {% for financier in patients_financier %}
+                {% for cost in costs %}
                     <tr>
                         <td>
-                            {{ financier.id }}
+                            {{ cost.id }}
                         </td>
                         <td>
-                            {{ financier.description }}
+                            {{ cost.get_cost_type }}
                         </td>
                         <td>
-                            {{ financier.amount }}
+                            {{ cost.description }}
                         </td>
                         <td>
-                            {{ financier.amount_paid }}
+                            {{ cost.amount }}
                         </td>
                         <td>
-                            {{ financier.get_outstanding_balance }}
+                            {{ cost.get_payment_form }}
                         </td>
                         <td>
-                            {{ financier.get_payment_form }}
+                            {{ cost.num_plots }}
                         </td>
                         <td>
-                            {{ financier.plots }}
-                        </td>
-                        <td>
-                            {% if financier.payday == None %}
+                            {% if cost.payday == None %}
                                 ---
                             {% else %}
-                                {{ financier.payday }}    
+                                {{ cost.payday }}    
                             {% endif %}
                         </td>
                         <td>
-                            {{ financier.change_date }}
+                            {{ cost.change_date }}
                         </td>
                         <td>
-                            {{ financier.change_hour }}
+                            {{ cost.change_hour }}
                         </td>
                         <td>
-                            {{ financier.get_status }}
+                            {{ cost.get_status }}
                         </td>
                     </tr>
                 {% endfor %}
