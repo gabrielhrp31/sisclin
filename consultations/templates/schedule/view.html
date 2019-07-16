@@ -1,0 +1,175 @@
+{% extends  'box.html' %}
+{% load static %}
+{% load bootstrap %}
+{% block title %}
+    Consultas
+{% endblock %}
+{% block page_title %}
+    Consultas
+{% endblock %}
+{% block page_description %}
+    Ver
+{% endblock %}
+{% block col_classes %}
+    col-lg-8 col-lg-offset-2
+{% endblock %}
+{% block box_classes %}
+    no-padding responsive-table
+{% endblock %}
+{% block box_header %}
+{% endblock %}
+{% block box %}
+<div class="nav-tabs-custom">
+<ul class="nav nav-tabs">
+  <li class="active"><a href="#tab_1" data-toggle="tab" aria-expanded="true">Consulta</a></li>
+  <li class=""><a href="#tab_2" data-toggle="tab" aria-expanded="false">Pagamento</a></li>
+  <li class="pull-right"> <a href="{% url 'list_patients' %}" class=" pull-right"><i class="fa fa-arrow-left">Voltar</i></a></li>
+</ul>
+<div class="tab-content">
+<div class="tab-pane active" id="tab_1">
+    <h3 class="profile-username text-center">{{ consultation.patient.name }}</h3>
+    <p class="text-muted text-center">{{ consultation.procedure.name }}</p>
+    <h4 class="text-green">1 - Consulta</h4>
+    <ul class="list-group list-group-unbordered">
+        <li class="list-group-item">
+            <b>Data</b> <span class="pull-right">{{ consultation.date }}</span>
+        </li>
+        <li class="list-group-item">
+            <b>Horário</b> <span class="pull-right">{{ consultation.startTime }}h - {{ consultation.endTime }}h</span>
+        </li>
+        <li class="list-group-item">
+            <b>
+                Descrição
+            </b>
+            <p>
+                {{ consultation.description }}
+            </p>
+        </li>
+    </ul>
+    <h4 class="text-green">2 - Pagamento</h4>
+    <ul class="list-group list-group-unbordered">
+        <li class="list-group-item">
+            <b>Valor</b> <span class="pull-right">{{ patient_financier.amount | floatformat:2 }}</span>
+        </li>
+        <li class="list-group-item">
+            <b>Valor da Entrada</b> <span class="pull-right">{{ patient_financier.amount_paid |floatformat:2  }}</span>
+        </li>
+        <li class="list-group-item">
+            <b>Forma de Pagamento</b> <span class="pull-right label label-primary">{{ patient_financier.get_payment_form }}</span>
+        </li>
+        {% if patient_financier.payment_form %}
+            <li class="list-group-item">
+                <b>Número de Parcelas</b> <span class="pull-right">{{ patient_financier.num_plots }}</span>
+            </li>
+        {% endif %}
+        <li class="list-group-item">
+            <b>Dia de vencimento:</b> <span class="pull-right">{{ patient_financier.payday | date:"d"}}</span>
+        </li>
+        <li class="list-group-item">
+            <b>
+                Descrição
+            </b>
+            <p>
+                {{ patient_financier.description }}
+            </p>
+        </li>
+    </ul>
+</div>
+<!-- /.tab-pane -->
+<div class="tab-pane table-responsive" id="tab_2">
+    <table  id="table-paid" class="table table-striped table-hover" >
+        <thead>
+            <tr>
+                <th>
+                    Valor
+                </th>
+                <th>
+                    Situação
+                </th>
+                <th>
+                    Tipo
+                </th>
+                <th>
+                    Data de Vencimento
+                </th>
+                <th>
+                    Data de Pagamento
+                </th>
+                <th>
+                    Editar
+                </th>
+                <th>
+                    Pagar
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for plot in plots %}
+                <tr>
+                    <th>
+                        {{ plot.price }}
+                    </th>
+                    <th>
+                        {{ plot.get_situation | safe}}
+                    </th>
+                    <th>
+                        {{ plot.get_type | safe }}
+                    </th>
+                    <th>
+                        {{ plot.date }}
+                    </th>
+                    <th>
+                        {% if plot.paid_day %}
+                            {{ plot.paid_day }}
+                        {% else %}
+                            Em aberto
+                        {% endif%}
+                    </th>
+                    <th>
+                        <a href="" class="btn btn-warning"><i class="fa fa-edit"></i></a>
+                    </th>
+                    <th>
+                        <a href="" class="btn btn-success"><i class="fa fa-money"></i></a>
+                    </th>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+<!-- /.tab-pane -->
+</div>
+<!-- /.tab-content -->
+</div>
+{% endblock %}
+
+{% block scripts %}
+    <script>
+        $(document).ready(function () {
+            {% if messages %}
+                {% for message in messages %}
+                    {% if 'success' in message.tags %}
+                        swal(
+                            'Sucesso!',
+                            '{{  message }}',
+                            'success'
+                        );
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+            $('#table-paid').DataTable({
+                "language": {
+                    "lengthMenu": "Mostrar _MENU_ por Página",
+                    "zeroRecords": "Nenhum Registro de Parcelas",
+                    "info": "Pagina _PAGE_ de _PAGES_",
+                    "infoEmpty": "Nenhuma Parcela Encontrada",
+                    "search":"Pesquisar",
+                    "paginate": {
+                        "previous": "Anterior",
+                        "next": "Próximo",
+                    },
+                    "infoFiltered": "(Filtrado de _MAX_ Parcelas)"
+                },
+            });
+        });
+    </script>
+{% endblock %}

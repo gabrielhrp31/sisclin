@@ -105,7 +105,7 @@
                             {{ consultation.description }}
                         </div>
                         <div class="timeline-footer">
-                            <a href="{% url 'view_edit_schedules' "consultation" consultation.id %}" class="btn btn-primary btn-xs">Ver/Editar</a>
+                            <a href="{% url 'edit_schedules' "consultation" consultation.id %}" class="btn btn-primary btn-xs">Editar</a>
                             {% if key < today %}
                                <form action="{% url 'delete_consultation' consultation.id 'patient' %}" method="POST" style="display:inline;">
                                     {% csrf_token %}

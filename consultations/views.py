@@ -4,6 +4,8 @@ from django.http import JsonResponse, HttpResponseRedirect
 
 from django.shortcuts import render, redirect
 
+from datetime import datetime, timedelta
+
 # forms
 from consultations.Forms.ConsultationForm import ConsultationForm
 from consultations.Forms.EventForm import EventForm
@@ -14,6 +16,7 @@ from consultations.models import Consultation
 from consultations.models import Event
 from consultations.models import Procedure
 from financier.models import Plots
+from financier.models import PatientFinancial
 
 
 @login_required
@@ -39,29 +42,30 @@ def new_schedule(request, type):
     if type == 'consultation':
         form = ConsultationForm(request.POST or None, request.FILES or None)
         form_payment = PatientFinancialForm(request.POST or None, request.FILES or None)
-        print(form_payment.errors)
         if request.method == "POST" and form.is_valid() and form_payment.is_valid():
             consultation = form.save()
             patient_financier = form_payment.save()
+            plots_price = (patient_financier.amount-patient_financier.amount_paid)/patient_financier.num_plots
 
             #plots = Plots.create(patient_financier.amount, patient_financier.num_plots, patient_financier.payday)
             plots = Plots()
-            if patient_financier.payment_form:
-                plots.created(patient_financier.amount, patient_financier.amount_paid, patient_financier.num_plots, None)
-            else:
-                plots.created(patient_financier.amount, patient_financier.amount_paid, patient_financier.num_plots, patient_financier.payday)
-            plots.save()
+            plots.create(patient_financier.amount_paid, datetime.now(), patient_financier, True)
+            plots.pay(datetime.now())
+
+            for i in range(0, patient_financier.num_plots):
+                plots = Plots()
+                date = patient_financier.payday + timedelta(days=(30*i))
+                plots.create(plots_price, date, patient_financier)
+
             patient_financier.consultation = consultation
-            patient_financier.plots = plots
             patient_financier.save()
-            print(plots)
-            # messages.add_message(request, messages.success, 'Agendamento Concluido')
+            messages.add_message(request, messages.SUCCESS, 'Consulta Agendada!')
             return redirect('schedule')
     else:
         form = EventForm(request.POST or None, request.FILES or None)
         if request.method == "POST" and form.is_valid():
             form.save()
-            # messages.add_message(request, messages.success, 'Agendamento Concluido')
+            messages.add_message(request, messages.SUCCESS, 'Evento Agendado!')
             return redirect('schedule')
     if type == 'consultation':
         return render(request, 'schedule/new.html', {'form': form, 'form_payment': form_payment, 'type': type})
@@ -69,17 +73,26 @@ def new_schedule(request, type):
 
 
 @login_required
-def view_edit(request, type, id):
+def edit(request, type, id):
     if type == 'consultation':
         consultation = Consultation.objects.get(pk=id)
         form = ConsultationForm(request.POST or None, request.FILES or None, instance=consultation)
+        if request.method == "POST" and form.is_valid():
+            form.save()
+            return redirect('schedule')
     else:
         event = Event.objects.get(pk=id)
         form = EventForm(request.POST or None, request.FILES or None, instance=event)
-    if form.is_valid():
-        form.save()
-        return redirect('schedule')
-    return render(request, 'schedule/view_edit.html', {'form': form, 'type': type})
+    return render(request, 'schedule/edit.html', {'form': form, 'type': type})
+
+
+@login_required
+def view(request, id):
+    consultation = Consultation.objects.get(pk=id)
+    patient_financier = PatientFinancial.objects.filter(consultation=consultation)
+    patient_financier = patient_financier[0]
+    plots = Plots.objects.filter(patient_financial=patient_financier)
+    return render(request, 'schedule/view.html', {'consultation': consultation, 'patient_financier': patient_financier, 'plots': plots})
 
 
 @login_required

@@ -159,7 +159,7 @@
     <script>
         var csrftoken = Cookies.get('csrftoken');
         all_labels = $('.control-label');
-        $(all_labels[10]).hide();
+        $('#id_num_plots').parent().parent().children("label").hide();
         $(document).ready(function () {
             $('#id_date').datepicker({
                 format: "dd/mm/yyyy",
@@ -184,21 +184,33 @@
                 if($(this).val()=="True") {
                     $('#id_num_plots').hide(200);
                     $('#id_num_plots').val(1);
-                    $(all_labels[10]).hide(200);
+                    $('#id_num_plots').parent().parent().children("label").hide(200);
                 }else{
                     $('#id_num_plots').show(200);
-                    $(all_labels[10]).show(200);
+                    $('#id_num_plots').parent().parent().children("label").show(200);
                 }
             });
+            if($("#id_patient").val()!=""){
+                get_patient($("#id_patient").val(),false);
+            }
+            if($("#id_procedure").val()!=""){
+                get_procedure($("#id_procedure").val(),false);
+            }
 
         });
 
-        $('#procedure-select-open').click(function () {
+         $('#patient-select-open').click(function () {
+            get_patients();
+        });
+
+         $('#procedure-select-open').click(function () {
             get_procedures();
         });
 
-        $('#patient-select-open').click(function () {
-            get_patients();
+        $('#btn-edit').click(function () {
+            $(this).hide(200);
+            $('#btn-save').show(200);
+            $('.form-control').attr('disabled',false);
         });
 
         function get_patients() {
@@ -211,7 +223,7 @@
                     $('#patients-table tbody').empty();
                     for (index = 0; index < data.length; ++index) {
                         option = data[index];
-                        $('#patients-table tbody').append('<tr> <td id="col-id">'+ option['id'] +'</td> <td id="col-name"> '+ option['name'] +' </td> <td  id="col-RG"> '+ option['RG'] +'</td> <td  id="col-CPF"> '+ option['CPF'] +'</td>  <td><button type="button" onclick="select_patient(this,'+option['id']+')"class="btn btn-success"><i class="fa fa-check"></i></button></td> </tr>');
+                        $('#patients-table tbody').append('<tr> <td id="col-id">'+ option['id'] +'</td> <td id="col-name"> '+ option['name'] +' </td> <td  id="col-RG"> '+ option['RG'] +'</td> <td  id="col-CPF"> '+ option['CPF'] +'</td>  <td><button type="button" onclick="get_patient('+option['id']+',true)"class="btn btn-success"><i class="fa fa-check"></i></button></td> </tr>');
                     }
                     $('#patients-table').dataTable();
                 },
@@ -231,7 +243,7 @@
                     $('#procedures-table tbody').empty();
                     for (index = 0; index < data.length; ++index) {
                         option = data[index];
-                        $('#procedures-table tbody').append('<tr> <td id="col-id">'+ option['id'] +'</td> <td id="col-name"> '+ option['name'] +' </td> <td  id="col-price"> '+ option['price'] +'</td> <td><button type="button" onclick="select_procedure(this,'+option['id']+')"class="btn btn-success"><i class="fa fa-check"></i></button></td> </tr>');
+                        $('#procedures-table tbody').append('<tr> <td id="col-id">'+ option['id'] +'</td> <td id="col-name"> '+ option['name'] +' </td> <td  id="col-price"> '+ option['price'] +'</td> <td><button type="button" onclick="get_procedure('+option['id']+',true)"class="btn btn-success"><i class="fa fa-check"></i></button></td> </tr>');
                     }
                     $('#procedures-table').dataTable();
                 },
@@ -240,36 +252,66 @@
                 }
             });
         }
+        function get_patient(id, show_message){
+            $.ajax({
+                url: "/patients/view/"+id+"/",
+                type:  'get',
+                dataType: "json",
+                success: function(data) {
+                    select_patient(data, show_message)
+                },
+                error:function (data) {
 
-        function select_patient(element, id){
-            $('#patient').html(
-                $(element).parent().parent().children("#col-name").html() + ', '+
-                $(element).parent().parent().children("#col-RG").html() + ', '+
-                    $(element).parent().parent().children("#col-CPF").html() + '.'
-            );
-
-            $('#id_patient').val(id);
-            swal(
-                'Sucesso!',
-                'Paciente Selecionado',
-                'success'
-            );
-            $('#modal-patients').modal('hide');
+                }
+            });
         }
 
-        function select_procedure(element, id){
-            $('#procedure').html(
-                $(element).parent().parent().children("#col-name").html() + ', R$'+
-                $(element).parent().parent().children("#col-price").html()
-            );
 
-            $('#id_procedure').val(id);
-            swal(
-                'Sucesso!',
-                'Procedimento Selecionado',
-                'success'
+        function get_procedure(id, show_message){
+            $.ajax({
+                url: "/consultations/procedures/view_edit/"+id+"/",
+                type:  'get',
+                dataType: "json",
+                success: function(data) {
+                    select_procedure(data, show_message)
+                },
+                error:function (data) {
+
+                }
+            });
+        }
+
+        function select_patient(data, show_message){
+            $('#patient').html(
+                data.name + ', '+
+                data.RG + ', '+
+                data.CPF
             );
-            $('#modal-procedures').modal('hide');
+            if(show_message){
+                $('#id_patient').val(data.id);
+                swal(
+                    'Sucesso!',
+                    'Paciente Selecionado',
+                    'success'
+                );
+                $('#modal-patients').modal('hide');
+            }
+        }
+
+        function select_procedure(data, show_message){
+            $('#procedure').html(
+                data.name + ', R$'+
+                data.price
+            );
+            if(show_message){
+                $('#id_procedure').val(data.id);
+                swal(
+                    'Sucesso!',
+                    'Procedimento Selecionado',
+                    'success'
+                );
+                $('#modal-procedures').modal('hide');
+            }
         }
     </script>
 {% endblock %}

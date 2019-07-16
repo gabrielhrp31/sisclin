@@ -35,7 +35,7 @@ class Consultation(models.Model):
             'start': get_full_date(self.date, self.startTime),
             'end': get_full_date(self.date, self.endTime),
             'title': self.procedure.name,
-            'url': reverse('view_edit_schedules', kwargs={'type': 'consultation', 'id': self.id}),
+            'url': reverse('view_schedules', kwargs={'id': self.id}),
             'backgroundColor': self.backgroundColor,
             'textColor': self.textColor,
             'patient': self.patient.id,

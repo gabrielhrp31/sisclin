@@ -45,6 +45,17 @@
     <script type='text/javascript' src="{% static 'fullcalendar/dist/locale-all.js' %}"></script>
     <script type='text/javascript'>
         $(document).ready(function() {
+            {% if messages %}
+                {% for message in messages %}
+                    {% if 'success' in message.tags %}
+                        swal(
+                            'Sucesso!',
+                            '{{  message }}',
+                            'success'
+                        );
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
             // page is now ready, initialize the calendar...
             $('#calendar').fullCalendar({
                 // put your options and callbacks here

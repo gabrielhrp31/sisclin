@@ -40,7 +40,7 @@ class Event(models.Model):
             'start': get_full_date(self.start, self.startTime),
             'end': get_full_date(self.end, self.endTime),
             'title': self.title,
-            'url': reverse('view_edit_schedules',  kwargs={'type': 'event', 'id': self.id}),
+            'url': reverse('edit_schedules',  kwargs={'type': 'event', 'id': self.id}),
             'backgroundColor': self.backgroundColor,
             'textColor': self.textColor,
             'borderColor': '#ffffff',
