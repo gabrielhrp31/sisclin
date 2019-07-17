@@ -91,6 +91,7 @@ def edit(request, type, id):
 def view(request, id):
     consultation = Consultation.objects.get(pk=id)
     patient_financier = PatientFinancial.objects.filter(consultation=consultation)
+    plots = []
     if patient_financier:
         patient_financier = patient_financier[0]
         plots = Plots.objects.filter(patient_financial=patient_financier)
