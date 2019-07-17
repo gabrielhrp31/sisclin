@@ -2,15 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ff34d4b4-aa49-4b8e-b72c-0266eca74784" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/consultations/Models/Procedure.py" beforeDir="false" afterPath="$PROJECT_DIR$/consultations/Models/Procedure.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/consultations/templates/procedures/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/consultations/templates/procedures/list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/consultations/templates/schedule/edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/consultations/templates/schedule/edit.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/consultations/templates/schedule/new.html" beforeDir="false" afterPath="$PROJECT_DIR$/consultations/templates/schedule/new.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/financier/Models/Cost.py" beforeDir="false" afterPath="$PROJECT_DIR$/financier/Models/Cost.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/financier/templates/accounting/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/financier/templates/accounting/list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/financier/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/financier/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -91,8 +85,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/consultations/templates/schedule/new.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="159">
-              <caret line="306" column="29" lean-forward="true" selection-start-line="306" selection-start-column="29" selection-end-line="306" selection-end-column="29" />
+            <state relative-caret-position="-546">
+              <caret line="48" column="77" selection-start-line="48" selection-start-column="77" selection-end-line="48" selection-end-column="77" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/consultations/templates/schedule/edit.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="168">
+              <caret line="119" column="59" selection-start-line="119" selection-start-column="59" selection-end-line="119" selection-end-column="59" />
             </state>
           </provider>
         </entry>
@@ -113,11 +116,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/consultations/templates/procedures/view_edit.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="84">
-              <caret line="4" column="16" lean-forward="true" selection-start-line="4" selection-start-column="16" selection-end-line="4" selection-end-column="16" />
+            <state relative-caret-position="-108">
+              <caret line="14" column="14" lean-forward="true" selection-start-line="14" selection-start-column="14" selection-end-line="14" selection-end-column="14" />
             </state>
           </provider>
         </entry>
@@ -141,18 +144,6 @@
               <filtering enabled="true">
                 <filter text="" />
               </filtering>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/financier/views.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="714">
-              <caret line="64" column="13" selection-start-line="64" selection-start-column="13" selection-end-line="64" selection-end-column="13" />
-              <folding>
-                <element signature="e#0#35#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -183,7 +174,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/templates/dashboard/base.html" />
         <option value="$PROJECT_DIR$/static/odonto/style.css" />
         <option value="$PROJECT_DIR$/templates/dashboard/includes/header.html" />
         <option value="$PROJECT_DIR$/templates/dashboard/views/schdule.html" />
@@ -231,9 +221,10 @@
         <option value="$PROJECT_DIR$/financier/Models/Cost.py" />
         <option value="$PROJECT_DIR$/financier/templates/accounting/list.html" />
         <option value="$PROJECT_DIR$/consultations/Models/Procedure.py" />
-        <option value="$PROJECT_DIR$/consultations/templates/schedule/new.html" />
         <option value="$PROJECT_DIR$/consultations/templates/procedures/list.html" />
         <option value="$PROJECT_DIR$/consultations/templates/procedures/view_edit.html" />
+        <option value="$PROJECT_DIR$/consultations/templates/schedule/new.html" />
+        <option value="$PROJECT_DIR$/consultations/templates/schedule/edit.html" />
       </list>
     </option>
   </component>
@@ -453,7 +444,7 @@
       <workItem from="1561827529798" duration="4220000" />
       <workItem from="1562012297059" duration="1589000" />
       <workItem from="1562082246532" duration="11583000" />
-      <workItem from="1563396353524" duration="2012000" />
+      <workItem from="1563396353524" duration="2620000" />
     </task>
     <task id="LOCAL-00001" summary="enviando requirements">
       <created>1560565007868</created>
@@ -501,7 +492,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="85234000" />
+    <option name="totallyTimeSpent" value="85842000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="27" width="1366" height="741" extended-state="6" />
@@ -571,9 +562,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="selecionar endereço no cadastro de pacientes terminado" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/static/odonto/css/style.css">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/static/odonto/imgs/avatar.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
@@ -911,13 +899,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/consultations/templates/schedule/new.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="159">
-          <caret line="306" column="29" lean-forward="true" selection-start-line="306" selection-start-column="29" selection-end-line="306" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/consultations/templates/procedures/list.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="228">
@@ -932,8 +913,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/consultations/templates/procedures/view_edit.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="4" column="16" lean-forward="true" selection-start-line="4" selection-start-column="16" selection-end-line="4" selection-end-column="16" />
+        <state relative-caret-position="-108">
+          <caret line="14" column="14" lean-forward="true" selection-start-line="14" selection-start-column="14" selection-end-line="14" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/consultations/templates/schedule/new.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-546">
+          <caret line="48" column="77" selection-start-line="48" selection-start-column="77" selection-end-line="48" selection-end-column="77" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/consultations/templates/schedule/edit.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="119" column="59" selection-start-line="119" selection-start-column="59" selection-end-line="119" selection-end-column="59" />
         </state>
       </provider>
     </entry>
