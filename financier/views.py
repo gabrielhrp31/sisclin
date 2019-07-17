@@ -46,7 +46,6 @@ def list_costs(request, year=None, month=None):
             if not (cost_as_plot.date in all.keys()):
                 all[cost_as_plot.date] = []
             all[cost_as_plot.date].append(cost_as_plot)
-            print("não foi pago")
         else:
             print("foi pago")
             if not (cost_as_plot.date in all.keys()):

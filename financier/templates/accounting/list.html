@@ -123,7 +123,30 @@
                                                     <div class="timeline-item">
                                                         <span class="time {% if not plot.paid_day and plot.date < today %}text-red{% endif %}"><i class="fa fa-clock-o"></i>  {% if plot.paid_day %}Data do Pagamento: {{ plot.paid_day }}{% else %}Data de vencimento: {{ plot.date }} {% endif %}</span>
 
-                                                        <h3 class="timeline-header {% if not plot.paid_day and plot.date < today %}text-red{% endif %}">{% if plot.paid_day %}Saldo recebido{% else %}Saldo a receber {% endif %} referente a {% ifequal plot.type 1 %}{% if plot.input %} entrada da {% else %}  parcela da {% endif %}{% endifequal %}{{ plot.patient_financial.consultation.procedure.name }}</h3>
+                                                        <h3 class="timeline-header {% if not plot.paid_day and plot.date < today %}text-red{% endif %}">
+                                                            {% if plot.type < 2 %}
+                                                                {% if plot.status %}
+                                                                    Saldo recebido
+                                                                {% else %}
+                                                                    Saldo a receber
+                                                                {% endif %}
+                                                            {% else %}
+                                                                {% if plot.status %}
+                                                                    Debito Quitado
+                                                                {% else %}
+                                                                    Debito em aberto
+                                                                {% endif %}
+                                                            {% endif %}
+                                                            referente a
+                                                            {% ifequal plot.type 1 %}
+                                                                {% if plot.input %}
+                                                                    entrada da
+                                                                {% else %}
+                                                                    parcela da
+                                                                {% endif %}
+                                                            {% endifequal %}
+                                                            {{ plot.patient_financial.consultation.procedure.name }}
+                                                        </h3>
 
                                                         <div class="timeline-body {% if not plot.paid_day and plot.date < today %}text-red{% endif %}">
                                                             <span>Paciente: {{ plot.patient_financial.consultation.patient.name }}</span><br>
@@ -139,7 +162,30 @@
                                                     <i class="fa fa-money {% if plot.paid_day and  plot.type > 1 %}bg-red{% elif plot.paid_day %}bg-green{% else %} bg-yellow{% endif %}"></i>
                                                     <div class="timeline-item">
                                                         <span class="time {% if not plot.paid_day and plot.date < today %}text-red{% endif %}"><i class="fa fa-clock-o"></i> {% if plot.paid_day %}Data do Pagamento: {{ plot.paid_day }}{% else %}Data de vencimento: {{ plot.date }} {% endif %}</span>
-                                                        <h3 class="timeline-header {% if not plot.paid_day and plot.date < today %}text-red{% endif %}">{% if plot.paid_day %}Saldo recebido{% else %}Saldo a receber {% endif %} referente a {% ifequal plot.type 1 %}{% if plot.input %} entrada {% else %}  parcela {% endif %}{% endifequal %} {{ plot.cost.description }}</h3>
+                                                        <h3 class="timeline-header {% if not plot.paid_day and plot.date < today %}text-red{% endif %}">
+                                                            {% if plot.type < 2 %}
+                                                                {% if plot.status %}
+                                                                    Saldo recebido
+                                                                {% else %}
+                                                                    Saldo a receber
+                                                                {% endif %}
+                                                            {% else %}
+                                                                {% if plot.status %}
+                                                                    Debito quitado
+                                                                {% else %}
+                                                                    Debito em aberto
+                                                                {% endif %}
+                                                            {% endif %}
+                                                            referente a
+                                                            {% ifequal plot.type 1 %}
+                                                                {% if plot.input %}
+                                                                    entrada da
+                                                                {% else %}
+                                                                    parcela da
+                                                                {% endif %}
+                                                            {% endifequal %}
+                                                            {{ plot.cost.description }}
+                                                        </h3>
                                                         <div class="timeline-body {% if not plot.paid_day and plot.date < today %}text-red{% endif %}">
                                                             <span>Valor:</span> {{ plot.price | floatformat:2 }}
                                                             <span>Pagamento: {{ plot.status }}</span>

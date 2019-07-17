@@ -28,7 +28,7 @@
                 <tr>
                     <td>ID</td>
                     <td>Nome</td>
-                    <td>Preço</td>
+{#                    <td>Preço</td>#}
                     <td>Ver/Editar</td>
                 </tr>
             </thead>
@@ -41,9 +41,9 @@
                         <td>
                             {{ procedure.name }}
                         </td>
-                        <td>
-                            {{ procedure.price }}
-                        </td>
+{#                        <td>#}
+{#                            {{ procedure.price }}#}
+{#                        </td>#}
                         <td>
                             <a href="{% url 'view_edit_procedure' procedure.id %}" class="btn btn-primary">
                                 <i class="fa fa-caret-square-o-right"></i>

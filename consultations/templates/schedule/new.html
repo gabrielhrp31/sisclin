@@ -128,9 +128,6 @@
                                         Nome
                                     </td>
                                     <td>
-                                        Preço
-                                    </td>
-                                    <td>
                                         Selecionar
                                     </td>
                                 </tr>
@@ -243,7 +240,7 @@
                     $('#procedures-table tbody').empty();
                     for (index = 0; index < data.length; ++index) {
                         option = data[index];
-                        $('#procedures-table tbody').append('<tr> <td id="col-id">'+ option['id'] +'</td> <td id="col-name"> '+ option['name'] +' </td> <td  id="col-price"> '+ option['price'] +'</td> <td><button type="button" onclick="get_procedure('+option['id']+',true)"class="btn btn-success"><i class="fa fa-check"></i></button></td> </tr>');
+                        $('#procedures-table tbody').append('<tr> <td id="col-id">'+ option['id'] +'</td> <td id="col-name"> '+ option['name'] +' </td> <td><button type="button" onclick="get_procedure('+option['id']+',true)"class="btn btn-success"><i class="fa fa-check"></i></button></td> </tr>');
                     }
                     $('#procedures-table').dataTable();
                 },
@@ -300,8 +297,7 @@
 
         function select_procedure(data, show_message){
             $('#procedure').html(
-                data.name + ', R$'+
-                data.price
+                data.name + ', R$'
             );
             if(show_message){
                 $('#id_procedure').val(data.id);

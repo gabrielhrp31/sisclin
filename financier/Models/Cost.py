@@ -30,16 +30,16 @@ class Cost(models.Model):
 
     def get_paid_day(self, year=None, month=None):
         if year and month:
-            plot = Plots.Plots.objects.filter(cost=self.id, paid_day__month=month, paid_day__year=year)
+            print("ano")
+            plot = Plots.Plots.objects.filter(cost=self.id, paid_day__isnull=False, date__month=month, date__year=year)
         else:
-            plot = Plots.Plots.objects.filter(cost=self.id, paid_day__month=datetime.now().month, paid_day__year=datetime.now().year)
+            plot = Plots.Plots.objects.filter(cost=self.id, paid_day__isnull=False, date__month=datetime.now().month, date__year=datetime.now().year)
         return plot[0].paid_day if plot else None
 
-    def get_payment_status(self, month, year):
+    def get_payment_status(self, year, month):
         plot = None
         if year and month:
             plot = Plots.Plots.objects.filter(cost=self.id, paid_day__isnull=False, date__month=month, date__year=year)
-            print(plot)
         if plot:
             return True
         return False
@@ -53,7 +53,6 @@ class Cost(models.Model):
         plot.paid_day = self.get_paid_day(year, month)
         plot.type = 3
         plot.status = self.get_payment_status(year, month)
-        # print(plot.paid_day)
         return plot
 
     def as_dict(self):
