@@ -70,7 +70,8 @@
                 }
             });
         
-            $('#id_payday').inputmask({regex: "^([0-2][0-9]|(3)[0-1])(\\/)(((0)[0-9])|((1)[0-2]))(\\/)\\d{4}$"}); //Date
+            $('#id_payday').inputmask({regex: "^([0-2][0-9]|(3)[0-1])(\\/)(((0)[0-9])|((1)[0-2]))(\\/)\\d{4}$",
+                                    placeholder: "dd/mm/aaaa"}); //Date
             $('#id_amount').inputmask({regex: "\\d+(\\.\\d{1,2})?"});  // decimal .2
             $('#id_num_plots').inputmask({regex: "(([0-9])|((1)[0-2]))"});  // 0 - 12
         });

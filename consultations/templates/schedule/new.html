@@ -166,6 +166,11 @@
                 autoclose: true,
                 orientation: 'bottom'
             });
+            $('#id_payday').datepicker({
+                format: "dd/mm/yyyy",
+                autoclose: true,
+                orientation: 'bottom'
+            });
             $('#id_backgroundColor').colorpicker();
             $('#id_textColor').colorpicker();
             $('#id_start').datepicker({
@@ -197,6 +202,13 @@
                 get_procedure($("#id_procedure").val(),false);
             }
 
+            $('#id_date').inputmask({regex: "^([0-2][0-9]|(3)[0-1])(\\/)(((0)[0-9])|((1)[0-2]))(\\/)\\d{4}$",
+                                    placeholder: "dd/mm/aaaa"}); //Date
+            $('#id_amount').inputmask({regex: "\\d+(\\.\\d{1,2})?"});  // decimal .2
+            $('#id_amount_paid').inputmask({regex: "\\d+(\\.\\d{1,2})?"});  // decimal .2
+            $('#id_num_plots').inputmask({regex: "(([0-9])|((1)[0-2]))"});  // 0 - 12
+            $('#id_payday').inputmask({regex: "^([0-2][0-9]|(3)[0-1])(\\/)(((0)[0-9])|((1)[0-2]))(\\/)\\d{4}$",
+                                    placeholder: "dd/mm/aaaa"}); //Date
         });
 
          $('#patient-select-open').click(function () {
