@@ -23,7 +23,6 @@
 <ul class="nav nav-tabs">
   <li class="active"><a href="#tab_1" data-toggle="tab" aria-expanded="true">Dados Pessoais</a></li>
   <li class=""><a href="#tab_2" data-toggle="tab" aria-expanded="false">Consultas</a></li>
-  <li class=""><a href="#tab_3" data-toggle="tab" aria-expanded="false">Pagamentos</a></li>
   <li class="pull-right"> <a href="{% url 'list_patients' %}" class=" pull-right"><i class="fa fa-arrow-left">Voltar</i></a></li>
 </ul>
 <div class="tab-content">
@@ -105,6 +104,7 @@
                             {{ consultation.description }}
                         </div>
                         <div class="timeline-footer">
+                            <a href="{% url 'view_schedules' consultation.id %}" class="btn btn-primary btn-xs">Ver</a>
                             <a href="{% url 'edit_schedules' "consultation" consultation.id %}" class="btn btn-primary btn-xs">Editar</a>
                             {% if key < today %}
                                <form action="{% url 'delete_consultation' consultation.id 'patient' %}" method="POST" style="display:inline;">
@@ -128,10 +128,6 @@
     {% else %}
         <h4>Nenhum Procedimento Realizado por este Paciente</h4>
     {% endif %}
-</div>
-<!-- /.tab-pane -->
-<div class="tab-pane" id="tab_3">
-    Contas
 </div>
 <!-- /.tab-pane -->
 </div>

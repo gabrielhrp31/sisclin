@@ -49,12 +49,12 @@ def new_schedule(request, type):
 
             #plots = Plots.create(patient_financier.amount, patient_financier.num_plots, patient_financier.payday)
             plots = Plots()
-            plots.create(patient_financier.amount_paid, datetime.now(), patient_financier, True)
+            plots.create(patient_financier.amount_paid, datetime.now(), patient_financier, 1)
             plots.pay(datetime.now())
 
             for i in range(0, patient_financier.num_plots):
                 plots = Plots()
-                date = patient_financier.payday + timedelta(days=(30*i))
+                date = patient_financier.payday + timedelta(days=(30*(i+1)))
                 plots.create(plots_price, date, patient_financier)
 
             patient_financier.consultation = consultation
