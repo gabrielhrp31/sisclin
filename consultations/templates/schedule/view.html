@@ -142,14 +142,14 @@
                               <div class="modal-header">
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                   <span aria-hidden="true">×</span></button>
-                                <h4 class="modal-title">Realizar Pagamento</h4>
+                                <h4 class="modal-title">Confirmar Pagamento</h4>
                               </div>
                               <div class="modal-body">
-                                <p>Tem Certeza que deseja realizar o pagamento da parcela no valor de {{ plot.price | floatformat:2 }}?</p>
+                                <p>Tem Certeza que deseja confirmar o pagamento da parcela no valor de {{ plot.price | floatformat:2 }}?</p>
                               </div>
                               <div class="modal-footer">
                                 <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cancelar</button>
-                                 <form action="{% url 'pay_plot' plot.id %}" method="POST">
+                                 <form action="{% url 'pay_plot' "consultation" plot.id %}" method="POST">
                                       {% csrf_token %}
                                     <button type="submit" class="btn btn-success">Confirmar Pagamento</button>
                                   </form>

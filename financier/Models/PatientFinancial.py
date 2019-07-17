@@ -18,16 +18,12 @@ class PatientFinancial(models.Model):
     creation_date = models.DateField(auto_now_add=True)
     change_date = models.DateField(null=False, auto_now=True)
     change_hour = models.TimeField(null=False, auto_now=True)
-    status = models.NullBooleanField(null=True)
     
     def __str__(self):
         return self.consultation.id+' - '+self.description+' - '+self.amount+' - '+self.status
 
     def get_payment_form(self):
         return 'À vista' if self.payment_form else 'À prazo'
-
-    def get_status(self):
-        return 'FINALIZADO' if self.status else 'PENDENTE'
 
     def get_outstanding_balance(self):
         return self.amount - self.amount_paid
@@ -50,5 +46,4 @@ class PatientFinancial(models.Model):
             'creation_date', self.creation_date,
             'change_date', self.change_date,
             'change_hour', self.change_hour,
-            'status', self.status,
         }

@@ -1,5 +1,9 @@
 from django.db import models
 
+from datetime import datetime
+
+from financier.Models import Plots
+
 
 class Cost(models.Model):
     cost_type = models.NullBooleanField(null=False)
@@ -12,9 +16,6 @@ class Cost(models.Model):
     change_date = models.DateField(null=False, auto_now=True)
     change_hour = models.TimeField(null=False, auto_now=True)
     status = models.NullBooleanField(null=False)
-    
-    def __str__(self):
-        return self.description
 
     def get_cost_type(self):
         return '<span class="label label-primary">Fixo</span>' if self.cost_type else '<span class="label label-primary">Variável</span>'
@@ -22,12 +23,20 @@ class Cost(models.Model):
     def get_payment_form(self):
         return 'À vista' if self.payment_form else 'À prazo'
 
-    def get_payment_status(self):
-        pass
+    def get_payment_date(self):
+        plot = Plots.Plots.objects.filter(cost=self.id, paid_day__month=datetime.now().month)
+        return plot[0].paid_day if plot else None
 
-    def get_status(self):
-        return 'FINALIZADO' if self.status else 'PENDENTE'
-        
+    def as_plot(self):
+        plot = Plots.Plots()
+        plot.cost = self
+        plot.price = self.amount
+        plot.date = self.payday
+        plot.input = False
+        plot.paid_day = self.get_payment_date()
+        plot.type = 3
+        return plot
+
     def as_dict(self):
         return {
             'cost_type', self.cost_type,
@@ -39,5 +48,4 @@ class Cost(models.Model):
             'creation_date', self.creation_date,
             'change_date', self.change_date,
             'change_hour', self.change_hour,
-            'status', self.status,
         }

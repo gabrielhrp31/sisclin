@@ -19,7 +19,8 @@ from . import views
 urlpatterns = [
     # path('', views.index, name="patients_index"),
     path('list', views.list_costs, name="list_costs"),
+    path('list/<int:year>/<int:month>/', views.list_costs, name="list_costs_filtered"),
     path('new', views.new_cost, name="new_cost"),
     #PLOTS
-    path('pay/<int:id>/', views.pay_plot, name="pay_plot")
+    path('pay/<slug:location>/<int:id>/', views.pay_plot, name="pay_plot")
 ]

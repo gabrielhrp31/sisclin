@@ -48,9 +48,10 @@ def new_schedule(request, type):
             plots_price = (patient_financier.amount-patient_financier.amount_paid)/patient_financier.num_plots
 
             #plots = Plots.create(patient_financier.amount, patient_financier.num_plots, patient_financier.payday)
-            plots = Plots()
-            plots.create(patient_financier.amount_paid, datetime.now(), patient_financier, 1)
-            plots.pay(datetime.now())
+            if patient_financier.amount_paid > 0:
+                plots = Plots()
+                plots.create(patient_financier.amount_paid, datetime.now(), patient_financier, 1, True)
+                plots.pay(datetime.now())
 
             for i in range(0, patient_financier.num_plots):
                 plots = Plots()

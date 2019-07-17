@@ -13,13 +13,14 @@ class Plots(models.Model):
     date = models.DateField(null=True)
     paid_day = models.DateField(null=True)
     # True =  entrada e False=Parcela
-    input = models.BooleanField(null=False, default=True)
-    # 1 = entrada, 2 = saida
+    input = models.BooleanField(null=False, default=False)
+    # 1 = entrada, 2 = saida, 3=saida de custo fixo
     type = models.IntegerField(null=False, default=2)
 
-    def create(self, plot_price, plot_date, entity, type=2):
+    def create(self, plot_price, plot_date, entity, type=2, input=False):
         self.price = plot_price
         self.date = plot_date
+        self.input = input
         if type == 1:
             self.patient_financial = entity
         if type == 2:

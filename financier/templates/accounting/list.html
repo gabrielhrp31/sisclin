@@ -29,39 +29,165 @@
         </ul>
         <div class="tab-content">
             <div class="tab-pane active" id="tab_monthly">
-                {% if all.items %}
-                    <ul class="timeline">
-                        {% for key, values in all.items %}
-                            <li class="time-label">
-                                <span class="{% ifequal key today %}bg-blue{% else %}bg-gray{% endifequal %}">
-                                    {{ key }}
-                                </span>
-                            </li>
-                            {% for plot in values %}
-                                <li>
-                                    {% if plot.patient_financial %}
-                                        <i class="fa fa-stethoscope {% if plot.paid_day%}bg-green{% else %}bg-red{% endif %}"></i>
-                                    {% else %}
-                                        <i class="fa fa-money {% if plot.paid_day%}bg-green{% else %}bg-red{% endif %}"></i>
-                                    {% endif %}
-                                    <div class="timeline-item">
-                                        <span class="time"><i class="fa fa-clock-o"></i> {{ consultation.endTime }}</span>
-                                        <span class="time"> - </span>
-                                        <span class="time"><i class="fa fa-clock-o"></i> {{ consultation.startTime }}</span>
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-xs-12 col-md-3">
+                            <div class="small-box bg-green">
+                                <div class="inner">
+                                    <h3>R${{ financier.input|floatformat:2}}</h3>
+                                    <p>Entrada</p>
+                                </div>
+                                <div class="icon">
+                                    <i class="fa fa-dollar"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-md-3">
+                            <div class="small-box bg-yellow">
+                                <div class="inner">
+                                    <h3>R${{ financier.opened|floatformat:2}}</h3>
+                                    <p>Em aberto</p>
+                                </div>
+                                <div class="icon">
+                                    <i class="fa fa-exclamation"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-md-3">
+                            <div class="small-box bg-red">
+                                <div class="inner">
+                                    <h3>R${{ financier.output|floatformat:2}}</h3>
+                                    <p>Saída</p>
+                                </div>
+                                <div class="icon">
+                                    <i class="fa  fa-arrow-circle-left"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-md-3">
+                            <div class="small-box bg-aqua">
+                                <div class="inner">
+                                    <h3>R${{ financier.balance|floatformat:2}}</h3>
+                                    <p>Balanço</p>
+                                </div>
+                                <div class="icon">
+                                    <i class="fa fa-balance-scale"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-bottom:20px;">
+                        <div class="col-xs-4 col-xs-offset-1">
+                            <label for="year">
+                                Ano(Padrão=Atual):
+                            </label>
+                            <input class="form-control" id="year" type="number" placeholder="Ex.:2019">
+                        </div>
+                        <div class="col-xs-4">
+                            <label for="month">
+                                Mês
+                            </label>
+                            <select id="month" class="form-control" name="select">
+                                <option value="1">Janeiro</option>
+                                <option value="2">Fevereiro</option>
+                                <option value="3">Março</option>
+                                <option value="4">Abril</option>
+                                <option value="5">Maio</option>
+                                <option value="6">Junho</option>
+                                <option value="7">Julho</option>
+                                <option value="8">Agosto</option>
+                                <option value="9">Setembro</option>
+                                <option value="10">Outubro</option>
+                                <option value="11">Novembro</option>
+                                <option value="12">Dezembro</option>
+                            </select>
+                        </div>
+                        <div class="col-xs-2" style="margin-top:20px;">
+                            <button id="filter" class="btn btn-default">Filtrar</button>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            {% if all.items %}
+                                <ul class="timeline">
+                                    {% for key, values in all.items %}
+                                        <li class="time-label">
+                                            <span class="{% ifequal key today %}bg-blue{% else %}bg-gray{% endifequal %}">
+                                                {{ key }}
+                                            </span>
+                                        </li>
+                                        {% for plot in values %}
+                                            <li>
+                                                {% if plot.patient_financial %}
+                                                    <i class="fa fa-stethoscope {% if plot.paid_day and  plot.type > 1 %}bg-red{% elif plot.paid_day %}bg-green{% else %} bg-yellow{% endif %}"></i>
+                                                    <div class="timeline-item">
+                                                        <span class="time {% if not plot.paid_day and plot.date < today %}text-red{% endif %}"><i class="fa fa-clock-o"></i>  {% if plot.paid_day %}Data do Pagamento: {{ plot.paid_day }}{% else %}Data de vencimento: {{ plot.date }} {% endif %}</span>
 
-                                        <h3 class="timeline-header">{% if key < today %}Realizou{% else %}Realizará{% endif %} um(a) {{ consultation.procedure.name }}</h3>
-                                        <div class="timeline-body">
-                                            {{ consultation.description }}
-                                        </div>
-                                    </div>
-                                </li>
-                            {% endfor %}
-                        {% endfor %}
-                    </ul>
-                {% endif %}
+                                                        <h3 class="timeline-header {% if not plot.paid_day and plot.date < today %}text-red{% endif %}">{% if plot.paid_day %}Saldo recebido{% else %}Saldo a receber {% endif %} referente a {% ifequal plot.type 1 %}{% if plot.input %} entrada da {% else %}  parcela da {% endif %}{% endifequal %}{{ plot.patient_financial.consultation.procedure.name }}</h3>
+
+                                                        <div class="timeline-body {% if not plot.paid_day and plot.date < today %}text-red{% endif %}">
+                                                            <span>Paciente: {{ plot.patient_financial.consultation.patient.name }}</span><br>
+                                                            <span>Valor: {{ plot.price | floatformat:2 }} </span>
+                                                        </div>
+                                                        <div class="timeline-footer">
+                                                             {% if not plot.paid_day %}
+                                                                <a  class="btn {% if not plot.paid_day and plot.date < today %}btn-danger{% else %}btn-success{% endif %} btn-xs" data-toggle="modal" data-target="#modal-pay{{ plot.id }}">Realizar Pagamento</a>
+                                                             {% endif %}
+                                                        </div>
+                                                    </div>
+                                                {% else %}
+                                                    <i class="fa fa-stethoscope {% if plot.paid_day and  plot.type > 1 %}bg-red{% elif plot.paid_day %}bg-green{% else %} bg-yellow{% endif %}"></i>
+                                                    <div class="timeline-item">
+                                                        <span class="time {% if not plot.paid_day and plot.date < today %}text-red{% endif %}"><i class="fa fa-clock-o"></i> {% if plot.paid_day %}Data do Pagamento: {{ plot.paid_day }}{% else %}Data de vencimento: {{ plot.date }} {% endif %}</span>
+                                                        <h3 class="timeline-header {% if not plot.paid_day and plot.date < today %}text-red{% endif %}">{% if plot.paid_day %}Saldo recebido{% else %}Saldo a receber {% endif %} referente a {% ifequal plot.type 1 %}{% if plot.input %} entrada {% else %}  parcela {% endif %}{% endifequal %} {{ plot.cost.description }}</h3>
+                                                        <div class="timeline-body {% if not plot.paid_day and plot.date < today %}text-red{% endif %}">
+                                                            <span>Valor:</span> {{ plot.price | floatformat:2 }}
+                                                        </div>
+                                                        <div class="timeline-footer">
+                                                             {% if not plot.paid_day %}
+                                                                <a  class="btn {% if not plot.paid_day and plot.date < today %}btn-danger{% else %}btn-success{% endif %}  btn-xs" data-toggle="modal" data-target="#modal-pay{{ plot.id }}">Confirmar Pagamento</a>
+                                                            {% endif %}
+                                                        </div>
+                                                    </div>
+                                                {% endif %}
+                                                <div class="modal modal-success fade in" id="modal-pay{{ plot.id }}">
+                                                    <div class="modal-dialog">
+                                                        <div class="modal-content">
+                                                          <div class="modal-header">
+                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                              <span aria-hidden="true">×</span></button>
+                                                            <h4 class="modal-title">Confirmar Pagamento</h4>
+                                                          </div>
+                                                          <div class="modal-body">
+                                                            <p>Tem Certeza que deseja confirmar o pagamento no valor de {{ plot.price | floatformat:2 }}?</p>
+                                                          </div>
+                                                      <div class="modal-footer">
+                                                        <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cancelar</button>
+                                                          {% if plot.id %}
+                                                              <form action="{% url 'pay_plot' "financier" plot.id %}" method="POST">
+                                                          {% else %}
+                                                              <form action="{% url 'pay_plot' "financier_fix" plot.cost.id %}" method="POST">
+                                                          {% endif %}
+                                                              {% csrf_token %}
+                                                            <button type="submit" class="btn btn-success">Confirmar Pagamento</button>
+                                                          </form>
+                                                      </div>
+                                                    </div>
+                                                <!-- /.modal-content -->
+                                                </div>
+                                                <!-- /.modal-dialog -->
+                                            </div>
+                                        </li>
+                                    {% endfor %}
+                                {% endfor %}
+                            </ul>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
             </div>
             <!-- /.tab-pane -->
-            <div class="tab-pane" id="tab_all">
+            <div class="tab-pane table-responsive" id="tab_all">
                 <table id="table-contracts" class="table table-striped table-hover"  style="width:100%">
                     <thead>
                         <tr>
@@ -72,7 +198,6 @@
                             <td>Forma de Pagamento</td>
                             <td>Número de Parcelas</td>
                             <td>Dia do Vencimento</td>
-                            <td>Status</td>
                         </tr>
                     </thead>
                     <tbody>
@@ -102,9 +227,6 @@
                                     {% else %}
                                         {{ cost.payday | date:"d"}}
                                     {% endif %}
-                                </td>
-                                <td>
-                                    {{ cost.get_status }}
                                 </td>
                             </tr>
                         {% endfor %}
@@ -143,6 +265,18 @@
                     },
                     "infoFiltered": "(Filtrado de _MAX_ Lançamentos)"
                 },
+            });
+
+            $("#filter").click(function () {
+                var year=0;
+                var month=$("#month").val();
+                if($("#year").val()==""){
+                    year = 2019;
+                }else{
+                    year = $("#year").val();
+
+                }
+                window.location.href = "{% url 'list_costs' %}/"+year+"/"+month+"/";
             });
         })
     </script>
