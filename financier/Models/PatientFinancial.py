@@ -18,9 +18,6 @@ class PatientFinancial(models.Model):
     creation_date = models.DateField(auto_now_add=True)
     change_date = models.DateField(null=False, auto_now=True)
     change_hour = models.TimeField(null=False, auto_now=True)
-    
-    def __str__(self):
-        return self.consultation.id+' - '+self.description+' - '+self.amount+' - '+self.status
 
     def get_payment_form(self):
         return 'À vista' if self.payment_form else 'À prazo'
