@@ -32,20 +32,28 @@ def list_costs(request, year=None, month=None):
         range = calendar.monthrange(year, month)
         begin = datetime.now().replace(day=1, month=month, year=year, hour=0, minute=0, second=0, microsecond=0)
         end = datetime.now().replace(day=range[1], month=month, year=year, hour=0, minute=0, second=0, microsecond=0)
-        print(begin)
-        print (end)
         
     costs = Cost.objects.all()
     financier = {"input": 0, "output": 0, "opened": 0, "balance": 0}
     all = {}
     monthly_plots_pay = Plots.objects.filter(paid_day__range=[begin, end])
     monthly_plots = Plots.objects.filter(paid_day=None, date__range=[begin, end])
-    monthly_costs = Cost.objects.filter(Q(payday__range=[begin, end]), cost_type=True)
+    monthly_costs = Cost.objects.filter(cost_type=True)
     for cost in monthly_costs:
-        if not (cost.payday in all.keys()):
-            all[cost.payday] = []
-        if not cost.get_payment_date():
-            all[cost.payday].append(cost.as_plot())
+        cost_as_plot = cost.as_plot(year, month)
+        print(cost_as_plot.paid_day)
+        if not cost_as_plot.paid_day:
+            if not (cost_as_plot.date in all.keys()):
+                all[cost_as_plot.date] = []
+            all[cost_as_plot.date].append(cost_as_plot)
+            print("não foi pago")
+        else:
+            print("foi pago")
+            if not (cost_as_plot.date in all.keys()):
+                all[cost_as_plot.paid_day] = []
+            all[cost_as_plot.paid_day].append(cost_as_plot)
+            
+            
 
     # print(monthly_costs)
     for plot in monthly_plots_pay:
@@ -69,7 +77,7 @@ def list_costs(request, year=None, month=None):
                 if plot.paid_day:
                     financier["output"] = financier["output"] + plot.price
                 else:
-                    financier["opened"] = financier["opened"] + plot.price
+                    financier["opened"] = financier["opened"] - plot.price
     financier["balance"] = financier["input"]-financier["output"]
 
     if request.method == "GET" and request.is_ajax():
@@ -77,7 +85,7 @@ def list_costs(request, year=None, month=None):
         for cost in costs:
             data.append(cost.as_dict())
         return JsonResponse(data, safe=False)
-    return render(request, 'accounting/list.html', {'costs': costs, 'all': all, "financier": financier, 'today': date.today()})
+    return render(request, 'accounting/list.html', {'costs': costs, 'all': all, "financier": financier, 'today': date.today(), 'year': year, 'month': month})
 
 
 @login_required
@@ -107,7 +115,7 @@ def new_cost(request):
 
 
 @login_required
-def pay_plot(request, location, id):
+def pay_plot(request, location, id, year=None, month=None):
     patient_financier = None
     if location == "consultation" or location == "financier":
         plot = Plots.objects.get(pk=id)
@@ -116,7 +124,7 @@ def pay_plot(request, location, id):
         patient_financier = PatientFinancial.objects.get(pk=plot.patient_financial.id)
     else:
         cost = Cost.objects.get(pk=id)
-        plot = cost.as_plot()
+        plot = cost.as_plot(year, month)
         plot.pay(datetime.now())
     if "financier" in location:
         return redirect('list_costs')

@@ -136,12 +136,13 @@
                                                         </div>
                                                     </div>
                                                 {% else %}
-                                                    <i class="fa fa-stethoscope {% if plot.paid_day and  plot.type > 1 %}bg-red{% elif plot.paid_day %}bg-green{% else %} bg-yellow{% endif %}"></i>
+                                                    <i class="fa fa-money {% if plot.paid_day and  plot.type > 1 %}bg-red{% elif plot.paid_day %}bg-green{% else %} bg-yellow{% endif %}"></i>
                                                     <div class="timeline-item">
                                                         <span class="time {% if not plot.paid_day and plot.date < today %}text-red{% endif %}"><i class="fa fa-clock-o"></i> {% if plot.paid_day %}Data do Pagamento: {{ plot.paid_day }}{% else %}Data de vencimento: {{ plot.date }} {% endif %}</span>
                                                         <h3 class="timeline-header {% if not plot.paid_day and plot.date < today %}text-red{% endif %}">{% if plot.paid_day %}Saldo recebido{% else %}Saldo a receber {% endif %} referente a {% ifequal plot.type 1 %}{% if plot.input %} entrada {% else %}  parcela {% endif %}{% endifequal %} {{ plot.cost.description }}</h3>
                                                         <div class="timeline-body {% if not plot.paid_day and plot.date < today %}text-red{% endif %}">
                                                             <span>Valor:</span> {{ plot.price | floatformat:2 }}
+                                                            <span>Pagamento: {{ plot.status }}</span>
                                                         </div>
                                                         <div class="timeline-footer">
                                                              {% if not plot.paid_day %}
@@ -166,7 +167,11 @@
                                                           {% if plot.id %}
                                                               <form action="{% url 'pay_plot' "financier" plot.id %}" method="POST">
                                                           {% else %}
-                                                              <form action="{% url 'pay_plot' "financier_fix" plot.cost.id %}" method="POST">
+                                                              {% if year and month %}
+                                                                <form action="{% url 'pay_plot_fix' "financier_fix" plot.cost.id year month %}" method="POST">
+                                                              {% else %}
+                                                                <form action="{% url 'pay_plot' "financier_fix" plot.cost.id %}" method="POST">
+                                                              {% endif %}
                                                           {% endif %}
                                                               {% csrf_token %}
                                                             <button type="submit" class="btn btn-success">Confirmar Pagamento</button>
