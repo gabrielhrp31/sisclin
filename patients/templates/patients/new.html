@@ -128,13 +128,25 @@
 {% block scripts %}
     <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
     <script src="{% static 'select2/dist/js/select2.full.min.js' %}"></script>
+    <script src="{% static 'bootstrap-datepicker/dist/js/bootstrap-datepicker.js' %}"></script>
+    <script src="{%  static 'inputmask/dist/jquery.inputmask.bundle.js' %} "></script>
     <script>
         var csrftoken = Cookies.get('csrftoken');
 
         $(document).ready(function () {
+            $('#id_birth_date').datepicker({
+                format: "dd/mm/yyyy",
+                autoclose: true,
+                orientation: 'bottom'
+            });
             {#swal("Teste");#}
             {#get_address();#}
-
+            $('#id_birth_date').inputmask({regex: "^([0-2][0-9]|(3)[0-1])(\\/)(((0)[0-9])|((1)[0-2]))(\\/)\\d{4}$",
+                                    placeholder: "dd/mm/aaaa"}); //Date
+            $('#id_phone').inputmask({mask: "(99) 9 9999-9999"});  // decimal .2
+            //$('#id_email').inputmask({regex: "^[a-z0-9.]+@[a-z0-9]+\\.[a-z]+(\\.([a-z]+))?$/i"});  // 0 - 12
+            $('#id_CPF').inputmask({regex: "[0-9]{3}\\.[0-9]{3}\\.[0-9]{3}\\-[0-9]{2}"});  // decimal .2
+            
         });
         $('#address-select-open').click(function () {
             get_address();
