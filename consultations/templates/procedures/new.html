@@ -36,3 +36,11 @@
         </div>
     </form>
 {% endblock %}
+{% block scripts %}
+    <script src="{%  static 'inputmask/dist/jquery.inputmask.bundle.js' %} "></script>
+    <script>
+        $(document).ready(function () {
+            $('#id_price').inputmask({regex: "\\d+(\\.\\d{1,2})?"});  // decimal .2
+        });
+    </script>
+{% endblock %}
