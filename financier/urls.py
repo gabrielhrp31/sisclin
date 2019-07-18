@@ -22,5 +22,6 @@ urlpatterns = [
     path('list/<int:year>/<int:month>/', views.list_costs, name="list_costs_filtered"),
     path('new', views.new_cost, name="new_cost"),
     #PLOTS
-    path('pay/<slug:location>/<int:id>/', views.pay_plot, name="pay_plot")
+    path('pay/<slug:location>/<int:id>/', views.pay_plot, name="pay_plot"),
+    path('delete/<int:id>/', views.delete_cost, name="delete_cost")
 ]

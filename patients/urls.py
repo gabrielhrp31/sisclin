@@ -22,8 +22,10 @@ urlpatterns = [
     path('new/', views.new_patient, name="new_patient"),
     path('edit/<int:id>/', views.edit_patient, name="edit_patient"),
     path('view/<int:id>/', views.view_patient, name="view_patient"),
+    path('delete/<int:id>/', views.delete_patient, name="delete_patient"),
     # addresses urls
     path('address/list/', views.get_address, name="get_address"),
     path('address/new/', views.new_address, name="new_address"),
     path('address/view_edit/<int:id>/', views.view_edit_address, name="view_edit_address"),
+    path('address/delete/<int:id>/', views.delete_address, name="delete_address"),
 ]
