@@ -16,6 +16,8 @@ class Plots(models.Model):
     input = models.BooleanField(null=False, default=False)
     # 1 = entrada, 2 = saida, 3=saida de custo fixo
     type = models.IntegerField(null=False, default=2)
+    #status = true então está pago
+    status = models.BooleanField(null=False, default=False)
 
     def create(self, plot_price, plot_date, entity, type=2, input=False):
         self.price = plot_price
@@ -50,4 +52,5 @@ class Plots(models.Model):
 
     def pay(self, date):
         self.paid_day = date
+        self.status = True
         self.save()

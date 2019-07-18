@@ -1,6 +1,6 @@
 from django.db import models
 
-from datetime import datetime
+from datetime import datetime, date, timedelta
 
 from financier.Models import Plots
 
@@ -23,18 +23,36 @@ class Cost(models.Model):
     def get_payment_form(self):
         return 'À vista' if self.payment_form else 'À prazo'
 
-    def get_payment_date(self):
-        plot = Plots.Plots.objects.filter(cost=self.id, paid_day__month=datetime.now().month)
+    def get_payment_date(self, year, month):
+        if year and month:
+            return self.payday - (date.today().replace(day=1)-self.payday.replace(day=1, year=year, month=month))
+        return self.payday - (date.today().replace(day=1)-self.payday.replace(day=1, year=datetime.now().year, month=datetime.now().month))
+
+    def get_paid_day(self, year=None, month=None):
+        if year and month:
+            print("ano")
+            plot = Plots.Plots.objects.filter(cost=self.id, paid_day__isnull=False, date__month=month, date__year=year)
+        else:
+            plot = Plots.Plots.objects.filter(cost=self.id, paid_day__isnull=False, date__month=datetime.now().month, date__year=datetime.now().year)
         return plot[0].paid_day if plot else None
 
-    def as_plot(self):
+    def get_payment_status(self, year, month):
+        plot = None
+        if year and month:
+            plot = Plots.Plots.objects.filter(cost=self.id, paid_day__isnull=False, date__month=month, date__year=year)
+        if plot:
+            return True
+        return False
+
+    def as_plot(self, year=None, month=None):
         plot = Plots.Plots()
         plot.cost = self
         plot.price = self.amount
-        plot.date = self.payday
+        plot.date = self.get_payment_date(year, month)
         plot.input = False
-        plot.paid_day = self.get_payment_date()
+        plot.paid_day = self.get_paid_day(year, month)
         plot.type = 3
+        plot.status = self.get_payment_status(year, month)
         return plot
 
     def as_dict(self):

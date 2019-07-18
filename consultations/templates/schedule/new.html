@@ -76,7 +76,7 @@
                         <span aria-hidden="true">×</span></button>
                         <h4 class="modal-title">Buscar Paciente</h4>
                     </div>
-                    <div class="modal-body">
+                    <div class="modal-body table-responsive">
                         <table id="patients-table" class="table table-striped table-responsive">
                             <thead>
                                 <tr>
@@ -117,7 +117,7 @@
                         <span aria-hidden="true">×</span></button>
                         <h4 class="modal-title">Buscar Procedimento</h4>
                     </div>
-                    <div class="modal-body">
+                    <div class="modal-body table-responsive">
                         <table id="procedures-table" class="table table-striped table-responsive">
                             <thead>
                                 <tr>
@@ -126,9 +126,6 @@
                                     </td>
                                     <td>
                                         Nome
-                                    </td>
-                                    <td>
-                                        Preço
                                     </td>
                                     <td>
                                         Selecionar
@@ -255,7 +252,7 @@
                     $('#procedures-table tbody').empty();
                     for (index = 0; index < data.length; ++index) {
                         option = data[index];
-                        $('#procedures-table tbody').append('<tr> <td id="col-id">'+ option['id'] +'</td> <td id="col-name"> '+ option['name'] +' </td> <td  id="col-price"> '+ option['price'] +'</td> <td><button type="button" onclick="get_procedure('+option['id']+',true)"class="btn btn-success"><i class="fa fa-check"></i></button></td> </tr>');
+                        $('#procedures-table tbody').append('<tr> <td id="col-id">'+ option['id'] +'</td> <td id="col-name"> '+ option['name'] +' </td> <td><button type="button" onclick="get_procedure('+option['id']+',true)"class="btn btn-success"><i class="fa fa-check"></i></button></td> </tr>');
                     }
                     $('#procedures-table').dataTable();
                 },
@@ -312,8 +309,7 @@
 
         function select_procedure(data, show_message){
             $('#procedure').html(
-                data.name + ', R$'+
-                data.price
+                data.name + ', R$'
             );
             if(show_message){
                 $('#id_procedure').val(data.id);

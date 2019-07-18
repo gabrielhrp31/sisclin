@@ -56,7 +56,7 @@ def new_schedule(request, type):
             for i in range(0, patient_financier.num_plots):
                 plots = Plots()
                 date = patient_financier.payday + timedelta(days=(30*(i+1)))
-                plots.create(plots_price, date, patient_financier)
+                plots.create(plots_price, date, patient_financier, 1)
 
             patient_financier.consultation = consultation
             patient_financier.save()
@@ -91,8 +91,10 @@ def edit(request, type, id):
 def view(request, id):
     consultation = Consultation.objects.get(pk=id)
     patient_financier = PatientFinancial.objects.filter(consultation=consultation)
-    patient_financier = patient_financier[0]
-    plots = Plots.objects.filter(patient_financial=patient_financier)
+    plots = []
+    if patient_financier:
+        patient_financier = patient_financier[0]
+        plots = Plots.objects.filter(patient_financial=patient_financier)
     return render(request, 'schedule/view.html', {'consultation': consultation, 'patient_financier': patient_financier, 'plots': plots})
 
 
