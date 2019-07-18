@@ -128,3 +128,9 @@ def pay_plot(request, location, id, year=None, month=None):
     if "financier" in location:
         return redirect('list_costs')
     return redirect('view_schedules', id=patient_financier.consultation.id)
+
+def delete_cost(request, id):
+    cost = Cost.objects.get(pk=id)
+    if cost.delete():
+        messages.add_message(request, messages.SUCCESS, 'Custo Deletado!')
+    return redirect('list_costs')

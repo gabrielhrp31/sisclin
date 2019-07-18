@@ -1,5 +1,5 @@
 from django.core.validators import RegexValidator
-from django.forms import ModelForm, Textarea, CharField, ChoiceField, Select,HiddenInput
+from django.forms import ModelForm, Textarea, CharField, ChoiceField, DateField, Select,HiddenInput
 from localflavor.br.forms import BRCPFField
 from patients.models import Patient
 
@@ -11,7 +11,7 @@ class PatientForm(ModelForm):
     gender = ChoiceField(choices=BOOL_CHOICES, label="Genêro",
                          initial='', widget=Select(), required=True)
     name = CharField(label='Nome')
-    birth_date = CharField(label='Data de Nascimento')
+    birth_date = DateField(label='Data de Nascimento')
     phone = CharField(label='Telefone ou Celular')
     CPF = BRCPFField(label="CPF")
     RG = CharField(label='RG (Identidade)')

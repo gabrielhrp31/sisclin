@@ -9,7 +9,7 @@ class ConsultationForm(ModelForm):
         model = Consultation
         exclude = {'payment'}
         labels = {
-            'start': 'Data da Consulta',
+            'date': 'Data da Consulta',
             'startTime': 'Hora de Inicio',
             'endTime': 'Hora de Término',
             'description': 'Descrição',

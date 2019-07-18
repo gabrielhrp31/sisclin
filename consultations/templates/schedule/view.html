@@ -21,9 +21,16 @@
 {% block box %}
 <div class="nav-tabs-custom">
 <ul class="nav nav-tabs">
-  <li class="active"><a href="#tab_1" data-toggle="tab" aria-expanded="true">Consulta</a></li>
-  <li class=""><a href="#tab_2" data-toggle="tab" aria-expanded="false">Pagamento</a></li>
-  <li class="pull-right"> <a href="{% url 'list_patients' %}" class=" pull-right"><i class="fa fa-arrow-left">Voltar</i></a></li>
+    <li class="active"><a href="#tab_1" data-toggle="tab" aria-expanded="true">Consulta</a></li>
+    <li class=""><a href="#tab_2" data-toggle="tab" aria-expanded="false">Pagamento</a></li>
+    <li class="pull-right"> <a href="{% url 'schedule' %}" class=" pull-right"><i class="fa fa-arrow-left">Voltar</i></a></li>
+    <li class="pull-right">
+        <a href="" class=" pull-right btn btn-danger" data-toggle="modal" data-target="#modal-schedule{{ consultation.id }}">
+            <i class="fa fa-trash text-red">
+                Cancelar
+            </i>
+        </a>
+    </li>
 </ul>
 <div class="tab-content">
 <div class="tab-pane active" id="tab_1">
@@ -74,6 +81,29 @@
             </p>
         </li>
     </ul>
+    <div class="modal modal-danger fade in" id="modal-schedule{{ consultation.id }}">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span></button>
+                <h4 class="modal-title">Confirmar Exclusão</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Tem Certeza que deseja excluir a consulta ?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cancelar</button>  
+                    <form action="{% url 'delete_schedule' consultation.id %}" method="POST">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-danger">Confirmar</button>
+                    </form>
+                </div>
+            </div>
+        <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
 </div>
 <!-- /.tab-pane -->
 <div class="tab-pane table-responsive" id="tab_2">
@@ -136,29 +166,29 @@
                         {% endif %}
                     </td>
                 </tr>
-                 <div class="modal modal-success fade in" id="modal-pay{{ plot.id }}">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                              <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                  <span aria-hidden="true">×</span></button>
-                                <h4 class="modal-title">Confirmar Pagamento</h4>
-                              </div>
-                              <div class="modal-body">
-                                <p>Tem Certeza que deseja confirmar o pagamento da parcela no valor de {{ plot.price | floatformat:2 }}?</p>
-                              </div>
-                              <div class="modal-footer">
-                                <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cancelar</button>
-                                 <form action="{% url 'pay_plot' "consultation" plot.id %}" method="POST">
-                                      {% csrf_token %}
-                                    <button type="submit" class="btn btn-success">Confirmar Pagamento</button>
-                                  </form>
-                              </div>
+                <div class="modal modal-success fade in" id="modal-pay{{ plot.id }}">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">×</span></button>
+                            <h4 class="modal-title">Confirmar Pagamento</h4>
                             </div>
-                        <!-- /.modal-content -->
+                            <div class="modal-body">
+                            <p>Tem Certeza que deseja confirmar o pagamento da parcela no valor de {{ plot.price | floatformat:2 }}?</p>
+                            </div>
+                            <div class="modal-footer">
+                            <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cancelar</button>
+                                <form action="{% url 'pay_plot' "consultation" plot.id %}" method="POST">
+                                    {% csrf_token %}
+                                <button type="submit" class="btn btn-success">Confirmar Pagamento</button>
+                                </form>
+                            </div>
                         </div>
-                        <!-- /.modal-dialog -->
+                    <!-- /.modal-content -->
                     </div>
+                    <!-- /.modal-dialog -->
+                </div>
             {% endfor %}
         </tbody>
     </table>

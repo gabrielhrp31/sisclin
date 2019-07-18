@@ -188,7 +188,6 @@
                                                         </h3>
                                                         <div class="timeline-body {% if not plot.paid_day and plot.date < today %}text-red{% endif %}">
                                                             <span>Valor:</span> {{ plot.price | floatformat:2 }}
-                                                            <span>Pagamento: {{ plot.status }}</span>
                                                         </div>
                                                         <div class="timeline-footer">
                                                              {% if not plot.paid_day %}
@@ -249,6 +248,7 @@
                             <td>Forma de Pagamento</td>
                             <td>Número de Parcelas</td>
                             <td>Dia do Vencimento</td>
+                            <td>Excluir</td>
                         </tr>
                     </thead>
                     <tbody>
@@ -279,7 +279,35 @@
                                         {{ cost.payday | date:"d"}}
                                     {% endif %}
                                 </td>
+                                <td>
+                                    <a href="" class="btn btn-danger" data-toggle="modal" data-target="#modal-cost{{ cost.id }}">
+                                        <i class="fa fa-trash"></i>
+                                    </a>
+                                </td>
                             </tr>
+                            <div class="modal modal-danger fade in" id="modal-cost{{ cost.id }}">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">×</span></button>
+                                        <h4 class="modal-title">Confirmar Exclusão</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <p>Tem Certeza que deseja excluir o endereço "{{ cost.description }}" ?</p>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cancelar</button>
+                                            <form action="{% url 'delete_cost' cost.id %}" method="POST">
+                                                {% csrf_token %}
+                                                <button type="submit" class="btn btn-danger">Confirmar</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                            <!-- /.modal-content -->
+                                </div>
+                            <!-- /.modal-dialog -->
+                            </div>
                         {% endfor %}
                     </tbody>
                 </table>

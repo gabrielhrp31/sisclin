@@ -74,6 +74,7 @@ def view_patient(request, id):
 
 @login_required
 def get_address(request):
+    print('FUNCAO GET')
     addresses = Address.objects.all()
     if request.is_ajax():
         data = []
@@ -101,7 +102,7 @@ def new_address(request):
             return redirect('get_address')
     return render(request, 'address/new.html', {'form': form})
 
-
+@login_required
 def view_edit_address(request, id):
     address = Address.objects.get(pk=id)
     form = AddressForm(request.POST or None, request.FILES or None, instance=address)
@@ -111,3 +112,17 @@ def view_edit_address(request, id):
             messages.add_message(request, messages.SUCCESS, 'Endereço Editado')
             return redirect('get_address')
     return render(request, 'address/view_edit.html', {'form': form})
+
+@login_required
+def delete_address(request, id):
+    address = Address.objects.get(pk=id)
+    if address.delete():
+        messages.add_message(request, messages.SUCCESS, 'Endereço Deletado')
+    return redirect('get_address')
+
+@login_required
+def delete_patient(request, id):
+    patient = Patient.objects.get(pk=id)
+    if patient.delete():
+        messages.add_message(request, messages.SUCCESS, 'Paciente Deletado!')
+    return redirect('list_patients')

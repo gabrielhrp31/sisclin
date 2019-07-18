@@ -8,7 +8,7 @@ from financier.Models import Plots
 class Cost(models.Model):
     cost_type = models.NullBooleanField(null=False)
     description = models.TextField(null=True)
-    amount = models.DecimalField(max_digits=7, decimal_places=2)
+    amount = models.DecimalField(max_digits=10, decimal_places=2)
     payment_form = models.NullBooleanField(null=False)
     num_plots = models.IntegerField(null=True)
     payday = models.DateField(null=True)

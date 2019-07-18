@@ -134,10 +134,22 @@ def view_edit_procedure(request, id):
 
 
 def delete_consultation(request, id, location):
-    procedure = Consultation.objects.get(pk=id)
-    if procedure.delete():
+    consultation = Consultation.objects.get(pk=id)
+    if consultation.delete():
         messages.add_message(request, messages.SUCCESS, 'Consulta Cancelada/Excluida!')
     if location == "patient":
         next = request.POST.get('next', '/')
         return HttpResponseRedirect(next)
+    return redirect('schedule')
+
+def delete_procedure(request, id):
+    procedure = Procedure.objects.get(pk=id)
+    if procedure.delete():
+        messages.add_message(request, messages.SUCCESS, 'Procedimento Excluido!')
+    return redirect('procedures')
+
+def delete_schedule(request, id):
+    schedule = Consultation.objects.get(pk=id)
+    if schedule.delete():
+        messages.add_message(request, messages.SUCCESS, 'Consulta Cancelada/Excluida!')
     return redirect('schedule')

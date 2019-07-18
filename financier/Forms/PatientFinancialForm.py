@@ -13,14 +13,12 @@ class PatientFinancialForm(ModelForm):
     # name = CharField(validators=[RegexValidator('^')])
     
     description = CharField(label='Descrição')
-    amount = CharField(label='Valor total', initial='0.00')
-    amount_paid = CharField(label='Entrada', initial='0.00')
+    amount = CharField(label='Valor total', required=True)
+    amount_paid = CharField(label='Entrada', required=True)
     payment_form = ChoiceField(choices=BOOL_PAYMENT, label="Forma de pagamento",
                          initial='True', widget=Select(), required=True)
     num_plots = CharField(label='Número de parcelas', widget=Textarea(attrs={'rows': 1, 'style': 'display:none;'}), initial='1', disabled=False)
-    payday = DateField(label='Data de vencimento', 
-                        widget=DateInput(format='%d/%m/%Y', 
-                                        attrs={'class': "input", 'placeholder': "Ex.: dd/mm/aaaa", "OnKeyPress":"mask('##/##/####', this)"}))
+    payday = DateField(label='Data de vencimento', widget=DateInput(format='%d/%m/%Y'))
     status = ChoiceField(choices=BOOL_STATUS, label="Situação",
                          initial='', widget=Select(), required=True)
 
