@@ -53,6 +53,14 @@
               <span>Financeiro</span>
           </a>
         </li>
+        {% if user.is_superuser %}
+            <li>
+                <a href="{% url 'list_users' %}">
+                    <i class="fa fa-user"></i>
+                    <span>Usuários</span>
+                </a>
+            </li>
+        {% endif %}
       </ul>
       <!-- /.sidebar-menu -->
     </section>
