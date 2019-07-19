@@ -24,7 +24,9 @@ from . import views
 from django.contrib.auth import views as auth_views
 
 urlpatterns = [
-    path('', views.index, name='index'),
+    path('update_profile', views.update_profile, name="update_my_profile"),
+    path('profile/', views.profile, name='my_profile'),
+    path('profile/', views.profile, name='user_profile'),
     path('consultations/', include(consultations_urls)),
     path('patients/', include(patients_urls)),
     path('financier/', include(financier_urls)),

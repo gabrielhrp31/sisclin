@@ -15,7 +15,6 @@ class Cost(models.Model):
     creation_date = models.DateField(auto_now_add=True)
     change_date = models.DateField(null=False, auto_now=True)
     change_hour = models.TimeField(null=False, auto_now=True)
-    status = models.NullBooleanField(null=False)
 
     def get_cost_type(self):
         return '<span class="label label-primary">Fixo</span>' if self.cost_type else '<span class="label label-primary">Variável</span>'

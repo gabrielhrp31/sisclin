@@ -8,18 +8,13 @@ from django.db.models import Q
 from collections import OrderedDict
 
 import calendar
-from datetime import datetime, date
+from datetime import datetime, date, timedelta
 
 # Create your views here.
 from .models import Cost
 from .models import Plots
 from .models import PatientFinancial
 from .forms import CostForm
-
-
-def index(request):
-    return render(request, 'financier.html')
-
 
 @login_required
 def list_costs(request, year=None, month=None):

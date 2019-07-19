@@ -4,8 +4,9 @@ from localflavor.br.forms import BRStateChoiceField, BRZipCodeField
 
 
 class AddressForm(ModelForm):
-    country = BRStateChoiceField(label="Estado")
-    city = CharField(label="Cidade")
+    postal_code = CharField(label="CEP")
+    country = BRStateChoiceField(label="Estado", disabled=True)
+    city = CharField(label="Cidade", widget=Textarea(attrs={'rows': 1, 'style': 'resize:none;', 'disabled': True}))
     street = CharField(label="Rua")
     district = CharField(label="Complemento/Bairro")
     

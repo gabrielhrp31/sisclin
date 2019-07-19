@@ -19,8 +19,6 @@ class PatientFinancialForm(ModelForm):
                          initial='True', widget=Select(), required=True)
     num_plots = CharField(label='Número de parcelas', widget=Textarea(attrs={'rows': 1, 'style': 'display:none;'}), initial='1', disabled=False)
     payday = DateField(label='Data de vencimento', widget=DateInput(format='%d/%m/%Y'))
-    status = ChoiceField(choices=BOOL_STATUS, label="Situação",
-                         initial='', widget=Select(), required=True)
 
     class Meta:
         model = PatientFinancial

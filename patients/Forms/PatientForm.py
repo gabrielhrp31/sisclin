@@ -27,5 +27,5 @@ class PatientForm(ModelForm):
             'found_us_by': 'Como nos encontrou'
         }
         widgets = {
-            'address': HiddenInput()
+            'address': HiddenInput(),
         }

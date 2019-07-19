@@ -1,0 +1,31 @@
+{% extends 'box.html' %}
+{%  load bootstrap %}
+{% block title %}
+    Editar Perfil
+{% endblock %}
+{% block page_title %}
+    Perfil
+{% endblock %}
+{% block page_description %}
+    Editar
+{% endblock %}
+{% block box_classes %}
+    box-warning
+{% endblock %}
+{% block box_header %}
+    <div class="col-xs-9 col-sm-9 col-md-10 col-lg-11">
+        <h4>{{  user.first_name }} {{  user.last_name }}</h4>
+    </div>
+    <div class="col-xs-3  col-sm-3 col-md-2 col-lg-1">
+        <a href="{% url 'my_profile' %}" class="btn btn-primary"><i class="fa fa-arrow-left">Voltar</i></a>
+    </div>
+{% endblock %}
+{% block box %}
+    <div class="container">
+        <form class="margin-bottom" enctype="multipart/form-data" method="POST">
+            {% csrf_token %}
+            {{ form | bootstrap }}
+            <button type="submit" class="btn btn-success">Salvar</button>
+        </form>
+    </div>
+{% endblock %}

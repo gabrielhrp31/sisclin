@@ -2,7 +2,7 @@
      <header class="main-header">
 
     <!-- Logo -->
-    <a href="{% url 'index' %}" class="logo">
+    <a href="{% url 'schedule' %}" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
         <span class="logo-mini"><b>SF</b></span>
       <!-- logo for regular state and mobile devices -->
@@ -121,7 +121,13 @@
               <!-- The user image in the navbar-->
               <img src="{% static '/odonto/imgs/avatar.png' %}" class="user-image" alt="User Image">
               <!-- hidden-xs hides the username on small devices so only the image appears. -->
-              <span class="hidden-xs">{{ user.first_name }}</span>
+              <span class="hidden-xs">
+                    {% if user.first_name %}
+                        {{ user.first_name }}
+                    {% else %}
+                        Sem Nome
+                    {% endif %}
+              </span>
             </a>
             <ul class="dropdown-menu">
               <!-- The user image in the menu -->
@@ -129,14 +135,18 @@
                 <img src="{% static 'odonto/imgs/avatar.png' %}" class="img-circle" alt="User Image">
 
                 <p>
-                  {{ user.first_name }}
-                  <small>Membro Desde {{ user.date_joined }}</small>
+                    {% if user.get_full_name %}
+                        {{ user.get_full_name }}
+                    {% else %}
+                        Sem Nome
+                    {% endif %}
+                    <small>Membro Desde {{ user.date_joined }}</small>
                 </p>
               </li>
               <!-- Menu Footer-->
               <li class="user-footer">
                 <div class="pull-left">
-                  <!--a href="{#% url 'profile' %#}" class="btn btn-default btn-flat">Perfil</a-->
+                  <a href="{% url 'my_profile' %}" class="btn btn-default btn-flat">Perfil</a>
                 </div>
                 <div class="pull-right">
                   <a href="{% url 'logout' %}" class="btn btn-default btn-flat">Sair</a>

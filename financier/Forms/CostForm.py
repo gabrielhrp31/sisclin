@@ -5,7 +5,6 @@ from financier.Models.Cost import Cost
 import datetime
 from odonto import settings
 
-BOOL_STATUS = ((True, 'FINALIZADO'), (False, 'PENDENTE'))
 BOOL_PAYMENT = ((True, 'À vista'), (False, 'À prazo'))
 BOOL_COST = ((True, 'Fixo'), (False, 'Variável'))
 
@@ -23,10 +22,8 @@ class CostForm(ModelForm):
     # payday = DateField(label='Data de vencimento', 
     #                     widget=DateInput(format='%d/%m/%Y', 
     #                                     attrs={'class': "input", 'placeholder': "Ex.: dd/mm/aaaa", "OnKeyPress":"mask('##/##/####', this)"}))
-    status = ChoiceField(choices=BOOL_STATUS, label="Situação",
-                         initial='', widget=Select(), required=True)
 
     class Meta:
         model = Cost
         fields = '__all__'
-        exclude = ['creation_date', 'change_hour', 'plots']
+        exclude = ['creation_date', 'change_hour']

@@ -11,33 +11,40 @@
           <img src="{% static "odonto/imgs/avatar.png" %}" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
-            <p>{{ user.first_name }}</p>
-            <p>{{ user.email }}</p>
+            {% if user.get_full_name %}
+                <p>{{ user.get_full_name }}</p>
+            {% else %}
+                <p>Sem Nome</p>
+            {% endif %}
+            {% if user.email %}
+                <p>{{ user.email }}</p>
+            {% else %}
+                <p>
+                    Sem Email
+                </p>
+            {% endif %}
           <!-- Status -->
 {#          <a href="#"><i class="fa fa-circle text-success"></i> Online</a>#}
         </div>
       </div>
       <!-- Sidebar Menu -->
       <ul class="sidebar-menu" data-widget="tree">
-        <li>
-            <a href="{% url 'index'%}"><i class="fa  fa-pie-chart"></i> <span>Dashboard</span></a>
-        </li>
-        <li>
-          <a href="{% url 'list_patients' %}">
-              <i class="fa fa-heartbeat"></i>
-              <span>Pacientes</span>
-          </a>
-        </li>
-        <li>
+          <li>
+              <a href="{% url 'schedule' %}">
+                  <i class="fa fa-calendar"></i>
+                  <span>Agenda</span>
+              </a>
+          </li>
+          <li>
+              <a href="{% url 'list_patients' %}">
+                  <i class="fa fa-heartbeat"></i>
+                  <span>Pacientes</span>
+              </a>
+          </li>
+          <li>
           <a href="{% url 'procedures' %}">
               <i class="fa fa-stethoscope"></i>
               <span>Procedimentos</span>
-          </a>
-        </li>
-        <li>
-          <a href="{% url 'schedule' %}">
-              <i class="fa fa-calendar"></i>
-              <span>Agenda</span>
           </a>
         </li>
         <li>
