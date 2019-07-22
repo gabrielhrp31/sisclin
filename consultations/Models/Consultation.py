@@ -35,10 +35,11 @@ class Consultation(models.Model):
             'start': get_full_date(self.date, self.startTime),
             'end': get_full_date(self.date, self.endTime),
             'title': self.procedure.name,
-            'url': reverse('view_schedules', kwargs={'id': self.id}),
+            'redirect_url': reverse('view_schedules', kwargs={'id': self.id}),
             'backgroundColor': self.backgroundColor,
             'textColor': self.textColor,
-            'patient': self.patient.id,
+            'patient': [self.patient.as_dict()],
+            'procedure': [self.procedure.as_dict()],
             'type': 'consultation',
             'borderColor': '#ffffff',
         }
