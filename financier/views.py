@@ -36,13 +36,11 @@ def list_costs(request, year=None, month=None):
     monthly_costs = Cost.objects.filter(cost_type=True)
     for cost in monthly_costs:
         cost_as_plot = cost.as_plot(year, month)
-        print(cost_as_plot.paid_day)
         if not cost_as_plot.paid_day:
             if not (cost_as_plot.date in all.keys()):
                 all[cost_as_plot.date] = []
             all[cost_as_plot.date].append(cost_as_plot)
         else:
-            print("foi pago")
             if not (cost_as_plot.date in all.keys()):
                 all[cost_as_plot.paid_day] = []
             all[cost_as_plot.paid_day].append(cost_as_plot)

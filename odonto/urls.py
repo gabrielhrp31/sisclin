@@ -28,6 +28,8 @@ urlpatterns = [
     path('update_profile', views.update_profile, name="update_my_profile"),
     path('profile/', views.profile, name='my_profile'),
     path('users/list/', views.list_users, name="list_users"),
+    path('users/new/', views.new_user, name="new_user"),
+    path('users/edit/<int:id>', views.edit_user, name="edit_user"),
     path('users/delete/<int:id>/', views.delete_user, name="delete_user"),
     # applications urls
     path('consultations/', include(consultations_urls)),
