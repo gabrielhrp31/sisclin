@@ -24,6 +24,27 @@
     <form class="container-fluid" action="" method="POST">
         <div class="row">
             <div class="col-xs-12">
+                {% if patient_form.errors %}
+                    {% for field in patient_form %}
+                        {% for dic in field.errors.as_data %}
+                            {% if dic.code == 'required' %}
+                                    <div class="alert alert-danger">
+                                        <strong>O campo "{{ field.label |escape}}" é obrigatório.</strong>
+                                    </div>
+                            {% endif %}
+                            {% if dic.code == 'invalid' %}
+                                    <div class="alert alert-danger">
+                                        <strong>Informe um(a) "{{ field.label |escape}}" válido(a).</strong>
+                                    </div>
+                            {% endif %}
+                        {% endfor %}
+                    {% endfor %}
+                    {% for error in patient_form.non_field_errors %}
+                        <div class="alert alert-danger">
+                            <strong>{{ error |escape }}</strong>
+                        </div>
+                    {% endfor %}
+                {% endif %}
                 {% csrf_token %}
                 {{ patient_form | bootstrap }}
             </div>
@@ -100,27 +121,48 @@
           <!-- /.modal-dialog -->
     </div>
     <div class="modal" id="modal-new-address" >
-          <div class="modal-dialog">
+        <div class="modal-dialog">
             <div class="modal-content">
-              <div class="modal-header">
+                <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">×</span></button>
+                    <span aria-hidden="true">×</span></button>
                 <h4 class="modal-title">Novo Endereço</h4>
-              </div>
-              <div class="modal-body">
-                  <form  id="form-address" action="{% url 'new_address' %}" method="POST" >
-                      {% csrf_token %}
-                      {{ address_form | bootstrap }}
-                  </form>
-              </div>
-              <div class="modal-footer">
+                </div>
+                <div class="modal-body">
+                <form  id="form-address" action="{% url 'new_address' %}" method="POST" >
+                    {% if address_form.errors %}
+                        {% for field in address_form %}
+                            {% for dic in field.errors.as_data %}
+                                {% if dic.code == 'required' %}
+                                        <div class="alert alert-danger">
+                                            <strong>O campo "{{ field.label |escape}}" é obrigatório.</strong>
+                                        </div>
+                                {% endif %}
+                                {% if dic.code == 'invalid' %}
+                                        <div class="alert alert-danger">
+                                            <strong>Informe um(a) "{{ field.label |escape}}" válido(a).</strong>
+                                        </div>
+                                {% endif %}
+                            {% endfor %}
+                        {% endfor %}
+                        {% for error in address_form.non_field_errors %}
+                            <div class="alert alert-danger">
+                                <strong>{{ error |escape }}</strong>
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                    {% csrf_token %}
+                    {{ address_form | bootstrap }}
+                </form>
+                </div>
+                <div class="modal-footer">
                 <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cancelar</button>
                 <button type="button" class="btn btn-primary" id="save_address">Salvar</button>
-              </div>
+                </div>
             </div>
             <!-- /.modal-content -->
-          </div>
-          <!-- /.modal-dialog -->
+        </div>
+        <!-- /.modal-dialog -->
         </div>
 
 {% endblock %}

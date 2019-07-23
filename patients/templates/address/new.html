@@ -24,6 +24,27 @@
     <form class="container-fluid" action="" method="POST">
         <div class="row">
             <div class="col-xs-12">
+                {% if form.errors %}
+                    {% for field in form %}
+                        {% for dic in field.errors.as_data %}
+                            {% if dic.code == 'required' %}
+                                    <div class="alert alert-danger">
+                                        <strong>O campo "{{ field.label |escape}}" é obrigatório.</strong>
+                                    </div>
+                            {% endif %}
+                            {% if dic.code == 'invalid' %}
+                                    <div class="alert alert-danger">
+                                        <strong>Informe um(a) "{{ field.label |escape}}" válido(a).</strong>
+                                    </div>
+                            {% endif %}
+                        {% endfor %}
+                    {% endfor %}
+                    {% for error in form.non_field_errors %}
+                        <div class="alert alert-danger">
+                            <strong>{{ error |escape }}</strong>
+                        </div>
+                    {% endfor %}
+                {% endif %}
                 {% csrf_token %}
                 {{ form | bootstrap }}
             </div>
