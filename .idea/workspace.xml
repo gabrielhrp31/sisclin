@@ -2,17 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ff34d4b4-aa49-4b8e-b72c-0266eca74784" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/odonto/Forms/CreateUser.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/dashboard/views/users/new.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/dashboard/views/users/update.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/financier/templates/accounting/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/financier/templates/accounting/list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/financier/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/financier/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/odonto/Forms/UpdateProfile.py" beforeDir="false" afterPath="$PROJECT_DIR$/odonto/Forms/UpdateProfile.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/odonto/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/odonto/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/odonto/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/odonto/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/odonto/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/odonto/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/dashboard/views/users/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/dashboard/views/users/list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/consultations/templates/schedule/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/consultations/templates/schedule/index.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -60,34 +50,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/odonto/Forms/UpdateProfile.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="84">
-              <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
-              <folding>
-                <element signature="e#0#34#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/financier/views.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="96">
-              <caret line="37" column="48" selection-start-line="37" selection-start-column="48" selection-end-line="37" selection-end-column="48" />
-              <folding>
-                <element signature="e#0#35#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/financier/templates/accounting/list.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="147">
-              <caret line="85" column="46" selection-start-line="85" selection-start-column="46" selection-end-line="85" selection-end-column="46" />
+            <state relative-caret-position="5592">
+              <caret line="233" column="39" selection-start-line="233" selection-start-column="39" selection-end-line="233" selection-end-column="39" />
               <folding>
                 <element signature="e#3291#3318#0#HTML" expanded="true" />
               </folding>
@@ -96,73 +62,83 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/odonto/Forms/CreateUser.py">
+        <entry file="file://$PROJECT_DIR$/consultations/Models/Procedure.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="21" column="64" selection-start-line="21" selection-start-column="64" selection-end-line="21" selection-end-column="64" />
+            <state relative-caret-position="144">
+              <caret line="6" column="4" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="4" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/consultations/templates/schedule/new.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1152">
+              <caret line="48" column="77" selection-start-line="48" selection-start-column="77" selection-end-line="48" selection-end-column="77" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/consultations/templates/schedule/edit.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2976">
+              <caret line="124" column="29" selection-start-line="124" selection-start-column="29" selection-end-line="124" selection-end-column="29" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/financier/Models/Plots.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
               <folding>
-                <element signature="e#0#34#0" expanded="true" />
+                <element signature="e#0#28#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/odonto/views.py">
+        <entry file="file://$PROJECT_DIR$/consultations/templates/schedule/view.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-21">
-              <caret line="5" column="35" selection-start-line="5" selection-start-column="35" selection-end-line="5" selection-end-column="35" />
+            <state relative-caret-position="228">
+              <caret line="36" column="24" selection-start-line="36" selection-start-column="24" selection-end-line="36" selection-end-column="24" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/consultations/templates/schedule/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="219">
+              <caret line="97" column="190" selection-start-line="97" selection-start-column="190" selection-end-line="97" selection-end-column="190" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/odonto/forms.py">
+        <entry file="file://$PROJECT_DIR$/consultations/templates/procedures/list.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="21">
-              <caret line="1" column="40" selection-start-line="1" selection-start-column="40" selection-end-line="1" selection-end-column="40" />
+            <state relative-caret-position="1224">
+              <caret line="51" column="29" selection-start-line="51" selection-start-column="29" selection-end-line="51" selection-end-column="29" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/consultations/templates/procedures/new.html">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/financier/Models/Cost.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="768">
+              <caret line="35" column="49" selection-start-line="35" selection-start-column="49" selection-end-line="35" selection-end-column="49" />
               <folding>
-                <element signature="e#0#46#0" expanded="true" />
+                <element signature="e#0#28#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/dashboard/views/users/list.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="189">
-              <caret line="54" column="72" selection-start-line="54" selection-start-column="72" selection-end-line="54" selection-end-column="72" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/odonto/urls.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="31" column="47" selection-start-line="31" selection-start-column="47" selection-end-line="31" selection-end-column="47" />
-              <folding>
-                <element signature="e#630#662#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/dashboard/views/users/new.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="168">
-              <caret line="20" column="14" selection-start-line="20" selection-start-column="14" selection-end-line="20" selection-end-column="14" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/dashboard/views/users/update.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="294">
-              <caret line="14" column="10" selection-start-line="14" selection-start-column="10" selection-end-line="14" selection-end-column="10" />
             </state>
           </provider>
         </entry>
@@ -237,7 +213,6 @@
         <option value="$PROJECT_DIR$/templates/dashboard/includes/aside.html" />
         <option value="$PROJECT_DIR$/consultations/Models/Consultation.py" />
         <option value="$PROJECT_DIR$/consultations/Models/Event.py" />
-        <option value="$PROJECT_DIR$/consultations/templates/schedule/index.html" />
         <option value="$PROJECT_DIR$/consultations/views.py" />
         <option value="$PROJECT_DIR$/odonto/Forms/CreateUser.py" />
         <option value="$PROJECT_DIR$/financier/templates/accounting/new.html" />
@@ -250,6 +225,7 @@
         <option value="$PROJECT_DIR$/odonto/Forms/UpdateProfile.py" />
         <option value="$PROJECT_DIR$/financier/views.py" />
         <option value="$PROJECT_DIR$/financier/templates/accounting/list.html" />
+        <option value="$PROJECT_DIR$/consultations/templates/schedule/index.html" />
       </list>
     </option>
   </component>
@@ -264,73 +240,36 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
-              <item name="odonto" type="b2602c69:ProjectViewProjectNode" />
-              <item name="odonto" type="462c0819:PsiDirectoryNode" />
+              <item name="consultas" type="b2602c69:ProjectViewProjectNode" />
+              <item name="consultas" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="odonto" type="b2602c69:ProjectViewProjectNode" />
-              <item name="odonto" type="462c0819:PsiDirectoryNode" />
-              <item name="financier" type="462c0819:PsiDirectoryNode" />
+              <item name="consultas" type="b2602c69:ProjectViewProjectNode" />
+              <item name="consultas" type="462c0819:PsiDirectoryNode" />
+              <item name="consultations" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="odonto" type="b2602c69:ProjectViewProjectNode" />
-              <item name="odonto" type="462c0819:PsiDirectoryNode" />
-              <item name="financier" type="462c0819:PsiDirectoryNode" />
+              <item name="consultas" type="b2602c69:ProjectViewProjectNode" />
+              <item name="consultas" type="462c0819:PsiDirectoryNode" />
+              <item name="consultations" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="odonto" type="b2602c69:ProjectViewProjectNode" />
-              <item name="odonto" type="462c0819:PsiDirectoryNode" />
-              <item name="financier" type="462c0819:PsiDirectoryNode" />
+              <item name="consultas" type="b2602c69:ProjectViewProjectNode" />
+              <item name="consultas" type="462c0819:PsiDirectoryNode" />
+              <item name="consultations" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="accounting" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="odonto" type="b2602c69:ProjectViewProjectNode" />
-              <item name="odonto" type="462c0819:PsiDirectoryNode" />
-              <item name="odonto" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="odonto" type="b2602c69:ProjectViewProjectNode" />
-              <item name="odonto" type="462c0819:PsiDirectoryNode" />
-              <item name="odonto" type="462c0819:PsiDirectoryNode" />
-              <item name="Forms" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="odonto" type="b2602c69:ProjectViewProjectNode" />
-              <item name="odonto" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="odonto" type="b2602c69:ProjectViewProjectNode" />
-              <item name="odonto" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="dashboard" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="odonto" type="b2602c69:ProjectViewProjectNode" />
-              <item name="odonto" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="dashboard" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="odonto" type="b2602c69:ProjectViewProjectNode" />
-              <item name="odonto" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="dashboard" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="users" type="462c0819:PsiDirectoryNode" />
+              <item name="schedule" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -483,13 +422,13 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="106445000" />
+    <option name="totallyTimeSpent" value="106511000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="27" width="1366" height="741" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.30227274" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2980333" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -564,9 +503,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/2ed6f184-1e23-4298-b045-f31c23b28da1/console.sql">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/2ed6f184-1e23-4298-b045-f31c23b28da1/console.sql" />
     <entry file="file://$PROJECT_DIR$/patients/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="121">
@@ -587,14 +524,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/consultations/templates/procedures/view_edit.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
+        <state relative-caret-position="336">
           <caret line="14" column="14" selection-start-line="14" selection-start-column="14" selection-end-line="14" selection-end-column="14" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/consultations/templates/schedule/edit.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
+        <state relative-caret-position="2976">
           <caret line="124" column="29" selection-start-line="124" selection-start-column="29" selection-end-line="124" selection-end-column="29" />
         </state>
       </provider>
@@ -631,14 +568,11 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/consultations/templates/procedures/new.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-693" />
-      </provider>
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/financier/Models/Plots.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="21" column="71" lean-forward="true" selection-start-line="21" selection-start-column="71" selection-end-line="21" selection-end-column="71" />
+        <state>
           <folding>
             <element signature="e#0#28#0" expanded="true" />
           </folding>
@@ -657,8 +591,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/financier/Models/Cost.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="16" column="61" selection-start-line="16" selection-start-column="61" selection-end-line="16" selection-end-column="61" />
+        <state relative-caret-position="768">
+          <caret line="35" column="49" selection-start-line="35" selection-start-column="49" selection-end-line="35" selection-end-column="49" />
           <folding>
             <element signature="e#0#28#0" expanded="true" />
           </folding>
@@ -716,17 +650,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/.virtualenvs/odonto/lib/python3.6/site-packages/django/urls/conf.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1449">
-          <caret line="76" column="46" selection-start-line="76" selection-start-column="46" selection-end-line="76" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$USER_HOME$/.virtualenvs/odonto/lib/python3.6/site-packages/django/urls/conf.py" />
     <entry file="file://$PROJECT_DIR$/consultations/templates/procedures/list.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="609">
-          <caret line="29" column="33" selection-start-line="29" selection-start-column="33" selection-end-line="29" selection-end-column="33" />
+        <state relative-caret-position="1224">
+          <caret line="51" column="29" selection-start-line="51" selection-start-column="29" selection-end-line="51" selection-end-column="29" />
         </state>
       </provider>
     </entry>
@@ -756,9 +684,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/consultations/templates/schedule/view.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3174">
-          <caret line="29" column="24" selection-start-line="29" selection-start-column="24" selection-end-line="29" selection-end-column="24" />
-          <caret line="41" column="56" selection-start-line="41" selection-start-column="56" selection-end-line="41" selection-end-column="56" />
+        <state relative-caret-position="228">
+          <caret line="36" column="24" selection-start-line="36" selection-start-column="24" selection-end-line="36" selection-end-column="24" />
         </state>
       </provider>
     </entry>
@@ -781,7 +708,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/consultations/Models/Procedure.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="16">
+        <state relative-caret-position="144">
           <caret line="6" column="4" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="4" />
         </state>
       </provider>
@@ -789,19 +716,17 @@
     <entry file="das://e8a6f3ac-87d2-45d0-afec-751036001ff9/schema/main/table/consultations_event">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
-          <filtering enabled="true">
+          <filtering>
             <filter text="" />
           </filtering>
         </state>
       </provider>
     </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/e8a6f3ac-87d2-45d0-afec-751036001ff9/console.sql">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/e8a6f3ac-87d2-45d0-afec-751036001ff9/console.sql" />
     <entry file="file://$PROJECT_DIR$/consultations/templates/schedule/new.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="234" column="24" selection-start-line="234" selection-start-column="24" selection-end-line="234" selection-end-column="24" />
+        <state relative-caret-position="1152">
+          <caret line="48" column="77" selection-start-line="48" selection-start-column="77" selection-end-line="48" selection-end-column="77" />
         </state>
       </provider>
     </entry>
@@ -812,13 +737,6 @@
           <folding>
             <element signature="e#0#29#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/consultations/templates/schedule/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="99">
-          <caret line="102" column="41" lean-forward="true" selection-start-line="102" selection-start-column="41" selection-end-line="102" selection-end-column="41" />
         </state>
       </provider>
     </entry>
@@ -916,11 +834,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/financier/templates/accounting/list.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="85" column="46" selection-start-line="85" selection-start-column="46" selection-end-line="85" selection-end-column="46" />
+        <state relative-caret-position="5592">
+          <caret line="233" column="39" selection-start-line="233" selection-start-column="39" selection-end-line="233" selection-end-column="39" />
           <folding>
             <element signature="e#3291#3318#0#HTML" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/consultations/templates/schedule/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="219">
+          <caret line="97" column="190" selection-start-line="97" selection-start-column="190" selection-end-line="97" selection-end-column="190" />
         </state>
       </provider>
     </entry>
