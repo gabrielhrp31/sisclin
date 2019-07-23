@@ -95,7 +95,7 @@
                         $('.schedule-info').append("<li class='list-group-item'><b>Procedimento:</b><a class='pull-right'>"+event.procedure[0].name+"</a></li>");
                         $('.schedule-info').append("<li class='list-group-item'><b>Horário:</b><a class='pull-right'>"+event.start.format("HH:mm")+"h - "+event.end.format("HH:mm")+"h</a></li>");
                         $('.schedule-info').append("<li class='list-group-item'><b>Paciente:</b><a class='pull-right'>"+event.patient[0].name+"</a></li>");
-                        $('.schedule-buttons').append("<a target='_blank' href='https://api.whatsapp.com/send?phone=+55"+event.patient[0].phone.replaceAll(')','').replaceAll('(','').replaceAll('-','').replaceAll(' ','')+"&text=Olá%20"+event.patient[0].name.replaceAll(' ','%20')+",%20Você%20tem%20uma%20consulta%20na%20data%20de%20"+event.end.format("DD/MM/YYYY")+"%20referente%20a%20um(a)%20"+event.procedure[0].name+"' class='btn btn-success pull-right'><i class='fa fa-whatsapp'></i> Enviar Mensagem</a>");
+                        $('.schedule-buttons').append("<a target='_blank' href='https://api.whatsapp.com/send?phone=+55"+event.patient[0].phone.replace(')','').replace('(','').replace('-','').replace(' ','')+"&text=Olá%20"+event.patient[0].name.replace(' ','%20')+",%20Você%20tem%20uma%20consulta%20na%20data%20de%20"+event.end.format("DD/MM/YYYY")+"%20referente%20a%20um(a)%20"+event.procedure[0].name+"' class='btn btn-success pull-right'><i class='fa fa-whatsapp'></i> Enviar Mensagem</a>");
                     }else{
                         $('.schedule-title').html("Informações do Evento");
                         $('.schedule-info').append("<li class='list-group-item'><b>Nome:</b><a class='pull-right'>"+event.title+"</a></li>");
