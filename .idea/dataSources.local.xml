@@ -10,5 +10,8 @@
       <auth-required>false</auth-required>
       <introspection-schemas>*:@</introspection-schemas>
     </data-source>
+    <data-source name="db.sqlite3 [2]" uuid="e8a6f3ac-87d2-45d0-afec-751036001ff9">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="SQLITE" exact-version="0" />
+    </data-source>
   </component>
 </project>

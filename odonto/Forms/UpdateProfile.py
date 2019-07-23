@@ -8,10 +8,21 @@ class UpdateProfile(ModelForm):
 
     class Meta:
         model = User
-        fields = ('username', 'email', 'first_name', 'last_name')
+        fields = ('username', 'email', 'first_name', 'last_name', 'is_staff')
         labels = (
             {
                 'first_name': 'Nome',
-                'last_name': 'Sobrenome'
+                'last_name': 'Sobrenome',
             }
         )
+        help_texts = (
+            {
+                'is_staff': 'Siginifica que o usuário pode criar e alterar os outros usuários'
+            }
+        )
+
+    def save(self, commit=True):
+        user = self.instance
+        user.set_password(user.password)
+        user.save()
+        return user

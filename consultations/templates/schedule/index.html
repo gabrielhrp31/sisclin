@@ -34,6 +34,25 @@
                 <div class="box-body">
                     <div id="calendar"></div>
                 </div>
+                <div class="modal" id="modal-show-info" >
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">×</span></button>
+                                <h4 class="modal-title schedule-title"></h4>
+                            </div>
+                            <div class="modal-body">
+                                 <ul class="list-group list-group-unbordered schedule-info">
+
+                                 </ul>
+                            </div>
+                            <div class="modal-footer schedule-buttons">
+                                <button type="button" class="btn btn-danger pull-left" data-dismiss="modal" id="cancel-address-select">Fechar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -68,8 +87,27 @@
                 },
                 minTime:"08:00:00",
                 maxTime:"19:00:00",
-                eventClick: function(info) {
-                    console.log(info);
+                eventClick: function(event) {
+                    console.log(event);
+                        $('.schedule-buttons').append("<a href='"+event.redirect_url+"' class='btn btn-info pull-right'><i class='fa fa-arrow-right'></i> Ver Detalhes</a>");
+                    if(event.type==='consultation'){
+                        $('.schedule-title').html("Informações da Consulta");
+                        $('.schedule-info').append("<li class='list-group-item'><b>Procedimento:</b><a class='pull-right'>"+event.procedure[0].name+"</a></li>");
+                        $('.schedule-info').append("<li class='list-group-item'><b>Horário:</b><a class='pull-right'>"+event.start.format("HH:mm")+"h - "+event.end.format("HH:mm")+"h</a></li>");
+                        $('.schedule-info').append("<li class='list-group-item'><b>Paciente:</b><a class='pull-right'>"+event.patient[0].name+"</a></li>");
+                        $('.schedule-buttons').append("<a target='_blank' href='https://api.whatsapp.com/send?phone=+55"+event.patient[0].phone.replace(')','').replace('(','').replace('-','').replace(' 9 ','9').replace('+','')+"&text=Olá%20"+event.patient[0].name.replace(' ','%20')+",%20Você%20tem%20uma%20consulta%20na%20data%20de%20"+event.end.format("DD/MM/YYYY")+"%20referente%20a%20um(a)%20"+event.procedure[0].name+"' class='btn btn-success pull-right'><i class='fa fa-whatsapp'></i> Enviar Mensagem</a>");
+                    }else{
+                        $('.schedule-title').html("Informações do Evento");
+                        $('.schedule-info').append("<li class='list-group-item'><b>Nome:</b><a class='pull-right'>"+event.title+"</a></li>");
+                        $('.schedule-info').append("<li class='list-group-item'><b>Duração:</b><a class='pull-right'>"+event.start.format("DD/MM/YYYY HH:mm")/*+" - "+event.end.format("DD/MM/YYYY HH:mm")+"*/+"</a></li>");
+                        if(event.allDay){
+                            $('.schedule-info').append("<li class='list-group-item'><b>Durará o Dia Todo:</b><a class='pull-right'><span class='label label-success'>Sim</span></a></li>");
+                        }else{
+                            $('.schedule-info').append("<li class='list-group-item'><b>Durará o Dia Todo:</b><a class='pull-right'><span class='label label-danger'>Não</span></a></li>");
+                        }
+
+                    }
+                    $('#modal-show-info').modal('show');
                 },
                 locale: 'pt-br',
                 header:{

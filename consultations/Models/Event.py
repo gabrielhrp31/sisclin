@@ -34,13 +34,14 @@ class Event(models.Model):
             return ''
 
     def as_dict(self):
+        print(get_full_date(self.end, self.endTime))
         return {
             'id': self.id,
-            'allDay': self.allDay,
             'start': get_full_date(self.start, self.startTime),
             'end': get_full_date(self.end, self.endTime),
+            'allDay': self.allDay,
             'title': self.title,
-            'url': reverse('edit_schedules',  kwargs={'type': 'event', 'id': self.id}),
+            'redirect_url': reverse('edit_schedules',  kwargs={'type': 'event', 'id': self.id}),
             'backgroundColor': self.backgroundColor,
             'textColor': self.textColor,
             'borderColor': '#ffffff',
