@@ -112,7 +112,7 @@
         <entry file="file://$PROJECT_DIR$/consultations/templates/schedule/index.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="219">
-              <caret line="97" column="190" selection-start-line="97" selection-start-column="190" selection-end-line="97" selection-end-column="190" />
+              <caret line="97" column="205" selection-start-line="97" selection-start-column="205" selection-end-line="97" selection-end-column="205" />
             </state>
           </provider>
         </entry>
@@ -422,7 +422,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="106511000" />
+    <option name="totallyTimeSpent" value="106710000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
@@ -845,7 +845,7 @@
     <entry file="file://$PROJECT_DIR$/consultations/templates/schedule/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="219">
-          <caret line="97" column="190" selection-start-line="97" selection-start-column="190" selection-end-line="97" selection-end-column="190" />
+          <caret line="97" column="205" selection-start-line="97" selection-start-column="205" selection-end-line="97" selection-end-column="205" />
         </state>
       </provider>
     </entry>
