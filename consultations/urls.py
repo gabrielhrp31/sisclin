@@ -12,6 +12,7 @@ urlpatterns = [
     path('delete/<int:id>/', views.delete_schedule, name='delete_schedule'),
     #procedure urls
     path('procedures/', views.list_procedures, name='procedures'),
+    path('procedures/get/', views.get_procedures, name='get_procedures'),
     path('procedures/new/', views.new_procedure, name='new_procedure'),
     path('procedures/view_edit/<int:id>/', views.view_edit_procedure, name='view_edit_procedure'),
     path('procedures/delete/<int:id>/', views.delete_procedure, name='delete_procedure'),
