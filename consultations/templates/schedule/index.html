@@ -88,8 +88,9 @@
                 minTime:"08:00:00",
                 maxTime:"19:00:00",
                 eventClick: function(event) {
-                    console.log(event);
-                        $('.schedule-buttons').append("<a href='"+event.redirect_url+"' class='btn btn-info pull-right'><i class='fa fa-arrow-right'></i> Ver Detalhes</a>");
+                    $('.schedule-buttons').empty();
+                    $('.schedule-info').empty();
+                    $('.schedule-buttons').append("<a href='"+event.redirect_url+"' class='btn btn-info pull-right'><i class='fa fa-arrow-right'></i> Ver Detalhes</a>");
                     if(event.type==='consultation'){
                         $('.schedule-title').html("Informações da Consulta");
                         $('.schedule-info').append("<li class='list-group-item'><b>Procedimento:</b><a class='pull-right'>"+event.procedure[0].name+"</a></li>");
