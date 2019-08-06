@@ -245,7 +245,7 @@
 
         function get_patients() {
             $.ajax({
-                url: "{% url 'list_patients' %}",
+                url: "{% url 'get_patients' %}",
                 type:  'get',
                 dataType: "json",
                 success: function(data) {
@@ -265,7 +265,7 @@
 
         function get_procedures() {
             $.ajax({
-                url: "{% url 'procedures' %}",
+                url: "{% url 'get_procedures' %}",
                 type:  'get',
                 dataType: "json",
                 success: function(data) {

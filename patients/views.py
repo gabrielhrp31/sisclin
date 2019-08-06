@@ -22,12 +22,16 @@ from .forms import PatientForm
 @login_required
 def list_patients(request):
     patients = Patient.objects.all()
-    if request.method == "GET" and request.is_ajax():
-        data = []
-        for patient in patients:
-            data.append(patient.as_dict())
-        return JsonResponse(data, safe=False)
     return render(request, 'patients/list.html', {'patients': patients})
+
+
+@login_required
+def get_patients(request):
+    patients = Patient.objects.all()
+    data = []
+    for patient in patients:
+        data.append(patient.as_dict())
+    return JsonResponse(data, safe=False)
 
 
 @login_required
@@ -90,17 +94,43 @@ def view_patient(request, id):
                 consultations_timeline[consultation.date].append(consultation)
         consultations_timeline = OrderedDict(sorted(consultations_timeline.items(), key=lambda t: t[0], reverse=True))
     return render(request, 'patients/view.html', {'patient': patient, 'consultations': consultations_timeline, 'today': date.today(), 'photos': photos_list})
+    consultations = Consultation.objects.filter(patient=id)
+    consultations_timeline = {}
+    for consultation in consultations:
+        if not (consultation.date in consultations_timeline.keys()):
+            consultations_timeline[consultation.date] = []
+            consultations_timeline[consultation.date].append(consultation)
+        else:
+            consultations_timeline[consultation.date].append(consultation)
+    consultations_timeline = OrderedDict(sorted(consultations_timeline.items(), key=lambda t: t[0], reverse=True))
+    return render(request, 'patients/view.html', {'patient': patient, 'consultations': consultations_timeline, 'today': date.today()})
+
+
+@login_required
+def get_patient(request, id):
+    patient = Patient.objects.get(pk=id)
+    data = patient.as_dict()
+    return JsonResponse(data, safe=False)
+
+
+@login_required
+def list_address(request):
+    addresses = Address.objects.all()
+    return render(request, 'address/list.html', {'addresses': addresses})
 
 
 @login_required
 def get_address(request):
-    print('FUNCAO GET')
     addresses = Address.objects.all()
-    if request.is_ajax():
-        data = []
-        for address in addresses:
-            data.append(address.as_dict())
-        return JsonResponse(data, safe=False)
+    data = []
+    for address in addresses:
+        data.append(address.as_dict())
+    return JsonResponse(data, safe=False)
+
+
+@login_required
+def list_address(request):
+    addresses = Address.objects.all()
     return render(request, 'address/list.html', {'addresses': addresses})
 
 

@@ -101,12 +101,16 @@ def view(request, id):
 @login_required
 def list_procedures(request):
     procedures = Procedure.objects.all()
-    if request.is_ajax():
-        data = []
-        for procedure in procedures:
-            data.append(procedure.as_dict())
-        return JsonResponse(data, safe=False)
     return render(request, 'procedures/list.html', {'procedures': procedures})
+
+
+@login_required
+def get_procedures(request):
+    procedures = Procedure.objects.all()
+    data = []
+    for procedure in procedures:
+        data.append(procedure.as_dict())
+    return JsonResponse(data, safe=False)
 
 
 @login_required

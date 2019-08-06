@@ -216,7 +216,6 @@
         }
 
         $("#save_address").click(function () {
-            {#console.log($('#form-address').serialize());#}
             save_address();
         });
 
@@ -321,6 +320,7 @@
                             $('#id_city').val() + '/'+
                             $('#id_country').val()
                         );
+                        $('#id_address').val(data.id);
                         $('#modal-new-address').modal('hide');
                     }else {
                         swal(
