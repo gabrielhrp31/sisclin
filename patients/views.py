@@ -64,7 +64,7 @@ def edit_patient(request, id):
 def view_patient(request, id):
     consultations_timeline = {}
     patient = Patient.objects.get(pk=id)
-    photos_list = Photo.objects.all()
+    photos_list = Photo.objects.filter(patient=id)
     if request.is_ajax() and request.method == "GET":
         data = patient.as_dict()
         return JsonResponse(data, safe=False)

@@ -2,16 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ff34d4b4-aa49-4b8e-b72c-0266eca74784" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/patients/Forms/PhotoForm.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/patients/Models/Photo.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/odonto/js/basic-upload.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/consultations/templates/schedule/new.html" beforeDir="false" afterPath="$PROJECT_DIR$/consultations/templates/schedule/new.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/financier/templates/accounting/new.html" beforeDir="false" afterPath="$PROJECT_DIR$/financier/templates/accounting/new.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/patients/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/patients/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/patients/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/patients/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/patients/templates/patients/new.html" beforeDir="false" afterPath="$PROJECT_DIR$/patients/templates/patients/new.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/patients/templates/patients/view.html" beforeDir="false" afterPath="$PROJECT_DIR$/patients/templates/patients/view.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/patients/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/patients/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -59,11 +49,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/patients/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1087">
-              <caret line="78" column="53" selection-start-line="78" selection-start-column="53" selection-end-line="78" selection-end-column="53" />
+            <state relative-caret-position="152">
+              <caret line="67" selection-start-line="67" selection-end-line="67" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
               </folding>
@@ -71,11 +61,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/patients/templates/patients/view.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="292">
-              <caret line="221" column="23" selection-start-line="221" selection-start-column="23" selection-end-line="221" selection-end-column="23" />
+            <state relative-caret-position="121">
+              <caret line="205" column="68" lean-forward="true" selection-start-line="205" selection-start-column="68" selection-end-line="205" selection-end-column="68" />
               <folding>
                 <element signature="e#5587#5635#0#HTML" expanded="true" />
                 <element signature="e#5684#5708#0#HTML" expanded="true" />
@@ -87,17 +77,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/patients/templates/patients/list.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="189">
+            <state relative-caret-position="1449">
               <caret line="132" column="15" lean-forward="true" selection-start-line="119" selection-start-column="12" selection-end-line="132" selection-end-column="15" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/static/odonto/js/basic-upload.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="131">
-              <caret line="24" column="25" selection-start-line="24" selection-start-column="25" selection-end-line="24" selection-end-column="25" />
             </state>
           </provider>
         </entry>
@@ -205,10 +186,10 @@
         <option value="$PROJECT_DIR$/patients/models.py" />
         <option value="$PROJECT_DIR$/patients/forms.py" />
         <option value="$PROJECT_DIR$/patients/Models/Photo.py" />
-        <option value="$PROJECT_DIR$/patients/templates/patients/new.html" />
-        <option value="$PROJECT_DIR$/patients/views.py" />
         <option value="$PROJECT_DIR$/static/odonto/js/basic-upload.js" />
         <option value="$PROJECT_DIR$/patients/templates/patients/view.html" />
+        <option value="$PROJECT_DIR$/patients/templates/patients/new.html" />
+        <option value="$PROJECT_DIR$/patients/views.py" />
       </list>
     </option>
   </component>
@@ -260,6 +241,24 @@
               <item name="patients" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
               <item name="patients" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="odonto" type="b2602c69:ProjectViewProjectNode" />
+              <item name="odonto" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="odonto" type="b2602c69:ProjectViewProjectNode" />
+              <item name="odonto" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="odonto" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="odonto" type="b2602c69:ProjectViewProjectNode" />
+              <item name="odonto" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="odonto" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -370,7 +369,7 @@
       <workItem from="1563396353524" duration="2620000" />
       <workItem from="1563471036060" duration="891000" />
       <workItem from="1563811950030" duration="10442000" />
-      <workItem from="1565113767718" duration="6723000" />
+      <workItem from="1565113767718" duration="7403000" />
     </task>
     <task id="LOCAL-00001" summary="enviando requirements">
       <created>1560565007868</created>
@@ -418,18 +417,18 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="115993000" />
+    <option name="totallyTimeSpent" value="116673000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="27" width="1366" height="741" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.3121212" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.3121212" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3287037" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49772727" visible="true" weight="0.3262987" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49772727" weight="0.3262987" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -438,7 +437,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32921174" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5030303" side_tool="true" weight="0.32142857" />
-      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.4969697" visible="true" weight="0.32142857" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" sideWeight="0.4969697" visible="true" weight="0.32142857" />
       <window_info anchor="bottom" id="Python Console" order="12" sideWeight="0.49924242" weight="0.32792208" />
       <window_info anchor="bottom" id="Database Console" order="13" weight="0.32954547" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -836,13 +835,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/odonto/js/basic-upload.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="131">
-          <caret line="24" column="25" selection-start-line="24" selection-start-column="25" selection-end-line="24" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/patients/templates/patients/new.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-2184">
@@ -850,30 +842,37 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/patients/templates/patients/view.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="121">
+          <caret line="205" column="68" lean-forward="true" selection-start-line="205" selection-start-column="68" selection-end-line="205" selection-end-column="68" />
+          <folding>
+            <element signature="e#5587#5635#0#HTML" expanded="true" />
+            <element signature="e#5684#5708#0#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/odonto/js/basic-upload.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="504">
+          <caret line="24" column="25" selection-start-line="24" selection-start-column="25" selection-end-line="24" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/patients/templates/patients/list.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
+        <state relative-caret-position="1449">
           <caret line="132" column="15" lean-forward="true" selection-start-line="119" selection-start-column="12" selection-end-line="132" selection-end-column="15" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/patients/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1087">
-          <caret line="78" column="53" selection-start-line="78" selection-start-column="53" selection-end-line="78" selection-end-column="53" />
+        <state relative-caret-position="152">
+          <caret line="67" selection-start-line="67" selection-end-line="67" />
           <folding>
             <element signature="e#0#35#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/patients/templates/patients/view.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="292">
-          <caret line="221" column="23" selection-start-line="221" selection-start-column="23" selection-end-line="221" selection-end-column="23" />
-          <folding>
-            <element signature="e#5587#5635#0#HTML" expanded="true" />
-            <element signature="e#5684#5708#0#HTML" expanded="true" />
           </folding>
         </state>
       </provider>
