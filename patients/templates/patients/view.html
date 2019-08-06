@@ -161,7 +161,7 @@
                         {% for photo in photos %}
                             <tr id="photo{{ photo.id }}">
                                 <td><a href="{{ photo.file.url }}"><img class="img-responsive" src="{{ photo.file.url }}" alt=""></a></td>
-                                <td><a href="{{ photo.file.url }}">{{ photo.file.name }}</a></td>
+                                <td><a href="{{ photo.file.url }}">{{ photo.title }}</a></td>
                                 <td>
                                     <button class="btn btn-danger" type="button" onclick="deleteImage({{ photo.id }})"><i class="fa fa-trash-o"></i></button>
                                 </td>
