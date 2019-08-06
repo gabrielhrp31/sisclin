@@ -23,6 +23,7 @@
 <ul class="nav nav-tabs">
   <li class="active"><a href="#tab_1" data-toggle="tab" aria-expanded="true">Dados Pessoais</a></li>
   <li class=""><a href="#tab_2" data-toggle="tab" aria-expanded="false">Consultas</a></li>
+  <li class=""><a href="#tab_3" data-toggle="tab" aria-expanded="false">Imagens</a></li>
   <li class="pull-right"> <a href="{% url 'list_patients' %}" class=" pull-right"><i class="fa fa-arrow-left">Voltar</i></a></li>
 </ul>
 <div class="tab-content">
@@ -129,14 +130,83 @@
         <h4>Nenhum Procedimento Realizado por este Paciente</h4>
     {% endif %}
 </div>
+<div class="tab-pane" id="tab_3">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="well text-muted text-center" style="padding-top: 4rem; padding-bottom: 4rem;">
+                  <span class="glyphicon glyphicon-arrow-down" style="font-size: 4rem;"></span>
+                  <h3>Solte Fotos Aqui Para Enviar</h3>
+                </div>
+                {# 2. FILE INPUT TO BE USED BY THE PLUG-IN #}
+                <input id="fileupload" type="file" name="file" multiple
+                       style="display: none;"
+                        accept="image/x-png,image/gif,image/jpeg"
+                       data-url="{% url 'view_patient' patient.id %}"
+                       data-form-data='{"csrfmiddlewaretoken": "{{ csrf_token }}"}'>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                {# 3. TABLE TO DISPLAY THE UPLOADED PHOTOS #}
+                <table id="gallery" class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Foto</th>
+                            <th>Nome</th>
+                            <th>Apagar</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for photo in photos %}
+                            <tr id="photo{{ photo.id }}">
+                                <td><a href="{{ photo.file.url }}"><img class="img-responsive" src="{{ photo.file.url }}" alt=""></a></td>
+                                <td><a href="{{ photo.file.url }}">{{ photo.file.name }}</a></td>
+                                <td>
+                                    <button class="btn btn-danger" type="button" onclick="deleteImage({{ photo.id }})"><i class="fa fa-trash-o"></i></button>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
 <!-- /.tab-pane -->
 </div>
 <!-- /.tab-content -->
 </div>
+<div class="modal fade" id="modal-progress" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Enviando...</h4>
+            </div>
+            <div class="modal-body">
+                <div class="progress">
+                  <div class="progress-bar" role="progressbar" style="width: 0%;">0%</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}
 
 {% block scripts %}
+
+    {#    CDN TO GET COOKIES #}
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+    {# JQUERY FILE UPLOAD SCRIPTS #}
+    <script src="{% static 'jQuery-File-Upload/js/vendor/jquery.ui.widget.js' %}"></script>
+    <script src="{% static 'jQuery-File-Upload/js/jquery.iframe-transport.js' %}"></script>
+    <script src="{% static 'jQuery-File-Upload/js/jquery.fileupload.js' %}"></script>
+
+    {# PHOTOS PAGE SCRIPTS #}
+    <script src="{% static 'odonto/js/basic-upload.js' %}"></script>
     <script>
+        var csrftoken = Cookies.get('csrftoken');
+
         $(document).ready(function () {
             {% if messages %}
                 {% for message in messages %}
@@ -149,6 +219,47 @@
                     {% endif %}
                 {% endfor %}
             {% endif %}
+            $('#gallery').DataTable({
+                "language": {
+                    "lengthMenu": "Mostrar _MENU_ por Página",
+                    "zeroRecords": "Nenhum Registro de Imagens",
+                    "info": "Pagina _PAGE_ de _PAGES_",
+                    "infoEmpty": "Nenhuma Imagem Cadastrada",
+                    "search":"Pesquisar",
+                    "paginate": {
+                        "previous": "Anterior",
+                        "next": "Próximo",
+                    },
+                    "infoFiltered": "(Filtrado de _MAX_ Imagens)"
+                },
+            });
         });
+
+        function deleteImage(id){
+            $('#photo'+id).remove();
+            $.ajax({
+                headers: { "X-CSRFToken": csrftoken },
+                url: "{% url 'view_patient' patient.id %}",
+                type:  'delete',
+                dataType: "json",
+                data : {
+                    photo_id: id,
+                },
+                success: function(data) {
+                    swal(
+                        'Sucesso!',
+                        data.message,
+                        'success'
+                    );
+                },
+                error: function (error) {
+                    swal(
+                        'Erro!',
+                        '{{  data.message }}',
+                        'error'
+                    );
+                }
+            });
+        }
     </script>
 {% endblock %}
