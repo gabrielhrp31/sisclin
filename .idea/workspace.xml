@@ -2,157 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ff34d4b4-aa49-4b8e-b72c-0266eca74784" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/bower_components/Flot/examples/shared/jquery-ui/jquery-ui.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/bower_components/fullcalendar/dist/bootstrap/LICENSE.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/bower_components/fullcalendar/dist/bootstrap/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/bower_components/fullcalendar/dist/bootstrap/main.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/bower_components/fullcalendar/dist/bootstrap/main.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/bower_components/fullcalendar/dist/bootstrap/main.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/bower_components/fullcalendar/dist/bootstrap/main.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/bower_components/fullcalendar/dist/bootstrap/main.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/bower_components/fullcalendar/dist/bootstrap/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/bower_components/fullcalendar/dist/core/LICENSE.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/bower_components/fullcalendar/dist/core/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/bower_components/fullcalendar/dist/core/locales-all.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/bower_components/fullcalendar/dist/core/locales-all.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/bower_components/fullcalendar/dist/core/locales/af.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/bower_components/fullcalendar/dist/core/locales/ar-dz.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/bower_components/fullcalendar/dist/core/locales/ar-kw.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/bower_components/fullcalendar/dist/core/locales/ar-ly.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/bower_components/fullcalendar/dist/core/locales/ar-ma.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/bower_components/fullcalendar/dist/core/locales/ar-sa.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/bower_components/fullcalendar/dist/core/locales/ar-tn.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/bower_components/fullcalendar/dist/core/locales/ar.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/bower_components/fullcalendar/dist/core/locales/bg.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/bower_components/fullcalendar/dist/core/locales/bs.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/bower_components/fullcalendar/dist/core/locales/ca.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/bower_components/fullcalendar/dist/core/locales/cs.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/bower_components/fullcalendar/dist/core/locales/da.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/bower_components/fullcalendar/dist/core/locales/de.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/bower_components/fullcalendar/dist/core/locales/el.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/bower_components/fullcalendar/dist/core/locales/en-au.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/bower_components/fullcalendar/dist/core/locales/en-gb.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/bower_components/fullcalendar/dist/core/locales/en-nz.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/bower_components/fullcalendar/dist/core/locales/es-us.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/bower_components/fullcalendar/dist/core/locales/es.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/bower_components/fullcalendar/dist/core/locales/et.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/bower_components/fullcalendar/dist/core/locales/eu.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/bower_components/fullcalendar/dist/core/locales/fa.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/bower_components/fullcalendar/dist/core/locales/fi.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/bower_components/fullcalendar/dist/core/locales/fr-ca.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/bower_components/fullcalendar/dist/core/locales/fr-ch.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/bower_components/fullcalendar/dist/core/locales/fr.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/bower_components/fullcalendar/dist/core/locales/gl.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/bower_components/fullcalendar/dist/core/locales/he.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/bower_components/fullcalendar/dist/core/locales/hi.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/bower_components/fullcalendar/dist/core/locales/hr.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/bower_components/fullcalendar/dist/core/locales/hu.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/bower_components/fullcalendar/dist/core/locales/id.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/bower_components/fullcalendar/dist/core/locales/is.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/bower_components/fullcalendar/dist/core/locales/it.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/bower_components/fullcalendar/dist/core/locales/ja.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/bower_components/fullcalendar/dist/core/locales/ka.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/bower_components/fullcalendar/dist/core/locales/kk.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/bower_components/fullcalendar/dist/core/locales/ko.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/bower_components/fullcalendar/dist/core/locales/lb.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/bower_components/fullcalendar/dist/core/locales/lt.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/bower_components/fullcalendar/dist/core/locales/lv.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/bower_components/fullcalendar/dist/core/locales/mk.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/bower_components/fullcalendar/dist/core/locales/ms.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/bower_components/fullcalendar/dist/core/locales/nb.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/bower_components/fullcalendar/dist/core/locales/nl.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/bower_components/fullcalendar/dist/core/locales/nn.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/bower_components/fullcalendar/dist/core/locales/pl.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/bower_components/fullcalendar/dist/core/locales/pt-br.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/bower_components/fullcalendar/dist/core/locales/pt.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/bower_components/fullcalendar/dist/core/locales/ro.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/bower_components/fullcalendar/dist/core/locales/ru.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/bower_components/fullcalendar/dist/core/locales/sk.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/bower_components/fullcalendar/dist/core/locales/sl.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/bower_components/fullcalendar/dist/core/locales/sq.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/bower_components/fullcalendar/dist/core/locales/sr-cyrl.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/bower_components/fullcalendar/dist/core/locales/sr.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/bower_components/fullcalendar/dist/core/locales/sv.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/bower_components/fullcalendar/dist/core/locales/th.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/bower_components/fullcalendar/dist/core/locales/tr.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/bower_components/fullcalendar/dist/core/locales/uk.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/bower_components/fullcalendar/dist/core/locales/vi.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/bower_components/fullcalendar/dist/core/locales/zh-cn.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/bower_components/fullcalendar/dist/core/locales/zh-tw.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/bower_components/fullcalendar/dist/core/main.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/bower_components/fullcalendar/dist/core/main.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/bower_components/fullcalendar/dist/core/main.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/bower_components/fullcalendar/dist/core/main.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/bower_components/fullcalendar/dist/core/main.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/bower_components/fullcalendar/dist/core/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/bower_components/fullcalendar/dist/daygrid/LICENSE.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/bower_components/fullcalendar/dist/daygrid/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/bower_components/fullcalendar/dist/daygrid/main.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/bower_components/fullcalendar/dist/daygrid/main.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/bower_components/fullcalendar/dist/daygrid/main.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/bower_components/fullcalendar/dist/daygrid/main.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/bower_components/fullcalendar/dist/daygrid/main.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/bower_components/fullcalendar/dist/daygrid/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/bower_components/fullcalendar/dist/google-calendar/LICENSE.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/bower_components/fullcalendar/dist/google-calendar/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/bower_components/fullcalendar/dist/google-calendar/main.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/bower_components/fullcalendar/dist/google-calendar/main.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/bower_components/fullcalendar/dist/google-calendar/main.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/bower_components/fullcalendar/dist/google-calendar/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/bower_components/fullcalendar/dist/interaction/LICENSE.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/bower_components/fullcalendar/dist/interaction/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/bower_components/fullcalendar/dist/interaction/main.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/bower_components/fullcalendar/dist/interaction/main.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/bower_components/fullcalendar/dist/interaction/main.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/bower_components/fullcalendar/dist/interaction/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/bower_components/fullcalendar/dist/list/LICENSE.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/bower_components/fullcalendar/dist/list/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/bower_components/fullcalendar/dist/list/main.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/bower_components/fullcalendar/dist/list/main.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/bower_components/fullcalendar/dist/list/main.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/bower_components/fullcalendar/dist/list/main.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/bower_components/fullcalendar/dist/list/main.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/bower_components/fullcalendar/dist/list/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/bower_components/fullcalendar/dist/luxon/LICENSE.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/bower_components/fullcalendar/dist/luxon/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/bower_components/fullcalendar/dist/luxon/main.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/bower_components/fullcalendar/dist/luxon/main.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/bower_components/fullcalendar/dist/luxon/main.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/bower_components/fullcalendar/dist/luxon/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/bower_components/fullcalendar/dist/moment-timezone/LICENSE.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/bower_components/fullcalendar/dist/moment-timezone/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/bower_components/fullcalendar/dist/moment-timezone/main.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/bower_components/fullcalendar/dist/moment-timezone/main.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/bower_components/fullcalendar/dist/moment-timezone/main.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/bower_components/fullcalendar/dist/moment-timezone/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/bower_components/fullcalendar/dist/moment/LICENSE.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/bower_components/fullcalendar/dist/moment/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/bower_components/fullcalendar/dist/moment/main.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/bower_components/fullcalendar/dist/moment/main.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/bower_components/fullcalendar/dist/moment/main.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/bower_components/fullcalendar/dist/moment/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/bower_components/fullcalendar/dist/rrule/LICENSE.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/bower_components/fullcalendar/dist/rrule/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/bower_components/fullcalendar/dist/rrule/main.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/bower_components/fullcalendar/dist/rrule/main.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/bower_components/fullcalendar/dist/rrule/main.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/bower_components/fullcalendar/dist/rrule/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/bower_components/fullcalendar/dist/timegrid/LICENSE.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/bower_components/fullcalendar/dist/timegrid/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/bower_components/fullcalendar/dist/timegrid/main.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/bower_components/fullcalendar/dist/timegrid/main.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/bower_components/fullcalendar/dist/timegrid/main.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/bower_components/fullcalendar/dist/timegrid/main.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/bower_components/fullcalendar/dist/timegrid/main.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/bower_components/fullcalendar/dist/timegrid/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/bower_components/fullcalendar/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/odonto/Forms/UpdateProfile.py" beforeDir="false" afterPath="$PROJECT_DIR$/odonto/Forms/UpdateProfile.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/passenger_wsgi.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/dashboard/views/users/update.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/dashboard/views/users/update.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tmp/restart.txt" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/passenger_wsgi.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -217,11 +67,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/dashboard/views/users/update.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="23" column="36" selection-start-line="23" selection-start-column="36" selection-end-line="23" selection-end-column="36" />
+            <state relative-caret-position="264">
+              <caret line="13" column="28" lean-forward="true" selection-start-line="13" selection-start-column="28" selection-end-line="13" selection-end-column="28" />
             </state>
           </provider>
         </entry>
@@ -271,8 +121,19 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/.env">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="5" column="20" selection-start-line="5" selection-start-column="20" selection-end-line="5" selection-end-column="20" />
+            <state relative-caret-position="96">
+              <caret line="4" column="16" selection-start-line="4" selection-start-column="16" selection-end-line="4" selection-end-column="16" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/passenger_wsgi.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <folding>
+                <element signature="e#1#11#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -286,15 +147,6 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/consultations/templates/schedule/new.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="6408">
-              <caret line="267" column="44" selection-start-line="267" selection-start-column="44" selection-end-line="267" selection-end-column="44" />
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
@@ -302,8 +154,8 @@
       <list>
         <option value="CSS File" />
         <option value="JavaScript File" />
-        <option value="Python Script" />
         <option value="HTML File" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
@@ -329,7 +181,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/consultations/models.py" />
         <option value="$PROJECT_DIR$/consultations/admin.py" />
         <option value="$PROJECT_DIR$/consultations/templates/schedule.html" />
         <option value="$PROJECT_DIR$/patients/Models/Patient.py" />
@@ -376,10 +227,11 @@
         <option value="$PROJECT_DIR$/templates/404.html" />
         <option value="$PROJECT_DIR$/consultations/templates/schedule/index.html" />
         <option value="$PROJECT_DIR$/odonto/Forms/UpdateProfile.py" />
-        <option value="$PROJECT_DIR$/.env" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/templates/dashboard/views/users/list.html" />
         <option value="$PROJECT_DIR$/templates/dashboard/views/users/update.html" />
+        <option value="$PROJECT_DIR$/.env" />
+        <option value="$PROJECT_DIR$/passenger_wsgi.py" />
       </list>
     </option>
   </component>
@@ -401,37 +253,6 @@
             <path>
               <item name="consultas" type="b2602c69:ProjectViewProjectNode" />
               <item name="consultas" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="consultas" type="b2602c69:ProjectViewProjectNode" />
-              <item name="consultas" type="462c0819:PsiDirectoryNode" />
-              <item name="odonto" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="consultas" type="b2602c69:ProjectViewProjectNode" />
-              <item name="consultas" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="consultas" type="b2602c69:ProjectViewProjectNode" />
-              <item name="consultas" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="dashboard" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="consultas" type="b2602c69:ProjectViewProjectNode" />
-              <item name="consultas" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="dashboard" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="consultas" type="b2602c69:ProjectViewProjectNode" />
-              <item name="consultas" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="dashboard" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="users" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -556,7 +377,7 @@
       <workItem from="1564466893857" duration="1663000" />
       <workItem from="1564550878448" duration="2819000" />
       <workItem from="1564632200754" duration="1841000" />
-      <workItem from="1565145192631" duration="5449000" />
+      <workItem from="1565145192631" duration="6254000" />
     </task>
     <task id="LOCAL-00001" summary="enviando requirements">
       <created>1560565007868</created>
@@ -604,7 +425,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="121828000" />
+    <option name="totallyTimeSpent" value="122633000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
@@ -674,16 +495,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="selecionar endereço no cadastro de pacientes terminado" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/financier/Forms/CostForm.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="194">
-          <caret line="28" column="49" selection-start-line="28" selection-start-column="49" selection-end-line="28" selection-end-column="49" />
-          <folding>
-            <element signature="e#0#49#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/patients/Forms/PatientForm.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="208">
@@ -979,13 +790,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.env">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="5" column="20" selection-start-line="5" selection-start-column="20" selection-end-line="5" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tmp/restart.txt">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -1036,8 +840,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/dashboard/views/users/update.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="23" column="36" selection-start-line="23" selection-start-column="36" selection-end-line="23" selection-end-column="36" />
+        <state relative-caret-position="264">
+          <caret line="13" column="28" lean-forward="true" selection-start-line="13" selection-start-column="28" selection-end-line="13" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.env">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="96">
+          <caret line="4" column="16" selection-start-line="4" selection-start-column="16" selection-end-line="4" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/passenger_wsgi.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#1#11#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
