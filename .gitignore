@@ -2,6 +2,4 @@
 db.sqlite3
 *.pyc
 .*
-/static
-/media
 passenger_wsgi.py
