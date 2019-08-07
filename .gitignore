@@ -4,3 +4,4 @@ db.sqlite3
 .*
 /static
 /media
+passenger_wsgi.py
