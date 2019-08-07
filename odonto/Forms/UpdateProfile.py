@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 
 
 class UpdateProfile(ModelForm):
-    # password = forms.CharField(widget=forms.PasswordInput)
+    password = forms.CharField(widget=forms.PasswordInput)
 
     class Meta:
         model = User
@@ -24,7 +24,8 @@ class UpdateProfile(ModelForm):
 
     def save(self):
         user = self.instance
-        if user.password:
+        pastUser = User.objects.get(pk=user.id)
+        if not user.password == pastUser.password:
             user.set_password(user.password)
         user.save()
         return user
