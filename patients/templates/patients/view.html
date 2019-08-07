@@ -134,10 +134,13 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-xs-12">
-                <div class="well text-muted text-center" style="padding-top: 4rem; padding-bottom: 4rem;">
+                <div class="well text-muted text-center hidden-sm hidden-xs" style="padding-top: 4rem; padding-bottom: 4rem;">
                   <span class="glyphicon glyphicon-arrow-down" style="font-size: 4rem;"></span>
                   <h3>Solte Fotos Aqui Para Enviar</h3>
                 </div>
+                <button type="button" class="btn btn-primary hidden-lg pull-right js-upload-photos">
+                    <span class="glyphicon glyphicon-cloud-upload"></span> Enviar Imagens
+                </button>
                 {# 2. FILE INPUT TO BE USED BY THE PLUG-IN #}
                 <input id="fileupload" type="file" name="file" multiple
                        style="display: none;"
