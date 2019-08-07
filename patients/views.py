@@ -10,8 +10,11 @@ from collections import OrderedDict
 
 # Create your views here.
 from .models import Address
+from .models import Address
 from .models import Patient
+from .models import Photo
 from consultations.models import Consultation
+from .forms import PhotoForm
 from .forms import AddressForm
 from .forms import PatientForm
 
@@ -59,7 +62,38 @@ def edit_patient(request, id):
 
 @login_required
 def view_patient(request, id):
+    consultations_timeline = {}
     patient = Patient.objects.get(pk=id)
+    photos_list = Photo.objects.filter(patient=id)
+    if request.is_ajax() and request.method == "GET":
+        data = patient.as_dict()
+        return JsonResponse(data, safe=False)
+    elif request.method == "DELETE":
+        data = request.body.decode().split('=')
+        photo = Photo.objects.get(pk=data[1])
+        photo.delete()
+        return JsonResponse({'message': 'Imagem Apagada com Sucesso'}, safe=False)
+    elif request.method == "POST":
+        form = PhotoForm(request.POST, request.FILES)
+        if form.is_valid():
+            photo = form.save(commit=False)
+            photo.patient = patient
+            photo.title = photo.file.name.replace('photos/', '')
+            photo.save()
+            data = {'is_valid': True, 'id': photo.id ,'name': photo.title, 'url': photo.file.url}
+        else:
+            data = {'is_valid': False}
+        return JsonResponse(data)
+    else:
+        consultations = Consultation.objects.filter(patient=id)
+        for consultation in consultations:
+            if not (consultation.date in consultations_timeline.keys()):
+                consultations_timeline[consultation.date] = []
+                consultations_timeline[consultation.date].append(consultation)
+            else:
+                consultations_timeline[consultation.date].append(consultation)
+        consultations_timeline = OrderedDict(sorted(consultations_timeline.items(), key=lambda t: t[0], reverse=True))
+    return render(request, 'patients/view.html', {'patient': patient, 'consultations': consultations_timeline, 'today': date.today(), 'photos': photos_list})
     consultations = Consultation.objects.filter(patient=id)
     consultations_timeline = {}
     for consultation in consultations:
