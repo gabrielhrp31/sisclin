@@ -23,7 +23,14 @@ class CostForm(ModelForm):
     #                     widget=DateInput(format='%d/%m/%Y', 
     #                                     attrs={'class': "input", 'placeholder': "Ex.: dd/mm/aaaa", "OnKeyPress":"mask('##/##/####', this)"}))
 
+
+
     class Meta:
         model = Cost
         fields = '__all__'
         exclude = ['creation_date', 'change_hour']
+
+        def __init__(self, *args, **kwargs):
+            super(CostForm, self).__init__(*args, **kwargs)
+            self.fields['amount'].localize = True
+            self.fields['amount'].widget.is_localized = True

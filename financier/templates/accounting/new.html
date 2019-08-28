@@ -24,7 +24,7 @@
         <a href="{% url 'list_costs' %}" class="btn btn-primary pull-right"><i class="fa fa-arrow-left">Voltar</i></a>
 {% endblock %}
 {% block box %}
-    <form class="container-fluid" action="" method="POST">
+    <form id="form" class="container-fluid" action="" method="POST">
         <div class="row">
             <div class="col-xs-12">
                 {% if cost_form.errors %}
@@ -68,11 +68,18 @@
     <script src="{% static 'select2/dist/js/select2.full.min.js' %}"></script>
     <script src="{% static 'bootstrap-datepicker/dist/js/bootstrap-datepicker.js' %}"></script>
     <script src="{%  static 'inputmask/dist/jquery.inputmask.bundle.js' %} "></script>
+     <script     src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
     <script src="{%  static 'bootstrap-colorpicker/dist/js/bootstrap-colorpicker.js' %} "></script>
     <script>
         var csrftoken = Cookies.get('csrftoken');
         $('#id_num_plots').parent().parent().children("label").hide();
         $(document).ready(function () {
+
+            $('#id_num_plots').val(1);
+            $('#form').on('submit',function(){
+                $('#id_amount').val($('#id_amount').val().replace(',','.'));
+            });
+
             $('#id_payday').datepicker({
                 format: "dd/mm/yyyy",
                 autoclose: true,
@@ -94,7 +101,8 @@
         
             $('#id_payday').inputmask({regex: "^([0-2][0-9]|(3)[0-1])(\\/)(((0)[0-9])|((1)[0-2]))(\\/)\\d{4}$",
                                     placeholder: "dd/mm/aaaa"}); //Date
-            $('#id_amount').inputmask({mask:"9{+}.99"});  // decimal .2
+            {#$('#id_amount').inputmask({mask:"9{+}.99"});  // decimal .2#}
+            $('#id_amount').mask("##0,00", {reverse: true});  // decimal .2
             $('#id_num_plots').inputmask({regex: "(([0-9])|((1)[0-2]))"});  // 0 - 12
         });
     </script>

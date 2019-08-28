@@ -2,9 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ff34d4b4-aa49-4b8e-b72c-0266eca74784" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/dashboard/includes/aside.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/dashboard/includes/aside.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/consultations/templates/schedule/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/consultations/templates/schedule/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/consultations/templates/schedule/new.html" beforeDir="false" afterPath="$PROJECT_DIR$/consultations/templates/schedule/new.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/financier/Forms/CostForm.py" beforeDir="false" afterPath="$PROJECT_DIR$/financier/Forms/CostForm.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/financier/templates/accounting/new.html" beforeDir="false" afterPath="$PROJECT_DIR$/financier/templates/accounting/new.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/odonto/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/odonto/settings.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -59,21 +62,6 @@
       </list>
     </option>
   </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>project_sample</find>
-      <find>prof</find>
-      <find>procedure</find>
-      <find>user</find>
-      <find>append</find>
-      <find>print</find>
-      <find>list</find>
-      <find>proce</find>
-    </findStrings>
-    <replaceStrings>
-      <replace>user_listed</replace>
-    </replaceStrings>
-  </component>
   <component name="Git.Settings">
     <option name="UPDATE_TYPE" value="MERGE" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -97,19 +85,19 @@
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\Users\gabri\Documentos\JPG Apps\consultas" />
-      <recent name="$PROJECT_DIR$/templates/dashboard/views/users" />
-      <recent name="$PROJECT_DIR$/odonto/Forms" />
-      <recent name="$PROJECT_DIR$/templates/dashboard/views" />
-      <recent name="$PROJECT_DIR$" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/templates/dashboard/views/me" />
       <recent name="$PROJECT_DIR$/templates/dashboard/views/users" />
       <recent name="$PROJECT_DIR$/consultations/templates" />
       <recent name="$PROJECT_DIR$/static" />
       <recent name="$PROJECT_DIR$/templates" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Users\gabri\Documentos\JPG Apps\consultas" />
+      <recent name="$PROJECT_DIR$/templates/dashboard/views/users" />
+      <recent name="$PROJECT_DIR$/odonto/Forms" />
+      <recent name="$PROJECT_DIR$/templates/dashboard/views" />
+      <recent name="$PROJECT_DIR$" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -200,7 +188,7 @@
       <workItem from="1565145192631" duration="8235000" />
       <workItem from="1565154437570" duration="2961000" />
       <workItem from="1565209587960" duration="2559000" />
-      <workItem from="1566961959223" duration="1102000" />
+      <workItem from="1566961959223" duration="5674000" />
     </task>
     <task id="LOCAL-00001" summary="enviando requirements">
       <created>1560565007868</created>
