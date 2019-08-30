@@ -17,7 +17,7 @@
         <h4>{{  user.first_name }} {{  user.last_name }}</h4>
     </div>
     <div class="col-xs-3  col-sm-3 col-md-2 col-lg-1">
-        <a href="{% url 'my_profile' %}" class="btn btn-primary"><i class="fa fa-arrow-left">Voltar</i></a>
+        <a href="{% url 'my_profile' %}" class="btn btn-primary"><i class="fa fa-arrow-left"></i> Voltar</a>
     </div>
 {% endblock %}
 {% block box %}
@@ -25,7 +25,7 @@
         <form class="margin-bottom" enctype="multipart/form-data" method="POST">
             {% csrf_token %}
             {{ form | bootstrap }}
-            <button type="submit" class="btn btn-success">Salvar</button>
+            <button type="submit" class="btn btn-warning pull-right">Salvar</button>
         </form>
     </div>
 {% endblock %}
