@@ -14,13 +14,30 @@
     no-padding responsive-table
 {% endblock %}
 {% block box_header %}
-    <a href="{% url 'new_cost' %}" class="btn btn-primary pull-right"><i class="fa fa-plus"> Novo Lançamento</i></a>
+    <a href="{% url 'new_cost' %}" class="btn btn-primary pull-right"><i class="fa fa-plus"></i> Novo Lançamento</a>
 {% endblock %}
 {% block box %}
     <style>
         td{
             vertical-align: bottom;
         }
+
+        .btn-default {
+            background-color: #01a65b!important;
+            color: #fff!important;
+            border-radius: 50px!important;
+            border:none;
+            /* border-color: #fff; */
+        }
+
+        .btn-default:hover {
+            background-color: #41b37f!important;
+            color: #fff!important;
+            border-radius: 50px!important;
+            /* border-color: #fff; */
+        }
+
+
     </style>
     <div class="nav-tabs-custom">
         <ul class="nav nav-tabs">
@@ -79,7 +96,7 @@
                     <div class="row" style="margin-bottom:20px;">
                         <div class="col-xs-12 col-lg-4 col-xs-offset-1">
                             <label for="year">
-                                Ano(Padrão=Atual):
+                                Ano ( VAZIO = Ano Atual ):
                             </label>
                             <input class="form-control" id="year" type="number" placeholder="Ex.:2019">
                         </div>
@@ -102,7 +119,7 @@
                                 <option value="12">Dezembro</option>
                             </select>
                         </div>
-                        <div class="col-xs-4 col-lg-2" style="margin-top:20px;">
+                        <div class="col-xs-4 col-lg-2" style="margin-top:30px;">
                             <button id="filter" class="btn btn-default">Filtrar</button>
                         </div>
                     </div>
@@ -142,7 +159,7 @@
                                                                 {% if plot.input %}
                                                                     entrada da
                                                                 {% else %}
-                                                                    parcela da
+                                                                    parcela de
                                                                 {% endif %}
                                                             {% endifequal %}
                                                             {{ plot.patient_financial.consultation.procedure.name }}
@@ -181,7 +198,7 @@
                                                                 {% if plot.input %}
                                                                     entrada da
                                                                 {% else %}
-                                                                    parcela da
+                                                                    parcela de
                                                                 {% endif %}
                                                             {% endifequal %}
                                                             {{ plot.cost.description }}
