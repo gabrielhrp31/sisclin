@@ -15,6 +15,7 @@ from .models import Cost
 from .models import Plots
 from .models import PatientFinancial
 from .forms import CostForm
+from .forms import PlotForm
 
 @login_required
 def list_costs(request, year=None, month=None):
@@ -44,8 +45,7 @@ def list_costs(request, year=None, month=None):
             if not (cost_as_plot.date in all.keys()):
                 all[cost_as_plot.paid_day] = []
             all[cost_as_plot.paid_day].append(cost_as_plot)
-            
-            
+
 
     # print(monthly_costs)
     for plot in monthly_plots_pay:
@@ -67,7 +67,8 @@ def list_costs(request, year=None, month=None):
                     financier["opened"] = financier["opened"] + plot.price
             else:
                 if plot.paid_day:
-                    financier["output"] = financier["output"] + plot.price
+                    if datetime.date(begin) < plot.paid_day < datetime.date(end):
+                        financier["output"] = financier["output"] + plot.price
                 else:
                     financier["opened"] = financier["opened"] - plot.price
     financier["balance"] = financier["input"]-financier["output"]
@@ -79,6 +80,39 @@ def list_costs(request, year=None, month=None):
         return JsonResponse(data, safe=False)
     return render(request, 'accounting/list.html', {'costs': costs, 'all': all, "financier": financier, 'today': date.today(), 'year': year, 'month': month})
 
+@login_required
+def edit_plot(request, id):
+    plot=  Plots.objects.get(pk=id)
+    old_plot_price= plot.price
+    form = PlotForm(request.POST or None, request.FILES or None, instance=plot)
+    if request.method =="POST" and form.is_valid():
+        patient_financial = plot.patient_financial
+        plot = form.save()
+        if plot.price==0:
+            patient_financial.amount-=old_plot_price
+            if plot.input:
+                patient_financial.amount_paid=0
+            plot.delete()
+            patient_financial.num_plots-=1
+            patient_financial.save()
+            messages.add_message(request, messages.SUCCESS, 'Parcela Excluida Pois o Valor Estava Zerado!')
+            return redirect('view_schedules', id=plot.patient_financial.consultation.id)
+
+        if plot.price>old_plot_price:
+            diff = plot.price-old_plot_price
+            patient_financial.amount+=diff
+        else:
+            diff= old_plot_price-plot.price
+            patient_financial.amount-=diff
+        # print("Valor Antigo da Parcela:"+str(old_plot_price))
+        # print("Valor Atual da Parcela:"+str(plot.price))
+        # print("Diferença:"+str(diff))
+        if plot.input:
+            patient_financial.amount_paid=plot.price
+        patient_financial.save()
+        messages.add_message(request, messages.SUCCESS, 'Valor da Parcela Alterado!')
+        return redirect('view_schedules', id=plot.patient_financial.consultation.id)
+    return render(request, 'plots/edit.html', {'form': form,'consultation_id':plot.patient_financial.consultation.id})
 
 @login_required
 def new_cost(request):
@@ -90,8 +124,6 @@ def new_cost(request):
                 if cost.payment_form:
                     plots = Plots()
                     plots.create(cost.amount, cost.payday, cost, 2)
-                    if cost.status:
-                        plots.pay(datetime.now())
                 else:
                     plots_price = cost.amount/cost.num_plots
                     for i in range(0, cost.num_plots):
@@ -113,7 +145,8 @@ def pay_plot(request, location, id, year=None, month=None):
         plot = Plots.objects.get(pk=id)
         plot.pay(datetime.now().date())
         messages.add_message(request, messages.SUCCESS, 'Pagamento da Parcela Realizado!')
-        patient_financier = PatientFinancial.objects.get(pk=plot.patient_financial.id)
+        if plot.patient_financial:
+            patient_financier = PatientFinancial.objects.get(pk=plot.patient_financial.id)
     else:
         cost = Cost.objects.get(pk=id)
         plot = cost.as_plot(year, month)
@@ -122,6 +155,7 @@ def pay_plot(request, location, id, year=None, month=None):
         return redirect('list_costs')
     return redirect('view_schedules', id=patient_financier.consultation.id)
 
+@login_required
 def delete_cost(request, id):
     cost = Cost.objects.get(pk=id)
     if cost.delete():

@@ -15,9 +15,9 @@ def get_full_date(date, time):
 class Event(models.Model):
     title = models.TextField(null=False)
     start = models.DateField(null=False)
-    startTime = models.TimeField(null=True)
-    end = models.DateField(null=False)
-    endTime = models.TimeField(null=True)
+    startTime = models.TimeField(blank=True,null=True)
+    end = models.DateField(blank=True, null=True)
+    endTime = models.TimeField(blank=True, null=True)
     description = models.TextField(null=True)
     allDay = models.BooleanField(default=False)
     holiday = models.BooleanField(default=False)
@@ -34,17 +34,28 @@ class Event(models.Model):
             return ''
 
     def as_dict(self):
-        print(get_full_date(self.end, self.endTime))
-        return {
-            'id': self.id,
-            'start': get_full_date(self.start, self.startTime),
-            'end': get_full_date(self.end, self.endTime),
-            'allDay': self.allDay,
-            'title': self.title,
-            'redirect_url': reverse('edit_schedules',  kwargs={'type': 'event', 'id': self.id}),
-            'backgroundColor': self.backgroundColor,
-            'textColor': self.textColor,
-            'borderColor': '#ffffff',
-            'type': 'event',
-            'rendering': self.get_rendering()
-        }
+        item = {'id': self.id, 'title': self.title,
+                'redirect_url': reverse('edit_schedules', kwargs={'type': 'event', 'id': self.id}),
+                'background_color': self.backgroundColor, 'textColor': self.textColor, 'borderColor': '#ffffff',
+                'type': 'event', 'allDay': self.allDay, 'rendering': self.get_rendering()}
+        print(item)
+        if self.allDay:
+            item['start'] =  self.start
+            if self.end:
+                item['end'] =  self.end
+        else:
+            if self.startTime:
+                item['start'] = get_full_date(self.start, self.startTime)
+                if self.end:
+                    if self.endTime:
+                        item['end'] = get_full_date(self.end, self.endTime)
+                    else:
+                        if self.startTime:
+                            item['end'] = get_full_date(self.end, self.startTime)
+                        else:
+                            item['end'] =  self.end
+            else:
+                item['start'] = self.start
+                if self.end:
+                    item['end'] =  self.end
+        return item

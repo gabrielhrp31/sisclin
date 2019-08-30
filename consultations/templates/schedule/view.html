@@ -97,29 +97,6 @@
             </p>
         </li>
     </ul>
-    <div class="modal modal-danger fade in" id="modal-schedule{{ consultation.id }}">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">×</span></button>
-                <h4 class="modal-title">Confirmar Exclusão</h4>
-                </div>
-                <div class="modal-body">
-                    <p>Tem Certeza que deseja excluir a consulta ?</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cancelar</button>  
-                    <form action="{% url 'delete_schedule' consultation.id %}" method="POST">
-                        {% csrf_token %}
-                        <button type="submit" class="btn btn-danger">Confirmar</button>
-                    </form>
-                </div>
-            </div>
-        <!-- /.modal-content -->
-        </div>
-        <!-- /.modal-dialog -->
-    </div>
 </div>
 <!-- /.tab-pane -->
 <div class="tab-pane table-responsive" id="tab_2">
@@ -174,7 +151,7 @@
                         {% endif%}
                     </td>
                     <td>
-                        <a href="" class="btn btn-warning"><i class="fa fa-edit"></i></a>
+                        <a href="{% url 'edit_plot' plot.id %}" class="btn btn-warning"><i class="fa fa-edit"></i></a>
                     </td>
                     <td>
                         {% if plot.paid_day %}
@@ -214,6 +191,29 @@
 <!-- /.tab-pane -->
 </div>
 <!-- /.tab-content -->
+</div>
+<div class="modal modal-danger fade in" id="modal-schedule{{ consultation.id }}">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">×</span></button>
+            <h4 class="modal-title">Confirmar Exclusão</h4>
+            </div>
+            <div class="modal-body">
+                <p>Tem Certeza que deseja excluir a consulta ?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cancelar</button>
+                <form action="{% url 'delete_schedule' consultation.id %}" method="POST">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-danger">Confirmar</button>
+                </form>
+            </div>
+        </div>
+    <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
 </div>
 {% endblock %}
 

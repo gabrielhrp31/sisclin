@@ -1,0 +1,58 @@
+{% extends  'box.html' %}
+{% load static %}
+{% load bootstrap %}
+{% block title %}
+    Parcela
+{% endblock %}
+{% block css %}
+    <link rel="stylesheet" href="{% static 'bootstrap-datepicker/dist/css/bootstrap-datepicker.css' %}">
+    <link rel="stylesheet" href="{% static 'bootstrap-colorpicker/dist/css/bootstrap-colorpicker.css' %}">
+{% endblock %}
+{% block page_title %}
+    Parcela
+{% endblock %}
+{% block page_description %}
+    Editar
+{% endblock %}
+{% block col_classes %}
+    col-lg-6 col-lg-offset-3
+{% endblock %}
+{% block box_classes %}
+    no-padding responsive-table
+{% endblock %}
+{% block box_header %}
+        <a href="{% url 'view_schedules' consultation_id %}" class="btn btn-primary pull-right"><i class="fa fa-arrow-left"></i> Voltar</a>
+{% endblock %}
+{% block box %}
+    <form class="container-fluid" action="" method="POST">
+        <div class="row">
+            <div class="col-xs-12">
+                {% csrf_token %}
+                {{ form | bootstrap }}
+            </div>
+        </div>
+        <div class="row" style="margin-top:50px;">
+            <div class="col-xs-12">
+                <button type="button" id="btn-edit" class="btn btn-warning pull-right" >
+                   Editar
+                </button>
+                <button type="submit" id="btn-save" class="btn btn-success pull-right" style="display: none;">
+                   Salvar
+                </button>
+            </div>
+        </div>
+    </form>
+{% endblock %}
+
+{% block scripts %}
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+    <script>
+        $('.form-control').attr('disabled',true);
+
+        $('#btn-edit').click(function () {
+            $(this).hide(200);
+            $('#btn-save').show(200);
+            $('.form-control').attr('disabled',false);
+        });
+    </script>
+{% endblock %}

@@ -29,7 +29,6 @@ class Cost(models.Model):
 
     def get_paid_day(self, year=None, month=None):
         if year and month:
-            print("ano")
             plot = Plots.Plots.objects.filter(cost=self.id, paid_day__isnull=False, date__month=month, date__year=year)
         else:
             plot = Plots.Plots.objects.filter(cost=self.id, paid_day__isnull=False, date__month=datetime.now().month, date__year=datetime.now().year)
