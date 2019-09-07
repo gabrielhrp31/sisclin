@@ -2,38 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ff34d4b4-aa49-4b8e-b72c-0266eca74784" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/admin-lte/dist/css/AdminLTE.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/admin-lte/dist/css/AdminLTE.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/admin-lte/dist/css/AdminLTE.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/admin-lte/dist/css/AdminLTE.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/admin-lte/dist/css/adminlte.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/static/admin-lte/dist/css/adminlte.css.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/admin-lte/dist/css/adminlte.min.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/static/admin-lte/dist/css/adminlte.min.css.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/admin-lte/dist/css/alt/AdminLTE-bootstrap-social.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/admin-lte/dist/css/alt/AdminLTE-bootstrap-social.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/admin-lte/dist/css/alt/AdminLTE-fullcalendar.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/admin-lte/dist/css/alt/AdminLTE-fullcalendar.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/admin-lte/dist/css/alt/AdminLTE-select2.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/admin-lte/dist/css/alt/AdminLTE-select2.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/admin-lte/dist/css/alt/AdminLTE-without-plugins.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/admin-lte/dist/css/alt/AdminLTE-without-plugins.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/admin-lte/dist/css/alt/AdminLTE-without-plugins.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/admin-lte/dist/css/alt/AdminLTE-without-plugins.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/admin-lte/dist/css/skins/_all-skins.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/admin-lte/dist/css/skins/_all-skins.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/admin-lte/dist/css/skins/_all-skins.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/admin-lte/dist/css/skins/_all-skins.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/admin-lte/dist/css/skins/skin-black-light.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/admin-lte/dist/css/skins/skin-black-light.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/admin-lte/dist/css/skins/skin-black.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/admin-lte/dist/css/skins/skin-black.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/admin-lte/dist/css/skins/skin-blue-light.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/admin-lte/dist/css/skins/skin-blue-light.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/admin-lte/dist/css/skins/skin-blue.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/admin-lte/dist/css/skins/skin-blue.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/admin-lte/dist/css/skins/skin-green-light.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/admin-lte/dist/css/skins/skin-green-light.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/admin-lte/dist/css/skins/skin-green.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/admin-lte/dist/css/skins/skin-green.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/admin-lte/dist/css/skins/skin-purple-light.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/admin-lte/dist/css/skins/skin-purple-light.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/admin-lte/dist/css/skins/skin-purple.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/admin-lte/dist/css/skins/skin-purple.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/admin-lte/dist/css/skins/skin-red-light.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/admin-lte/dist/css/skins/skin-red-light.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/admin-lte/dist/css/skins/skin-red.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/admin-lte/dist/css/skins/skin-red.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/admin-lte/dist/css/skins/skin-yellow-light.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/admin-lte/dist/css/skins/skin-yellow-light.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/admin-lte/dist/css/skins/skin-yellow.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/admin-lte/dist/css/skins/skin-yellow.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/admin-lte/dist/js/adminlte.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/admin-lte/dist/js/adminlte.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/admin-lte/dist/js/adminlte.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/admin-lte/dist/js/adminlte.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/admin-lte/dist/js/demo.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/admin-lte/dist/js/demo.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/admin-lte/dist/js/pages/dashboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/admin-lte/dist/js/pages/dashboard.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/admin-lte/dist/js/pages/dashboard2.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/admin-lte/dist/js/pages/dashboard2.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/odonto/imgs/avatar.png" beforeDir="false" afterPath="$PROJECT_DIR$/static/odonto/imgs/avatar.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/registration/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/registration/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/dashboard/includes/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/dashboard/includes/header.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -221,7 +190,7 @@
       <workItem from="1565209587960" duration="2559000" />
       <workItem from="1566961959223" duration="5674000" />
       <workItem from="1566999828587" duration="451000" />
-      <workItem from="1567864520348" duration="1588000" />
+      <workItem from="1567864520348" duration="1674000" />
     </task>
     <task id="LOCAL-00001" summary="enviando requirements">
       <created>1560565007868</created>
@@ -272,7 +241,14 @@
       <option name="project" value="LOCAL" />
       <updated>1565151031160</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="colocado maneira de enviar imagem em todas as telas">
+      <created>1567867172202</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1567867172202</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
