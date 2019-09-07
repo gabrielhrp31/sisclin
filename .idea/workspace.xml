@@ -2,18 +2,38 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ff34d4b4-aa49-4b8e-b72c-0266eca74784" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/financier/Forms/PlotForm.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/financier/templates/plots/edit.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/consultations/Models/Event.py" beforeDir="false" afterPath="$PROJECT_DIR$/consultations/Models/Event.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/consultations/templates/schedule/edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/consultations/templates/schedule/edit.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/consultations/templates/schedule/view.html" beforeDir="false" afterPath="$PROJECT_DIR$/consultations/templates/schedule/view.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/consultations/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/consultations/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/financier/Forms/CostForm.py" beforeDir="false" afterPath="$PROJECT_DIR$/financier/Forms/CostForm.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/financier/Models/Cost.py" beforeDir="false" afterPath="$PROJECT_DIR$/financier/Models/Cost.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/financier/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/financier/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/financier/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/financier/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/financier/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/financier/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/admin-lte/dist/css/AdminLTE.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/admin-lte/dist/css/AdminLTE.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/admin-lte/dist/css/AdminLTE.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/admin-lte/dist/css/AdminLTE.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/admin-lte/dist/css/adminlte.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/static/admin-lte/dist/css/adminlte.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/admin-lte/dist/css/adminlte.min.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/static/admin-lte/dist/css/adminlte.min.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/admin-lte/dist/css/alt/AdminLTE-bootstrap-social.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/admin-lte/dist/css/alt/AdminLTE-bootstrap-social.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/admin-lte/dist/css/alt/AdminLTE-fullcalendar.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/admin-lte/dist/css/alt/AdminLTE-fullcalendar.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/admin-lte/dist/css/alt/AdminLTE-select2.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/admin-lte/dist/css/alt/AdminLTE-select2.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/admin-lte/dist/css/alt/AdminLTE-without-plugins.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/admin-lte/dist/css/alt/AdminLTE-without-plugins.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/admin-lte/dist/css/alt/AdminLTE-without-plugins.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/admin-lte/dist/css/alt/AdminLTE-without-plugins.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/admin-lte/dist/css/skins/_all-skins.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/admin-lte/dist/css/skins/_all-skins.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/admin-lte/dist/css/skins/_all-skins.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/admin-lte/dist/css/skins/_all-skins.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/admin-lte/dist/css/skins/skin-black-light.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/admin-lte/dist/css/skins/skin-black-light.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/admin-lte/dist/css/skins/skin-black.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/admin-lte/dist/css/skins/skin-black.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/admin-lte/dist/css/skins/skin-blue-light.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/admin-lte/dist/css/skins/skin-blue-light.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/admin-lte/dist/css/skins/skin-blue.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/admin-lte/dist/css/skins/skin-blue.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/admin-lte/dist/css/skins/skin-green-light.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/admin-lte/dist/css/skins/skin-green-light.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/admin-lte/dist/css/skins/skin-green.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/admin-lte/dist/css/skins/skin-green.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/admin-lte/dist/css/skins/skin-purple-light.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/admin-lte/dist/css/skins/skin-purple-light.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/admin-lte/dist/css/skins/skin-purple.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/admin-lte/dist/css/skins/skin-purple.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/admin-lte/dist/css/skins/skin-red-light.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/admin-lte/dist/css/skins/skin-red-light.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/admin-lte/dist/css/skins/skin-red.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/admin-lte/dist/css/skins/skin-red.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/admin-lte/dist/css/skins/skin-yellow-light.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/admin-lte/dist/css/skins/skin-yellow-light.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/admin-lte/dist/css/skins/skin-yellow.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/admin-lte/dist/css/skins/skin-yellow.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/admin-lte/dist/js/adminlte.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/admin-lte/dist/js/adminlte.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/admin-lte/dist/js/adminlte.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/admin-lte/dist/js/adminlte.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/admin-lte/dist/js/demo.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/admin-lte/dist/js/demo.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/admin-lte/dist/js/pages/dashboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/admin-lte/dist/js/pages/dashboard.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/admin-lte/dist/js/pages/dashboard2.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/admin-lte/dist/js/pages/dashboard2.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/odonto/imgs/avatar.png" beforeDir="false" afterPath="$PROJECT_DIR$/static/odonto/imgs/avatar.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/registration/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/registration/base.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -84,7 +104,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="database.console.LAST_STATE" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/static/odonto/imgs" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -96,19 +116,19 @@
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\Users\gabri\Documentos\JPG Apps\consultas" />
-      <recent name="$PROJECT_DIR$/templates/dashboard/views/users" />
-      <recent name="$PROJECT_DIR$/odonto/Forms" />
-      <recent name="$PROJECT_DIR$/templates/dashboard/views" />
-      <recent name="$PROJECT_DIR$" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/templates/dashboard/views/me" />
       <recent name="$PROJECT_DIR$/templates/dashboard/views/users" />
       <recent name="$PROJECT_DIR$/consultations/templates" />
       <recent name="$PROJECT_DIR$/static" />
       <recent name="$PROJECT_DIR$/templates" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Users\gabri\Documentos\JPG Apps\Sistemas\consultas\static\odonto\imgs" />
+      <recent name="D:\Users\gabri\Documentos\JPG Apps\Sistemas\consultas\static" />
+      <recent name="D:\Users\gabri\Documentos\JPG Apps\consultas" />
+      <recent name="$PROJECT_DIR$/templates/dashboard/views/users" />
+      <recent name="$PROJECT_DIR$/odonto/Forms" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -201,6 +221,7 @@
       <workItem from="1565209587960" duration="2559000" />
       <workItem from="1566961959223" duration="5674000" />
       <workItem from="1566999828587" duration="451000" />
+      <workItem from="1567864520348" duration="1588000" />
     </task>
     <task id="LOCAL-00001" summary="enviando requirements">
       <created>1560565007868</created>
