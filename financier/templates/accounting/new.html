@@ -21,7 +21,7 @@
     no-padding responsive-table
 {% endblock %}
 {% block box_header %}
-        <a href="{% url 'list_costs' %}" class="btn btn-primary pull-right"><i class="fa fa-arrow-left">Voltar</i></a>
+        <a href="{% url 'list_costs' %}" class="btn btn-primary pull-right"><i class="fa fa-arrow-left"></i> Voltar</a>
 {% endblock %}
 {% block box %}
     <form id="form" class="container-fluid" action="" method="POST">
@@ -54,7 +54,7 @@
         </div>
         <div class="row" style="margin-top:50px;">
             <div class="col-xs-12">
-                <button type="submit" href="" class="btn btn-success pull-right">
+                <button type="submit" href="" class="btn btn-warning pull-right">
                     Salvar
                 </button>
             </div>

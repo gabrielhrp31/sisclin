@@ -2,17 +2,17 @@
 {% load static %}
 {% load bootstrap %}
 {% block title %}
-    Procedimento
+    Parcela
 {% endblock %}
 {% block css %}
     <link rel="stylesheet" href="{% static 'bootstrap-datepicker/dist/css/bootstrap-datepicker.css' %}">
     <link rel="stylesheet" href="{% static 'bootstrap-colorpicker/dist/css/bootstrap-colorpicker.css' %}">
 {% endblock %}
 {% block page_title %}
-    Procedimento
+    Parcela
 {% endblock %}
 {% block page_description %}
-    Ver/Editar
+    Editar
 {% endblock %}
 {% block col_classes %}
     col-lg-6 col-lg-offset-3
@@ -21,7 +21,7 @@
     no-padding responsive-table
 {% endblock %}
 {% block box_header %}
-        <a href="{% url 'procedures' %}" class="btn btn-primary pull-right"><i class="fa fa-arrow-left"></i> Voltar</a>
+        <a href="{% url 'view_schedules' consultation_id %}" class="btn btn-primary pull-right"><i class="fa fa-arrow-left"></i> Voltar</a>
 {% endblock %}
 {% block box %}
     <form class="container-fluid" action="" method="POST">

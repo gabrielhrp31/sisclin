@@ -10,8 +10,8 @@ class PatientFinancial(models.Model):
     # data de pagamento, status
     description = models.TextField(null=True)
     consultation = models.ForeignKey(Consultation, on_delete=models.CASCADE, null=True, verbose_name='Consulta')
-    amount = models.DecimalField(max_digits=7, decimal_places=2)
-    amount_paid = models.DecimalField(max_digits=7, decimal_places=2)
+    amount = models.DecimalField(blank=True, default=0,max_digits=7, decimal_places=2)
+    amount_paid = models.DecimalField(blank=True, default=0, max_digits=7, decimal_places=2)
     payment_form = models.NullBooleanField(null=False)
     num_plots = models.IntegerField(default='1')
     payday = models.DateField(null=False, default=datetime.date.today)

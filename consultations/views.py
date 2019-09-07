@@ -84,6 +84,9 @@ def edit(request, type, id):
     else:
         event = Event.objects.get(pk=id)
         form = EventForm(request.POST or None, request.FILES or None, instance=event)
+        if request.method == "POST" and form.is_valid():
+            form.save()
+            return redirect('schedule')
     return render(request, 'schedule/edit.html', {'form': form, 'type': type})
 
 

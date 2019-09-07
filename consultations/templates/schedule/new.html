@@ -21,9 +21,19 @@
     no-padding responsive-table
 {% endblock %}
 {% block box_header %}
-        <a href="{% url 'schedule' %}" class="btn btn-primary pull-right"><i class="fa fa-arrow-left">Voltar</i></a>
+        <a href="{% url 'schedule' %}" class="btn btn-primary pull-right"><i class="fa fa-arrow-left"></i> Voltar</a>
 {% endblock %}
 {% block box %}
+
+<style type="text/css">
+   label {
+    display: inline-block;
+    max-width: 100%;
+    margin-bottom: 5px;
+    font-weight: 400;
+    font-size: 18px;
+}
+</style>
     <form id="form" class="container-fluid" action="" method="POST">
         <div class="row">
             <div class="col-xs-12">
@@ -75,13 +85,13 @@
                     </button>
                 </div>
             </div>
-            <h4 style="margin-top:30px;">2 - Pagamento</h4>
+            <h4 style="margin-top:30px;">Pagamento</h4>
             <hr>
             {{ form_payment | bootstrap }}
         {% endifequal %}
         <div class="row">
             <div class="col-xs-12">
-                <button type="submit" href="" class="btn btn-success pull-right">
+                <button type="submit" href="" class="btn btn-warning pull-right">
                     Salvar
                 </button>
             </div>

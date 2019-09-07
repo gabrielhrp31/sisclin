@@ -19,24 +19,40 @@
 {% block box_header %}
 {% endblock %}
 {% block box %}
+
+<style type="text/css">
+   label {
+    display: inline-block;
+    max-width: 100%;
+    margin-bottom: 5px;
+    font-weight: 400;
+    font-size: 18px;
+}
+.text-green {
+    color: #ea5a90 !important;
+}
+</style>
+
+
+
 <div class="nav-tabs-custom">
 <ul class="nav nav-tabs">
     <li class="active"><a href="#tab_1" data-toggle="tab" aria-expanded="true">Consulta</a></li>
     <li class=""><a href="#tab_2" data-toggle="tab" aria-expanded="false">Pagamento</a></li>
-    <li class="pull-right"> <a href="{% url 'schedule' %}" class=" pull-right"><i class="fa fa-arrow-left">Voltar</i></a></li>
-    <li class="pull-right">
+  <a href="{% url 'schedule' %}" class=" pull-right btn btn-success"><i class="fa fa-arrow-left"></i> Voltar</a>
+    
         <a href="" class=" pull-right btn btn-danger" data-toggle="modal" data-target="#modal-schedule{{ consultation.id }}">
-            <i class="fa fa-trash text-red">
+            <i class="fa fa-trash"></i> 
                 Cancelar
-            </i>
+            
         </a>
-    </li>
+    
 </ul>
 <div class="tab-content">
 <div class="tab-pane active" id="tab_1">
     <h3 class="profile-username text-center">{{ consultation.patient.name }}</h3>
     <p class="text-muted text-center">{{ consultation.procedure.name }}</p>
-    <h4 class="text-green">1 - Consulta</h4>
+    <h4 class="text-green">Consulta</h4>
     <ul class="list-group list-group-unbordered">
         <li class="list-group-item">
             <b>Data</b> <span class="pull-right">{{ consultation.date }}</span>
@@ -53,7 +69,7 @@
             </p>
         </li>
     </ul>
-    <h4 class="text-green">2 - Pagamento</h4>
+    <h4 class="text-green">Pagamento</h4>
     <ul class="list-group list-group-unbordered">
         <li class="list-group-item">
             <b>Valor</b> <span class="pull-right">{{ patient_financier.amount | floatformat:2 }}</span>
@@ -62,7 +78,7 @@
             <b>Valor da Entrada</b> <span class="pull-right">{{ patient_financier.amount_paid |floatformat:2  }}</span>
         </li>
         <li class="list-group-item">
-            <b>Forma de Pagamento</b> <span class="pull-right label label-primary">{{ patient_financier.get_payment_form }}</span>
+            <b>Forma de Pagamento</b> <span class="pull-right label label-info">{{ patient_financier.get_payment_form }}</span>
         </li>
         {% if patient_financier.payment_form %}
             <li class="list-group-item">
@@ -81,29 +97,6 @@
             </p>
         </li>
     </ul>
-    <div class="modal modal-danger fade in" id="modal-schedule{{ consultation.id }}">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">×</span></button>
-                <h4 class="modal-title">Confirmar Exclusão</h4>
-                </div>
-                <div class="modal-body">
-                    <p>Tem Certeza que deseja excluir a consulta ?</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cancelar</button>  
-                    <form action="{% url 'delete_schedule' consultation.id %}" method="POST">
-                        {% csrf_token %}
-                        <button type="submit" class="btn btn-danger">Confirmar</button>
-                    </form>
-                </div>
-            </div>
-        <!-- /.modal-content -->
-        </div>
-        <!-- /.modal-dialog -->
-    </div>
 </div>
 <!-- /.tab-pane -->
 <div class="tab-pane table-responsive" id="tab_2">
@@ -116,9 +109,10 @@
                 <th>
                     Situação
                 </th>
+                <!--
                 <th>
                     Tipo
-                </th>
+                </th> -->
                 <th>
                     Data de Vencimento
                 </th>
@@ -142,9 +136,10 @@
                     <td>
                         {{ plot.get_situation | safe}}
                     </td>
+                    <!--
                     <td>
                         {{ plot.get_type_label | safe }}
-                    </td>
+                    </td> -->
                     <td>
                         {{ plot.date }}
                     </td>
@@ -156,7 +151,7 @@
                         {% endif%}
                     </td>
                     <td>
-                        <a href="" class="btn btn-warning"><i class="fa fa-edit"></i></a>
+                        <a href="{% url 'edit_plot' plot.id %}" class="btn btn-warning"><i class="fa fa-edit"></i></a>
                     </td>
                     <td>
                         {% if plot.paid_day %}
@@ -196,6 +191,29 @@
 <!-- /.tab-pane -->
 </div>
 <!-- /.tab-content -->
+</div>
+<div class="modal modal-danger fade in" id="modal-schedule{{ consultation.id }}">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">×</span></button>
+            <h4 class="modal-title">Confirmar Exclusão</h4>
+            </div>
+            <div class="modal-body">
+                <p>Tem Certeza que deseja excluir a consulta ?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cancelar</button>
+                <form action="{% url 'delete_schedule' consultation.id %}" method="POST">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-danger">Confirmar</button>
+                </form>
+            </div>
+        </div>
+    <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
 </div>
 {% endblock %}
 
