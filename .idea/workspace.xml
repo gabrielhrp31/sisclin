@@ -4,6 +4,11 @@
     <list default="true" id="ff34d4b4-aa49-4b8e-b72c-0266eca74784" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/odonto/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/odonto/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/app.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/app.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/dashboard/includes/aside.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/dashboard/includes/aside.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/dashboard/includes/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/dashboard/includes/header.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/registration/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/registration/base.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -191,7 +196,9 @@
       <workItem from="1565209587960" duration="2559000" />
       <workItem from="1566961959223" duration="5674000" />
       <workItem from="1566999828587" duration="451000" />
-      <workItem from="1567864520348" duration="2561000" />
+      <workItem from="1567864520348" duration="4196000" />
+      <workItem from="1567917328369" duration="128000" />
+      <workItem from="1568612581136" duration="2669000" />
     </task>
     <task id="LOCAL-00001" summary="enviando requirements">
       <created>1560565007868</created>
@@ -256,7 +263,14 @@
       <option name="project" value="LOCAL" />
       <updated>1567867187729</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="atualizando domínio do heroku">
+      <created>1567868097028</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1567868097028</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -283,6 +297,7 @@
     <MESSAGE value="adicionado campo bairro no endereço e removido CEP" />
     <MESSAGE value="selecionar endereço no cadastro de pacientes terminado" />
     <MESSAGE value="colocado maneira de enviar imagem em todas as telas" />
-    <option name="LAST_COMMIT_MESSAGE" value="colocado maneira de enviar imagem em todas as telas" />
+    <MESSAGE value="atualizando domínio do heroku" />
+    <option name="LAST_COMMIT_MESSAGE" value="atualizando domínio do heroku" />
   </component>
 </project>
