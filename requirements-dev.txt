@@ -13,3 +13,5 @@ pytz
 six
 sqlparse
 xlwt
+boto3
+botocore

@@ -3,12 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="ff34d4b4-aa49-4b8e-b72c-0266eca74784" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/odonto/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/odonto/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/app.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/app.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/dashboard/includes/aside.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/dashboard/includes/aside.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/dashboard/includes/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/dashboard/includes/header.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/registration/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/registration/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements-dev.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements-dev.txt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -91,19 +86,19 @@
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/templates/dashboard/views/me" />
-      <recent name="$PROJECT_DIR$/templates/dashboard/views/users" />
-      <recent name="$PROJECT_DIR$/consultations/templates" />
-      <recent name="$PROJECT_DIR$/static" />
-      <recent name="$PROJECT_DIR$/templates" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Users\gabri\Documentos\JPG Apps\Sistemas\consultas\static\odonto\imgs" />
       <recent name="D:\Users\gabri\Documentos\JPG Apps\Sistemas\consultas\static" />
       <recent name="D:\Users\gabri\Documentos\JPG Apps\consultas" />
       <recent name="$PROJECT_DIR$/templates/dashboard/views/users" />
       <recent name="$PROJECT_DIR$/odonto/Forms" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/templates/dashboard/views/me" />
+      <recent name="$PROJECT_DIR$/templates/dashboard/views/users" />
+      <recent name="$PROJECT_DIR$/consultations/templates" />
+      <recent name="$PROJECT_DIR$/static" />
+      <recent name="$PROJECT_DIR$/templates" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -198,7 +193,7 @@
       <workItem from="1566999828587" duration="451000" />
       <workItem from="1567864520348" duration="4196000" />
       <workItem from="1567917328369" duration="128000" />
-      <workItem from="1568612581136" duration="2669000" />
+      <workItem from="1568612581136" duration="3155000" />
     </task>
     <task id="LOCAL-00001" summary="enviando requirements">
       <created>1560565007868</created>
